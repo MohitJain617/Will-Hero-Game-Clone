@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
+   <children>
+      <VBox alignment="CENTER" layoutX="284.0" layoutY="101.0" prefHeight="337.0" prefWidth="390.0" spacing="25.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="152.0" text="Play">
+               <font>
+                  <Font name="Lucida Console" size="20.0" />
+               </font>
+            </Button>
+            <Separator prefWidth="200.0" />
+            <Button mnemonicParsing="false" onAction="#showLoadMenu" prefHeight="48.0" prefWidth="190.0" text="Load Game">
+               <font>
+                  <Font name="Lucida Console" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="223.0" text="View High Score">
+               <font>
+                  <Font name="Roboto" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="146.0" text="Exit">
+               <font>
+                  <Font name="Roboto" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Slider layoutX="109.0" layoutY="24.0" />
+      <Text fill="#737373" layoutX="27.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume">
+         <font>
+            <Font name="Lucida Console" size="20.0" />
+         </font>
+      </Text>
+      <Circle layoutX="815.0" layoutY="31.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.49999996387597284" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.7303086519241333" blue="0.04814814776182175" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.6327160596847534" blue="0.11851851642131805" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Circle>
+      <Text fill="#737373" layoutX="845.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Coins">
+         <font>
+            <Font name="Lucida Console" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
