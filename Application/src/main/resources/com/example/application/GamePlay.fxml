@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -12,9 +11,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.GamePlay">
    <children>
-      <VBox alignment="CENTER" layoutX="284.0" layoutY="101.0" prefHeight="337.0" prefWidth="390.0" spacing="25.0" />
       <Slider layoutX="94.0" layoutY="23.0" value="34.0" />
       <Circle layoutX="815.0" layoutY="31.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
          <fill>
@@ -39,11 +37,12 @@
             <Font name="Lucida Console" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="430.0" layoutY="19.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="84.0" text="Pause" />
+      <Button layoutX="430.0" layoutY="19.0" mnemonicParsing="false" onAction="#showPauseMenu" prefHeight="20.0" prefWidth="84.0" text="Pause" />
       <TextField layoutX="20.0" layoutY="15.0" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: rgb(240, 240, 240);" text="Volume">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
+      <AnchorPane layoutX="29.0" layoutY="72.0" prefHeight="430.0" prefWidth="902.0" />
    </children>
 </AnchorPane>

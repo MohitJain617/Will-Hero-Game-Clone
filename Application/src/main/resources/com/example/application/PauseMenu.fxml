@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
    <children>
       <ImageView fitHeight="541.0" fitWidth="962.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,7 +24,7 @@
             <Font size="14.0" />
          </font>
       </TextArea>
-      <Button layoutX="344.0" layoutY="223.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: cyan;" text="Resume">
+      <Button layoutX="344.0" layoutY="223.0" mnemonicParsing="false" onAction="#showGamePlay" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: cyan;" text="Resume">
          <font>
             <Font name="Lucida Console" size="20.0" />
          </font>
@@ -34,7 +34,7 @@
             <Font name="Lucida Console" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="344.0" layoutY="343.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: cyan;" text="Quit Game">
+      <Button layoutX="344.0" layoutY="343.0" mnemonicParsing="false" onAction="#showEndMenu" prefHeight="48.0" prefWidth="178.0" style="-fx-background-color: cyan;" text="Quit Game">
          <font>
             <Font name="Roboto" size="20.0" />
          </font>

@@ -18,7 +18,7 @@
       <ImageView fitHeight="561.0" fitWidth="1146.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true" />
       <VBox alignment="CENTER" layoutX="284.0" layoutY="101.0" prefHeight="337.0" prefWidth="390.0" spacing="25.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="152.0" text="Play">
+            <Button mnemonicParsing="false" onAction="#showGamePlay" prefHeight="48.0" prefWidth="152.0" text="Play">
                <font>
                   <Font name="Lucida Console" size="20.0" />
                </font>
