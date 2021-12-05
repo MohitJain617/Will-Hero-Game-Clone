@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -11,10 +13,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.GamePlay">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.GamePlay">
    <children>
+      <ImageView fitHeight="464.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../cyan_bg.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="373.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../cloud2%20(1).png" />
+         </image>
+      </ImageView>
       <Slider layoutX="94.0" layoutY="23.0" value="34.0" />
-      <Circle layoutX="815.0" layoutY="31.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+      <Circle layoutX="786.0" layoutY="30.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.49999996387597284" radius="0.5">
                <stops>
@@ -32,7 +44,7 @@
             </RadialGradient>
          </fill>
       </Circle>
-      <Text fill="#737373" layoutX="845.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Coins">
+      <Text fill="#737373" layoutX="811.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Coins">
          <font>
             <Font name="Lucida Console" size="20.0" />
          </font>
@@ -43,6 +55,45 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <AnchorPane layoutX="29.0" layoutY="72.0" prefHeight="430.0" prefWidth="902.0" />
+      <ImageView fitHeight="150.0" fitWidth="245.0" layoutX="331.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../island3%20(3).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="112.0" fitWidth="245.0" layoutX="57.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../island3%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="174.0" fitWidth="200.0" layoutX="595.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../island3%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="53.0" layoutX="160.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../hero.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="84.0" layoutX="628.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../orcred.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../cloud2%20(3).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="731.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../cloud2%20(3).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="84.0" layoutX="373.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../orc.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
