@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,16 +14,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.GamePlay">
+<AnchorPane fx:id="game_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.GamePlay">
    <children>
-      <ImageView fitHeight="464.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../cyan_bg.jpg" />
+            <Image url="@../../../gradienta-rKv4HduvzIE-unsplash.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="373.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../cloud2%20(1).png" />
+            <Image url="@../../../cloud2.png" />
          </image>
       </ImageView>
       <Slider layoutX="94.0" layoutY="23.0" value="34.0" />
@@ -49,50 +50,53 @@
             <Font name="Lucida Console" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="430.0" layoutY="19.0" mnemonicParsing="false" onAction="#showPauseMenu" prefHeight="20.0" prefWidth="84.0" text="Pause" />
+      <Button layoutX="430.0" layoutY="19.0" mnemonicParsing="false" onAction="#setup" prefHeight="20.0" prefWidth="84.0" style="-fx-background-color: grey;" text="Pause" textFill="#04ff29" />
       <TextField layoutX="20.0" layoutY="15.0" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: rgb(240, 240, 240);" text="Volume">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <ImageView fitHeight="150.0" fitWidth="245.0" layoutX="331.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="163.0" fitWidth="284.0" layoutX="338.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../island3%20(3).png" />
+            <Image url="@../../../island2.png" />
+         </image>
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="137.0" fitWidth="304.0" layoutX="21.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../island1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="112.0" fitWidth="245.0" layoutX="57.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="193.0" fitWidth="262.0" layoutX="628.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../island3%20(2).png" />
+            <Image url="@../../../island3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="174.0" fitWidth="200.0" layoutX="595.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../island3%20(1).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="53.0" layoutX="160.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="79.0" fitWidth="96.0" layoutX="126.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../hero.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="84.0" layoutX="628.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="71.0" fitWidth="84.0" layoutX="665.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../orcred.png" />
+            <Image url="@../../../orcredFinal.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="34.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="57.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../cloud2%20(3).png" />
+            <Image url="@../../../cloud1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="731.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="747.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../cloud2%20(3).png" />
+            <Image url="@../../../cloud1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="84.0" layoutX="373.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="173.0" fitWidth="256.0" layoutX="372.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../orc.png" />
+            <Image url="@../../../orcbossFinal.png" />
          </image>
       </ImageView>
    </children>

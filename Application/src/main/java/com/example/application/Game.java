@@ -15,7 +15,11 @@ public class Game extends Application {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private GamePlay gameplay;
     //-------------------------
+    public Game(){
+        gameplay = new GamePlay();
+    }
     @Override
     public void start(Stage stage) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
@@ -40,7 +44,10 @@ public class Game extends Application {
         stage.show();
     }
     public void showGamePlay(ActionEvent e) throws IOException{
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
+        root = loader.load();
+        gameplay = loader.getController();
+        gameplay.setup();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
