@@ -14,25 +14,31 @@
             <Image url="@../../../diagonal_gradient.jpg" />
          </image>
          <effect>
-            <ColorAdjust brightness="0.02" contrast="0.02" saturation="0.24" />
+            <ColorAdjust brightness="0.26" contrast="0.02" saturation="0.24" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="253.0" layoutX="624.0" layoutY="14.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="121.0" fitWidth="253.0" layoutX="624.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../cloud1.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="0.84" />
+         </effect>
       </ImageView>
       <ImageView fitHeight="160.0" fitWidth="361.0" layoutX="14.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../island1.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="0.3" contrast="0.26" />
+         </effect>
       </ImageView>
       <ImageView fitHeight="259.0" fitWidth="424.0" layoutX="538.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../island2.png" />
          </image>
          <effect>
-            <ColorAdjust />
+            <ColorAdjust contrast="0.19" />
          </effect>
       </ImageView>
       <ImageView fitHeight="88.0" fitWidth="86.0" layoutX="194.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
@@ -40,7 +46,7 @@
             <Image url="@../../../orcredFinal.png" />
          </image>
          <effect>
-            <ColorAdjust hue="-0.02" />
+            <ColorAdjust contrast="0.43" hue="-0.02" />
          </effect>
       </ImageView>
       <ImageView fitHeight="114.0" fitWidth="95.0" layoutX="147.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 45;">
@@ -57,6 +63,9 @@
          <image>
             <Image url="@../../../orcbossFinal.png" />
          </image>
+         <effect>
+            <ColorAdjust contrast="0.3" />
+         </effect>
       </ImageView>
       <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="237.0" layoutY="34.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -81,17 +90,17 @@
             <ColorAdjust contrast="1.0" />
          </effect>
       </ProgressBar>
-      <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="405.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="418.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../coin.png" />
+            <Image url="@../../../coin1.png" />
          </image>
          <effect>
-            <MotionBlur angle="40.37" radius="4.7" />
+            <MotionBlur angle="40.37" radius="3.52" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="478.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="469.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../coin.png" />
+            <Image url="@../../../coin1.png" />
          </image>
          <effect>
             <MotionBlur angle="87.48" radius="3.52" />
@@ -101,6 +110,9 @@
          <image>
             <Image url="@../../../cloud1.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="0.62" />
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>
