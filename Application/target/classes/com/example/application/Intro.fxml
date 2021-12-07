@@ -64,7 +64,7 @@
             <Image url="@../../../willherotitle.png" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="ProgressBar" layoutX="348.0" layoutY="396.0" prefHeight="18.0" prefWidth="200.0" progress="0.67">
+      <ProgressBar fx:id="ProgressBar" layoutX="348.0" layoutY="396.0" prefHeight="18.0" prefWidth="200.0">
          <effect>
             <ColorAdjust contrast="1.0" />
          </effect>

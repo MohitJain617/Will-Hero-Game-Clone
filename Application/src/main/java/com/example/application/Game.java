@@ -2,6 +2,7 @@ package com.example.application;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +41,7 @@ public class Game extends Application {
         stage.setResizable(false);
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
-        root.setOpacity(0.2);
+        root.setOpacity(0.5);
         scene = new Scene(root,960,540);
 
         ShowGameIntro();
@@ -53,7 +54,7 @@ public class Game extends Application {
         stage.setScene(introScene);
         stage.show();
 
-        makeFadeout(introScene);
+        fadeintro(introScene);
     }
 
     public void showMainMenu(ActionEvent e) throws IOException {
@@ -76,28 +77,30 @@ public class Game extends Application {
         st.changeScene(e,"EndGameMenu.fxml");
     }
 
-    private void makeFadeout(Scene fadeScene){
+    private void fadeintro(Scene fadeScene){
 
-        FadeTransition fade = new FadeTransition();
-        fade.setDuration(Duration.millis(1000));
-        fade.setNode(fadeScene.getRoot());
-        fade.setFromValue(1);
-        fade.setToValue(0.4);
-        fade.setOnFinished((ActionEvent event)-> {
+        FadeTransition fadeout = new FadeTransition();
+        fadeout.setDuration(Duration.millis(900));
+        fadeout.setNode(fadeScene.getRoot());
+        fadeout.setFromValue(1);
+        fadeout.setToValue(0.8);
+        fadeout.setOnFinished((ActionEvent event)-> {
             this.stage.setScene(this.scene);
-            makeFadeIn();
         });
-        fade.play();
+
+        FadeTransition fadein = new FadeTransition();
+        fadein.setDuration(Duration.millis(1500));
+        fadein.setNode(this.root);
+        fadein.setFromValue(0.5);
+        fadein.setToValue(1);
+        fadein.play();
+
+        PauseTransition pause = new PauseTransition(Duration.millis(1000));
+
+        SequentialTransition seqTransition = new SequentialTransition (pause,fadeout,fadein);
+        seqTransition.play();
     }
 
-    private void makeFadeIn(){
-        FadeTransition fade = new FadeTransition();
-        fade.setDuration(Duration.millis(1000));
-        fade.setNode(this.root);
-        fade.setFromValue(0.2);
-        fade.setToValue(1);
-        fade.play();
-    }
 
     public static void main(String[] args) {
         launch(args);
