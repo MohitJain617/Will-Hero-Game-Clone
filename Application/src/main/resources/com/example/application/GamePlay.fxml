@@ -7,10 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -30,24 +26,6 @@
          </image>
       </ImageView>
       <Slider layoutX="94.0" layoutY="23.0" value="34.0" />
-      <Circle layoutX="786.0" layoutY="30.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
-         <fill>
-            <RadialGradient centerX="0.5" centerY="0.49999996387597284" radius="0.5">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="1.0" green="0.7303086519241333" blue="0.04814814776182175" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="0.6327160596847534" blue="0.11851851642131805" />
-                     </color>
-                  </Stop>
-               </stops>
-            </RadialGradient>
-         </fill>
-      </Circle>
       <Text fill="#737373" layoutX="811.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Coins">
          <font>
             <Font name="Lucida Console" size="20.0" />
@@ -98,6 +76,11 @@
       <ImageView fitHeight="173.0" fitWidth="256.0" layoutX="392.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcbossFinal.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="768.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../coin.png" />
          </image>
       </ImageView>
    </children>

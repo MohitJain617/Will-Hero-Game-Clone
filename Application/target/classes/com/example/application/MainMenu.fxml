@@ -3,19 +3,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
    <children>
-      <ImageView fitHeight="561.0" fitWidth="1146.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="550.0" fitWidth="960.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
       <VBox alignment="CENTER" layoutX="284.0" layoutY="101.0" prefHeight="337.0" prefWidth="390.0" spacing="25.0">
          <children>
             <Button mnemonicParsing="false" onAction="#showGamePlay" prefHeight="48.0" prefWidth="152.0" text="Play">
@@ -47,28 +44,15 @@
             <Font name="Lucida Console" size="20.0" />
          </font>
       </Text>
-      <Circle layoutX="815.0" layoutY="31.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
-         <fill>
-            <RadialGradient centerX="0.5" centerY="0.49999996387597284" radius="0.5">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="1.0" green="0.7303086519241333" blue="0.04814814776182175" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="0.6327160596847534" blue="0.11851851642131805" />
-                     </color>
-                  </Stop>
-               </stops>
-            </RadialGradient>
-         </fill>
-      </Circle>
       <Text fill="#737373" layoutX="845.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Coins">
          <font>
             <Font name="Lucida Console" size="20.0" />
          </font>
       </Text>
+      <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="802.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../coin.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

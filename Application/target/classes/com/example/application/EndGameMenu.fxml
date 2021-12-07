@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane blendMode="MULTIPLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: rgb(153, 204, 255);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
@@ -15,7 +14,7 @@
          <image>
             <Image url="@../../../endbg.jpg" />
          </image></ImageView>
-      <Button layoutX="13.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" text="Settings">
+      <Button layoutX="13.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: grey;" text="Settings" textFill="#fafafa">
          <font>
             <Font name="Lucida Console" size="14.0" />
          </font>
@@ -54,7 +53,6 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </TextField>
-      <Circle fill="#ffb31f" layoutX="834.0" layoutY="30.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="129.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orc.png" />
@@ -68,6 +66,11 @@
       <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="674.0" layoutY="327.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcred.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="803.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../coin.png" />
          </image>
       </ImageView>
    </children>
