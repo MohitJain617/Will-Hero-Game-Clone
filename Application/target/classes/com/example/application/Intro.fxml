@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="437.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
    <children>
-      <ImageView fitHeight="464.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="540.0" fitWidth="976.0" pickOnBounds="true">
          <image>
             <Image url="@../../../diagonal_gradient.jpg" />
          </image>
@@ -16,32 +19,32 @@
             <Image url="@../../../cloud1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="160.0" fitWidth="361.0" layoutX="38.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="160.0" fitWidth="361.0" layoutX="14.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../island1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="259.0" fitWidth="424.0" layoutX="552.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="259.0" fitWidth="424.0" layoutX="538.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../island2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="88.0" fitWidth="86.0" layoutX="218.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="88.0" fitWidth="86.0" layoutX="194.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcredFinal.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="114.0" fitWidth="95.0" layoutX="171.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 45;">
+      <ImageView fitHeight="114.0" fitWidth="95.0" layoutX="147.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 45;">
          <image>
             <Image url="@../../../sword.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="105.0" fitWidth="86.0" layoutX="95.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="105.0" fitWidth="86.0" layoutX="71.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../hero.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="201.0" fitWidth="200.0" layoutX="707.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="201.0" fitWidth="200.0" layoutX="683.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcbossFinal.png" />
          </image>
@@ -51,14 +54,40 @@
             <Image url="@../../../cloud2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="92.0" fitWidth="166.0" layoutX="413.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="155.0" fitWidth="184.0" layoutX="375.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../treasure_open.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="210.0" fitWidth="288.0" layoutX="336.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="210.0" fitWidth="288.0" layoutX="320.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../willherotitle.png" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="ProgressBar" layoutX="348.0" layoutY="396.0" prefHeight="18.0" prefWidth="200.0" progress="0.67">
+         <effect>
+            <ColorAdjust contrast="1.0" />
+         </effect>
+      </ProgressBar>
+      <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="386.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../coin.png" />
+         </image>
+         <effect>
+            <MotionBlur angle="40.37" radius="4.7" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="475.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../coin.png" />
+         </image>
+         <effect>
+            <MotionBlur angle="87.48" radius="3.52" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="121.0" fitWidth="253.0" layoutX="-26.0" layoutY="75.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../cloud1.png" />
          </image>
       </ImageView>
    </children>

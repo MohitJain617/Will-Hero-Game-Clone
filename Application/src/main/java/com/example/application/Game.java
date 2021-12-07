@@ -4,10 +4,12 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -21,8 +23,10 @@ public class Game extends Application {
     private Parent root;
     private GamePlay gameplay;
     private Image icon ;
+    private SceneController st;
 
     public Game(){
+        st = new SceneController();
         gameplay = new GamePlay();
         icon = new Image("hero.png");
     }
@@ -33,10 +37,11 @@ public class Game extends Application {
         this.stage = stage ;
         stage.setTitle("Will Hero");
         stage.getIcons().add(icon);
+        stage.setResizable(false);
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         root.setOpacity(0.2);
-        scene = new Scene(root,900,560);
+        scene = new Scene(root,960,540);
 
         ShowGameIntro();
     }
@@ -44,7 +49,7 @@ public class Game extends Application {
     private void ShowGameIntro() throws IOException {
 
         Parent introRoot = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Intro.fxml")));
-        Scene introScene = new Scene(introRoot,900,560);
+        Scene introScene = new Scene(introRoot,960,540);
         stage.setScene(introScene);
         stage.show();
 
@@ -52,18 +57,10 @@ public class Game extends Application {
     }
 
     public void showMainMenu(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        st.changeScene(e,"MainMenu.fxml");
     }
     public void showLoadMenu(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadGames.fxml")));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        st.changeScene(e,"LoadGames.fxml");
     }
     public void showGamePlay(ActionEvent e) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
@@ -76,11 +73,7 @@ public class Game extends Application {
         stage.show();
     }
     public void showEndMenu(ActionEvent e) throws IOException {
-        Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EndGameMenu.fxml")));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root2);
-        stage.setScene(scene);
-        stage.show();
+        st.changeScene(e,"EndGameMenu.fxml");
     }
 
     private void makeFadeout(Scene fadeScene){
