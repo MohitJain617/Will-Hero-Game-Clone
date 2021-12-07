@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
    <children>
-      <ImageView fitHeight="540.0" fitWidth="976.0" pickOnBounds="true">
+      <ImageView fitHeight="540.0" fitWidth="977.0" pickOnBounds="true">
          <image>
             <Image url="@../../../diagonal_gradient.jpg" />
          </image>
