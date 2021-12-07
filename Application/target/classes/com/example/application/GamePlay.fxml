@@ -18,8 +18,11 @@
    <children>
       <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../gradienta-rKv4HduvzIE-unsplash.jpg" />
+            <Image url="@../../../cyan_bg.jpg" />
          </image>
+         <effect>
+            <ColorAdjust saturation="0.34" />
+         </effect>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -50,13 +53,16 @@
             <Font name="Lucida Console" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="430.0" layoutY="19.0" mnemonicParsing="false" onAction="#setup" prefHeight="20.0" prefWidth="84.0" style="-fx-background-color: grey;" text="Pause" textFill="#04ff29" />
+      <Button layoutX="430.0" layoutY="19.0" mnemonicParsing="false" onAction="#showPauseMenu" prefHeight="20.0" prefWidth="84.0" style="-fx-background-color: rgb(128,255,0);" text="Pause" textFill="#145d8e">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font></Button>
       <TextField layoutX="20.0" layoutY="15.0" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: rgb(240, 240, 240);" text="Volume">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <ImageView fitHeight="163.0" fitWidth="284.0" layoutX="338.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="163.0" fitWidth="284.0" layoutX="338.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../island2.png" />
          </image>
@@ -74,12 +80,7 @@
             <Image url="@../../../island3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="79.0" fitWidth="96.0" layoutX="126.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../hero.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="84.0" layoutX="665.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="71.0" fitWidth="84.0" layoutX="665.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcredFinal.png" />
          </image>
@@ -94,7 +95,7 @@
             <Image url="@../../../cloud1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="173.0" fitWidth="256.0" layoutX="372.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="173.0" fitWidth="256.0" layoutX="392.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcbossFinal.png" />
          </image>
