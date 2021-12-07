@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Box?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
+   <children>
+      <Box depth="100" drawMode="LINE" height="100" layoutX="480.0" layoutY="270.0" opacity="0.47" width="100" />
+      <Text layoutX="450.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WILL HERO" />
+   </children>
+</AnchorPane>

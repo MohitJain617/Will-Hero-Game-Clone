@@ -1,5 +1,6 @@
 package com.example.application;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -29,8 +31,15 @@ public class Game extends Application {
         stage.setTitle("WillHero");
         scene = new Scene(root);
         stage.getIcons().add(icon);
-        stage.setScene(scene);
+
+        Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Intro.fxml")));
+        Scene introscene = new Scene(root2);
+
+        stage.setScene(introscene);
         stage.show();
+        PauseTransition del = new PauseTransition(Duration.seconds(1));
+        del.setOnFinished(event -> stage.setScene(scene));
+        del.play();
     }
 
     public void showMainMenu(ActionEvent e) throws IOException {
