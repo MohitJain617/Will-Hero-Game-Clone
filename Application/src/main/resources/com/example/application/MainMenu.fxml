@@ -2,8 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -45,12 +45,6 @@
             </Button>
          </children>
       </VBox>
-      <Slider layoutX="109.0" layoutY="24.0" />
-      <Text fill="#737373" layoutX="27.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume">
-         <font>
-            <Font name="Lucida Console" size="20.0" />
-         </font>
-      </Text>
       <Text fill="#737373" layoutX="845.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Coins">
          <font>
             <Font name="Lucida Console" size="20.0" />
@@ -105,6 +99,15 @@
          <image>
             <Image url="@../../../coin.png" />
          </image>
+      </ImageView>
+      <Button layoutX="47.0" layoutY="8.0" mnemonicParsing="false" opacity="0.1" prefHeight="48.0" prefWidth="46.0" />
+      <ImageView fitHeight="36.0" fitWidth="35.0" layoutX="53.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../settingIcon.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.19" />
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>
