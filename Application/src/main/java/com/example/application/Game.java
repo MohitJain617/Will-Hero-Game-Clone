@@ -1,5 +1,6 @@
 package com.example.application;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -28,6 +29,8 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
+        root.setOpacity(0);
+        this.stage = stage ;
         stage.setTitle("WillHero");
         scene = new Scene(root);
         stage.getIcons().add(icon);
@@ -37,9 +40,11 @@ public class Game extends Application {
 
         stage.setScene(introscene);
         stage.show();
-        PauseTransition del = new PauseTransition(Duration.seconds(1));
-        del.setOnFinished(event -> stage.setScene(scene));
-        del.play();
+        makeFadeout(root2);
+
+        //PauseTransition del = new PauseTransition(Duration.seconds(1));
+//        del.setOnFinished(event -> stage.setScene(scene));
+//        del.play();
     }
 
     public void showMainMenu(ActionEvent e) throws IOException {
@@ -72,6 +77,28 @@ public class Game extends Application {
         scene = new Scene(root2);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void makeFadeout(Parent node){
+        FadeTransition fade = new FadeTransition();
+        fade.setDuration(Duration.millis(1000));
+        fade.setNode(node);
+        fade.setFromValue(1);
+        fade.setToValue(0);
+        fade.setOnFinished((ActionEvent event)-> {
+            this.stage.setScene(scene);
+            makeFadeIn();
+        });
+        fade.play();
+    }
+
+    private void makeFadeIn(){
+        FadeTransition fade = new FadeTransition();
+        fade.setDuration(Duration.millis(1000));
+        fade.setNode(root);
+        fade.setFromValue(0);
+        fade.setToValue(1);
+        fade.play();
     }
 
     public static void main(String[] args) {
