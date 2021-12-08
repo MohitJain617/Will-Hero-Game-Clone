@@ -6,9 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.effect.Light.Distant?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -55,16 +52,6 @@
          <image>
             <Image url="@../../../hero.png" />
          </image>
-         <effect>
-            <Lighting diffuseConstant="2.0" specularConstant="0.59" specularExponent="36.15" surfaceScale="4.25">
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant />
-               </light>
-            </Lighting>
-         </effect>
       </ImageView>
       <Button layoutX="23.0" layoutY="8.0" mnemonicParsing="false" opacity="0.1" prefHeight="48.0" prefWidth="46.0" />
       <ImageView blendMode="MULTIPLY" fitHeight="36.0" fitWidth="35.0" layoutX="29.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
@@ -165,7 +152,7 @@
       </TextField>
       <ImageView blendMode="MULTIPLY" fitHeight="133.0" fitWidth="471.0" layoutX="385.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../will%20herooo.jpg" />
+            <Image url="@../../../will_text_jpg.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="118.0" fitWidth="229.0" layoutX="861.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" rotate="-7.0">
@@ -184,7 +171,7 @@
             <ColorAdjust brightness="0.22" contrast="0.3" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="118.0" fitWidth="229.0" layoutX="1045.0" layoutY="467.0" pickOnBounds="true" preserveRatio="true" rotate="-7.0">
+      <ImageView fitHeight="118.0" fitWidth="229.0" layoutX="1051.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true" rotate="-7.0">
          <image>
             <Image url="@../../../orcredFinal.png" />
          </image>
