@@ -13,8 +13,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
@@ -173,8 +171,6 @@
          </image>
       </ImageView>
       <VBox />
-      <Polygon layoutX="741.0" layoutY="284.0" points="-14.00029182434082, -43.43794250488281, 2.823735237121582, -45.645538330078125, -4.14878511428833, -61.76747512817383" rotate="80.2" stroke="BLACK" strokeType="INSIDE" />
-      <Polygon layoutX="834.0" layoutY="293.0" points="-14.00029182434082, -43.43794250488281, 2.823735237121582, -45.645538330078125, -4.14878511428833, -61.76747512817383" rotate="57.5" stroke="BLACK" strokeType="INSIDE" />
       <AnchorPane layoutX="622.0" layoutY="343.0" prefHeight="176.0" prefWidth="323.0">
          <children>
             <ImageView fitHeight="118.0" fitWidth="229.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -201,12 +197,6 @@
                   <ColorAdjust contrast="0.47" />
                </effect>
             </ImageView>
-            <Circle fill="#101010" layoutX="271.0" layoutY="119.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#101010" layoutX="222.0" layoutY="119.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#101010" layoutX="182.0" layoutY="101.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#101010" layoutX="121.0" layoutY="101.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#101010" layoutX="32.0" layoutY="83.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="#101010" layoutX="89.0" layoutY="85.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="125.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
