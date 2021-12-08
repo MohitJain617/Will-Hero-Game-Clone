@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
@@ -7,81 +8,113 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="game_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.GamePlay">
+<AnchorPane fx:id="game_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.GamePlay">
    <children>
-      <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../cyan_bg.jpg" />
-         </image>
-         <effect>
-            <ColorAdjust saturation="0.34" />
-         </effect>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../cloud2.png" />
-         </image>
-      </ImageView>
-      <Slider layoutX="94.0" layoutY="23.0" value="34.0" />
-      <Text fill="#737373" layoutX="811.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Coins">
-         <font>
-            <Font name="Lucida Console" size="20.0" />
-         </font>
-      </Text>
-      <Button layoutX="430.0" layoutY="19.0" mnemonicParsing="false" onAction="#showPauseMenu" prefHeight="20.0" prefWidth="84.0" style="-fx-background-color: rgb(128,255,0);" text="Pause" textFill="#145d8e">
-         <font>
-            <Font name="Consolas" size="16.0" />
-         </font></Button>
-      <TextField layoutX="20.0" layoutY="15.0" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: rgb(240, 240, 240);" text="Volume">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <ImageView fitHeight="163.0" fitWidth="284.0" layoutX="338.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../island2.png" />
-         </image>
-         <effect>
-            <ColorAdjust />
-         </effect>
-      </ImageView>
-      <ImageView fitHeight="137.0" fitWidth="304.0" layoutX="21.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../island1.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="193.0" fitWidth="262.0" layoutX="628.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../island3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="84.0" layoutX="665.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcredFinal.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="57.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../cloud1.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="747.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../cloud1.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="173.0" fitWidth="256.0" layoutX="392.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcbossFinal.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="768.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../coin.png" />
-         </image>
-      </ImageView>
+      <Group fx:id="mainGroup" layoutX="-11.0" layoutY="-12.0">
+         <children>
+            <ImageView fitHeight="742.0" fitWidth="1302.0" opacity="0.87" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../legendaryGradient.jpg" />
+               </image>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../cloud2.png" />
+               </image>
+            </ImageView>
+            <Slider layoutX="105.0" layoutY="35.0" value="34.0" />
+            <Text fill="#992fb1" layoutX="1168.0" layoutY="29.0625" strokeType="OUTSIDE" strokeWidth="0.0" text="21 Coins">
+               <font>
+                  <Font name="Lucida Console" size="24.0" />
+               </font>
+            </Text>
+            <TextField layoutX="31.0" layoutY="27.0" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: rgb(240, 240, 240);" text="Volume">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="206.0" fitWidth="345.0" layoutX="552.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../island2.png" />
+               </image>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="170.0" fitWidth="406.0" layoutX="79.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../island1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="279.0" fitWidth="404.0" layoutX="945.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../island3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="71.0" fitWidth="84.0" layoutX="1000.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../orcredFinal.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="68.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../cloud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="758.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../cloud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="216.0" fitWidth="211.0" layoutX="659.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../orcbossFinal.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="1125.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="69.0" fitWidth="84.0" layoutX="624.0" layoutY="16.0" onMouseClicked="#showPauseMenu" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pause.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.26" contrast="1.0" hue="1.0" saturation="-0.3" />
+               </effect>
+            </ImageView>
+         </children>
+      </Group>
+      <Group fx:id="pauseGroup" layoutX="614.0" layoutY="233.0" opacity="0.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="-96.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#resume" opacity="0.76" prefHeight="65.0" prefWidth="178.0" style="-fx-background-color: navy;" text="Resume" textFill="WHITE">
+                     <font>
+                        <Font name="Lucida Console" size="32.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" opacity="0.76" prefHeight="66.0" prefWidth="242.0" style="-fx-background-color: navy;" text="Save Game" textFill="WHITE">
+                     <font>
+                        <Font name="Lucida Console" size="32.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#showEndMenu" opacity="0.76" prefHeight="66.0" prefWidth="168.0" style="-fx-background-color: red;" text="Quit" textFill="WHITE">
+                     <font>
+                        <Font name="Lucida Console" size="32.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Group>
    </children>
 </AnchorPane>

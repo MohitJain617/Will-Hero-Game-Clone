@@ -1,11 +1,13 @@
 package com.example.application;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -20,5 +22,10 @@ public class SceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    public FadeTransition fade(Node n1, int duration, double to){
+        FadeTransition fade = new FadeTransition(Duration.millis(duration),n1);
+        fade.setToValue(to);
+        return fade;
     }
 }

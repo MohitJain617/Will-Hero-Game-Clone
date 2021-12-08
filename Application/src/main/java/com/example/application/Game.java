@@ -39,7 +39,7 @@ public class Game extends Application {
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         root.setOpacity(0.5);
-        scene = new Scene(root,960,540);
+        scene = new Scene(root,1280,720);
 
         ShowGameIntro();
     }
@@ -47,7 +47,7 @@ public class Game extends Application {
     private void ShowGameIntro() throws IOException {
 
         Parent introRoot = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Intro.fxml")));
-        Scene introScene = new Scene(introRoot,960,540);
+        Scene introScene = new Scene(introRoot,1280,720);
         stage.setScene(introScene);
         stage.show();
 

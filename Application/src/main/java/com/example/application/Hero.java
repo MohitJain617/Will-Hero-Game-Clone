@@ -14,8 +14,8 @@ public class Hero extends GameObject{
         iv = new ImageView();
         img = new Image("hero.png");
         iv.setImage(img);
-        iv.setFitHeight(79.0);
-        iv.setFitWidth(96.0);
+        iv.setFitHeight(118.5);
+        iv.setFitWidth(144.0);
         iv.setX(x); iv.setY(y);
         iv.setPreserveRatio(true);
     }
