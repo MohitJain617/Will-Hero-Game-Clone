@@ -9,12 +9,12 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
    <children>
-      <ImageView fitHeight="540.0" fitWidth="976.0" pickOnBounds="true">
+      <ImageView fitHeight="540.0" fitWidth="977.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../diagonal_gradient.jpg" />
+            <Image url="@../../../bg.jpg" />
          </image>
          <effect>
-            <ColorAdjust brightness="0.26" contrast="0.02" saturation="0.24" />
+            <ColorAdjust brightness="0.11" contrast="0.04" hue="-0.71" saturation="0.24" />
          </effect>
       </ImageView>
       <ImageView fitHeight="121.0" fitWidth="253.0" layoutX="624.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
