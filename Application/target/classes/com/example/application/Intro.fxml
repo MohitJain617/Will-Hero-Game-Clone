@@ -7,9 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
    <children>
-      <ImageView fitHeight="540.0" fitWidth="977.0" pickOnBounds="true">
+      <ImageView fitHeight="726.0" fitWidth="1284.0" pickOnBounds="true">
          <image>
             <Image url="@../../../bg.jpg" />
          </image>
@@ -17,7 +17,7 @@
             <ColorAdjust brightness="0.11" contrast="0.04" hue="-0.71" saturation="0.24" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="253.0" layoutX="624.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="151.0" fitWidth="282.0" layoutX="861.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../cloud1.png" />
          </image>
@@ -25,15 +25,15 @@
             <ColorAdjust brightness="0.84" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="160.0" fitWidth="361.0" layoutX="14.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="369.0" fitWidth="562.0" layoutX="-24.0" layoutY="259.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../island1.png" />
+            <Image url="@../../../island3.png" />
          </image>
          <effect>
             <ColorAdjust brightness="0.3" contrast="0.26" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="259.0" fitWidth="424.0" layoutX="538.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="253.0" fitWidth="442.0" layoutX="827.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../island2.png" />
          </image>
@@ -41,7 +41,7 @@
             <ColorAdjust contrast="0.19" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="88.0" fitWidth="86.0" layoutX="194.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="107.0" fitWidth="128.0" layoutX="233.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcredFinal.png" />
          </image>
@@ -49,17 +49,17 @@
             <ColorAdjust contrast="0.43" hue="-0.02" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="114.0" fitWidth="95.0" layoutX="147.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 45;">
+      <ImageView fitHeight="158.0" fitWidth="54.0" layoutX="201.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 45;">
          <image>
             <Image url="@../../../sword.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="105.0" fitWidth="86.0" layoutX="71.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="144.0" fitWidth="137.0" layoutX="84.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../hero.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="201.0" fitWidth="200.0" layoutX="683.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="222.0" fitWidth="211.0" layoutX="949.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../orcbossFinal.png" />
          </image>
@@ -67,30 +67,30 @@
             <ColorAdjust contrast="0.3" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="237.0" layoutY="34.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="354.0" layoutY="46.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../cloud2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="155.0" fitWidth="184.0" layoutX="372.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="192.0" fitWidth="282.0" layoutX="499.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../treasure_open.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="228.0" fitWidth="329.0" layoutX="317.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="301.0" fitWidth="441.0" layoutX="443.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../willherotitle.png" />
          </image>
          <effect>
-            <ColorAdjust brightness="0.02" contrast="0.02" hue="0.03" saturation="0.01" />
+            <ColorAdjust brightness="0.08" contrast="0.08" hue="0.03" saturation="0.01" />
          </effect>
       </ImageView>
-      <ProgressBar fx:id="ProgressBar" layoutX="364.0" layoutY="443.0" prefHeight="18.0" prefWidth="200.0">
+      <ProgressBar fx:id="ProgressBar" layoutX="497.0" layoutY="571.0" opacity="0.65" prefHeight="23.0" prefWidth="271.0">
          <effect>
             <ColorAdjust contrast="1.0" />
          </effect>
       </ProgressBar>
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="418.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="578.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
@@ -98,7 +98,7 @@
             <MotionBlur angle="40.37" radius="3.52" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="469.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="629.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
@@ -106,7 +106,7 @@
             <MotionBlur angle="87.48" radius="3.52" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="253.0" layoutX="-7.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="151.0" fitWidth="309.0" layoutX="-7.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../cloud1.png" />
          </image>
