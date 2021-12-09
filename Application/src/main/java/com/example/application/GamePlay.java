@@ -75,33 +75,6 @@ public class GamePlay implements Initializable {
     public void setup(){
         hero.display(game_pane);
     }
-//
-//    private Timeline bounce(){
-//
-//        Timeline bouncer = new Timeline();
-//
-//        bouncer.getKeyFrames().addAll(
-//                makeKeyFrame(0, 0.0, 1.0, 1.0),
-//                makeKeyFrame(100, 10.0, 1.025, 1.05),
-//                makeKeyFrame(200, 24.0, 1.05, 1.25),
-//                makeKeyFrame(300, 40.0, 1.1, 1.1),
-//                makeKeyFrame(400, 24.0, 1.05, 1.025),
-//                makeKeyFrame(500, 10.0, 1.025, 1.05),
-//                makeKeyFrame(600, 0.0, 1.0, 1.0)
-//        );
-//
-//        bouncer.setCycleCount(5);
-//        return bouncer;
-//    }
-//
-//    private KeyFrame makeKeyFrame( int d, double y, double sx, double sy) {
-//        return new KeyFrame(
-//                new Duration(d),
-//                new KeyValue(orc_end.translateYProperty(), y),
-//                new KeyValue(orc_end.scaleXProperty(), sx),
-//                new KeyValue(orc_end.scaleYProperty(), sy)
-//        );
-//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
