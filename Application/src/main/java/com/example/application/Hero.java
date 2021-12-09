@@ -9,8 +9,12 @@ import java.util.Objects;
 public class Hero extends GameObject{
     Image img;
     ImageView iv;
+    private double ySpeed;
+    private double xSpeed;
     public Hero(double x, double y){
         super(x,y);
+        ySpeed = 0;
+        xSpeed = 0;
         iv = new ImageView();
         img = new Image("hero.png");
         iv.setImage(img);
@@ -21,9 +25,29 @@ public class Hero extends GameObject{
     }
     @Override
     public void gravityEffect() {
-        //keyframe pls
+        Location curr = this.getLocation();
+        this.setLocation(curr.getX()+xSpeed,curr.getY()+ySpeed);
+        iv.setX(curr.getX()+xSpeed);
+        iv.setY(curr.getY()+ySpeed);
     }
 
+    @Override
+    public void ifHeroCollides() {
+        //do nothing since hero can't collide with itself
+    }
+
+    public void setYspeed(double speed){
+        ySpeed = speed;
+    }
+    public double getYspeed(){
+        return ySpeed;
+    }
+    public void setXspeed(double speed){
+        xSpeed = speed;
+    }
+    public double getXspeed(){
+        return xSpeed;
+    }
     @Override
     public void display(AnchorPane anc) {
         //add iv to the AnchorPane
