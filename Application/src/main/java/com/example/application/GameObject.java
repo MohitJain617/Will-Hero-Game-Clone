@@ -13,7 +13,7 @@ public abstract class GameObject implements Serializable {
         bounds = new Boundary(xwidth,ywidth);
     }
     public abstract void gravityEffect();
-    public abstract void ifHeroCollides(); //action after hero collides
+    public abstract void ifHeroCollides(Hero hero); //action after hero collides
     public abstract void display(AnchorPane anc);
     public void setLocation(double x, double y){
         loc.setX(x);
@@ -43,10 +43,10 @@ public abstract class GameObject implements Serializable {
         //check collision
         boolean ymatch = false;
         boolean xmatch = false;
-        if((yb1 >= cyb1) && (yb1 <= cyb2)) ymatch = true;
-        if((yb2 >= cyb1) && (yb2 <= cyb2)) ymatch = true;
-        if((xb1 >= cxb1) && (xb1 <= cxb2)) xmatch = true;
-        if((xb2 >= cxb1) && (xb2 <= cxb2)) xmatch = true;
+        if((yb1 > cyb1) && (yb1 < cyb2)) ymatch = true;
+        if((yb2 > cyb1) && (yb2 < cyb2)) ymatch = true;
+        if((xb1 > cxb1) && (xb1 < cxb2)) xmatch = true;
+        if((xb2 > cxb1) && (xb2 < cxb2)) xmatch = true;
         return (ymatch && xmatch);
     }
 }

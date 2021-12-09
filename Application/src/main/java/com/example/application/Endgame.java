@@ -7,6 +7,7 @@ import javafx.scene.ParallelCamera;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -37,6 +38,13 @@ public class Endgame {
 
     @FXML
     ImageView orc7;
+
+    public void showMainMenu(ActionEvent e) throws IOException {
+        new SceneController().changeScene(e,"MainMenu.fxml");
+    }
+    public void Revive(ActionEvent e) throws IOException {
+        new SceneController().changeScene(e,"GamePlay.fxml");
+    }
 
     public void bounce(){
 

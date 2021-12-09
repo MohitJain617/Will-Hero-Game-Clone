@@ -32,7 +32,7 @@ public class Hero extends GameObject{
     }
 
     @Override
-    public void ifHeroCollides() {
+    public void ifHeroCollides(Hero hero) {
         //do nothing since hero can't collide with itself
     }
 
