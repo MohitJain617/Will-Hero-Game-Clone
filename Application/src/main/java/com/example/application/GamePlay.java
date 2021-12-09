@@ -39,6 +39,7 @@ public class GamePlay implements Initializable {
     Group mainGroup;
 
     public GamePlay(){
+
         hero = new Hero(126.0,230.0);
         islands = new ArrayList<Island>();
         animator = new AnimationTimer(){
@@ -56,6 +57,7 @@ public class GamePlay implements Initializable {
             }
         };
     }
+
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
         SceneController st = new SceneController();

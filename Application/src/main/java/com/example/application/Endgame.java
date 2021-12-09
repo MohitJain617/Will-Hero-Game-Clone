@@ -68,7 +68,7 @@ public class Endgame {
                 makeKeyFrame(1300,0.0,1.0,1.0)
         );
 
-        bouncer.setCycleCount(2);
+        bouncer.setCycleCount(3);
         visual_effects(bouncer);
     }
 
@@ -95,15 +95,15 @@ public class Endgame {
         Random rand = new Random();
         SceneController st = new SceneController();
 
-        int r = rand.nextInt(7);
-        int s = rand.nextInt(7);
-        int t = rand.nextInt(7);
+        FadeTransition f1 = st.fade(orcs.get(3), 500,1.0);
+        FadeTransition f2 = st.fade(orcs.get(5), 600,1.0);
+        FadeTransition f3 = st.fade(orcs.get(1), 500,1.0);
+        FadeTransition f4 = st.fade(orcs.get(0), 500,1.0);
+        FadeTransition f5 = st.fade(orcs.get(4), 700,1.0);
+        FadeTransition f6 = st.fade(orcs.get(6), 500,1.0);
+        FadeTransition f7 = st.fade(orcs.get(2), 600,1.0);
 
-        FadeTransition f1 = st.fade(orcs.get(1), 400,1.0);
-        FadeTransition f2 = st.fade(orcs.get(s), 400,1.0);
-        FadeTransition f3 = st.fade(orcs.get(t), 500,1.0);
-
-        SequentialTransition seq = new SequentialTransition (f1,f2,f3);
+        SequentialTransition seq = new SequentialTransition (f1,f2,f3,f4,f5,f6,f7);
 
         ParallelTransition par = new ParallelTransition(seq,bounce);
         par.setOnFinished(actionEvent -> {

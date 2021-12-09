@@ -8,10 +8,12 @@ import java.io.Serializable;
 public abstract class GameObject implements Serializable {
     private final Location loc;
     private final Boundary bounds;
+
     public GameObject(double x, double y, double xwidth, double ywidth){
         loc = new Location(x,y);
         bounds = new Boundary(xwidth,ywidth);
     }
+
     public abstract void gravityEffect();
     public abstract void ifHeroCollides(Hero hero); //action after hero collides
     public abstract void display(AnchorPane anc);
@@ -25,6 +27,7 @@ public abstract class GameObject implements Serializable {
     public Boundary getBounds(){
         return new Boundary(bounds.getX(),bounds.getY());
     }
+
     public boolean checkCollision(GameObject gob){
         Location l2 = gob.getLocation();
         Boundary b2 = gob.getBounds();

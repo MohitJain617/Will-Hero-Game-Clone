@@ -11,6 +11,7 @@ public class Hero extends GameObject{
     ImageView iv;
     private double ySpeed;
     private double xSpeed;
+
     public Hero(double x, double y){
         super(x,y,144,118.5);
         ySpeed = 0;
@@ -23,6 +24,7 @@ public class Hero extends GameObject{
         iv.setX(x); iv.setY(y);
         iv.setPreserveRatio(true);
     }
+
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();
