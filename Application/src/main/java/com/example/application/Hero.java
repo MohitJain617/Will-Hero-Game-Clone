@@ -12,7 +12,7 @@ public class Hero extends GameObject{
     private double ySpeed;
     private double xSpeed;
     public Hero(double x, double y){
-        super(x,y,118.5,144);
+        super(x,y,144,118.5);
         ySpeed = 0;
         xSpeed = 0;
         iv = new ImageView();
