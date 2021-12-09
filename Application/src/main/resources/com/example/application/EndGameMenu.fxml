@@ -1,77 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane blendMode="MULTIPLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: rgb(153, 204, 255);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
+<AnchorPane blendMode="MULTIPLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Endgame">
    <children>
-      <ImageView fitHeight="558.0" fitWidth="960.0" layoutY="-9.0" pickOnBounds="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../endbg.jpg" />
-         </image></ImageView>
-      <Button layoutX="13.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: grey;" text="Settings" textFill="#fafafa">
+            <Image url="@../../../bg.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="0.11" hue="-0.45" />
+         </effect></ImageView>
+      <TextField accessibleRole="TEXT" alignment="CENTER" blendMode="MULTIPLY" editable="false" layoutX="442.0" layoutY="87.0" prefHeight="75.0" prefWidth="322.0" style="-fx-background-color: white;" text="Current Score : 36">
+         <font>
+            <Font name="SansSerif Bold" size="31.0" />
+         </font>
+      </TextField>
+      <TextField accessibleRole="TEXT" alignment="CENTER" blendMode="MULTIPLY" editable="false" layoutX="432.0" layoutY="130.0" prefHeight="108.0" prefWidth="342.0" style="-fx-background-color: white;" text="Highest Score : 76">
+         <font>
+            <Font name="SansSerif Bold" size="31.0" />
+         </font>
+      </TextField>
+      <VBox alignment="CENTER" layoutX="363.0" layoutY="203.0" prefHeight="425.0" prefWidth="471.0" spacing="15.0">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="361.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../save3.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="83.0" fitWidth="361.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../save3.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="69.0" fitWidth="303.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../save3.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <TextField alignment="CENTER" layoutX="1134.0" layoutY="13.0" prefHeight="49.0" prefWidth="133.0" text="36 Coins">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+      <ImageView fitHeight="62.0" fitWidth="59.0" layoutX="33.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../settingIcon.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="27.0" layoutY="14.0" mnemonicParsing="false" opacity="0.0" prefHeight="50.0" prefWidth="69.0" textFill="#fafafa">
          <font>
             <Font name="Lucida Console" size="14.0" />
          </font>
       </Button>
-      <TextField accessibleRole="TEXT" alignment="CENTER" blendMode="MULTIPLY" layoutX="354.0" layoutY="87.0" prefHeight="42.0" prefWidth="251.0" style="-fx-background-color: white;" text="Current Score : 36">
-         <font>
-            <Font name="Roboto" size="23.0" />
-         </font>
-      </TextField>
-      <TextField accessibleRole="TEXT" alignment="CENTER" blendMode="MULTIPLY" layoutX="354.0" layoutY="133.0" prefHeight="42.0" prefWidth="251.0" style="-fx-background-color: white;" text="Highest Score : 76">
-         <font>
-            <Font name="Roboto" size="23.0" />
-         </font>
-      </TextField>
-      <VBox alignment="CENTER" layoutX="363.0" layoutY="203.0" spacing="15.0">
+      <ImageView fitHeight="49.0" fitWidth="52.0" layoutX="1073.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../coin1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="215.0" fitWidth="415.0" layoutX="809.0" layoutY="467.0" opacity="0.8" pickOnBounds="true">
+         <image>
+            <Image url="@../../../island1.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.06" contrast="0.41" saturation="-0.11" />
+         </effect>
+      </ImageView>
+      <Group layoutX="853.0" layoutY="397.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#showGamePlay" prefHeight="62.0" prefWidth="234.0" style="-fx-background-color: grey;" text="Revive" textFill="#00e431">
-               <font>
-                  <Font name="Lucida Console" size="24.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#showLoadMenu" prefHeight="54.0" prefWidth="209.0" style="-fx-background-color: grey;" text="Save Game" textFill="#17ecff">
-               <font>
-                  <Font name="Lucida Console" size="24.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#showMainMenu" prefHeight="54.0" prefWidth="146.0" style="-fx-background-color: grey;" text="Exit" textFill="#bc3a3a">
-               <font>
-                  <Font name="Roboto" size="23.0" />
-               </font>
-            </Button>
+            <ImageView fitHeight="115.0" fitWidth="151.0" layoutX="4.0" pickOnBounds="true" rotate="-0.6">
+               <image>
+                  <Image url="@../../../treasure_open.png" />
+               </image>
+               <rotationAxis>
+                  <Point3D y="1.0" />
+               </rotationAxis>
+            </ImageView>
+            <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="70.995361328125" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="45.995361328125" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="63.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="91.995361328125" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="26.995361328125" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="15.995361328125" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
          </children>
-      </VBox>
-      <TextField layoutX="850.0" layoutY="14.0" prefHeight="32.0" prefWidth="83.0" style="-fx-background-color: rgb(153, 204, 255);" text="36 Coins">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </TextField>
-      <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="129.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+      </Group>
+      <ImageView fx:id="orc_end" fitHeight="250.0" fitWidth="242.0" layoutX="970.0" layoutY="125.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" rotate="-178.5">
          <image>
-            <Image url="@../../../orc.png" />
+            <Image url="@../../../orcbossFinal.png" />
          </image>
-      </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="140.0" layoutX="616.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orc.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="127.0" fitWidth="203.0" layoutX="674.0" layoutY="327.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcred.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="803.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../coin.png" />
-         </image>
+         <rotationAxis>
+            <Point3D y="1.0" />
+         </rotationAxis>
+         <effect>
+            <ColorAdjust contrast="0.3" />
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>
