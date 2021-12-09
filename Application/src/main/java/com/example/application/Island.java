@@ -25,7 +25,9 @@ public class Island extends GameObject{
 
     @Override
     public void ifHeroCollides(Hero hero) {
-        hero.setYspeed(-8);
+        if(hero.getLocation().getY() < this.getLocation().getY()){
+            hero.setYspeed(-9);
+        }
     }
 
     @Override

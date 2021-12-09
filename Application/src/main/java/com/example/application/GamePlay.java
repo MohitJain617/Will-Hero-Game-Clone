@@ -39,13 +39,13 @@ public class GamePlay implements Initializable {
     Group mainGroup;
 
     public GamePlay(){
-        hero = new Hero(126.0,230.0);
+        hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
         animator = new AnimationTimer(){
 
             @Override
             public void handle(long l) {
-                hero.setYspeed(hero.getYspeed() + 0.2);
+                hero.setYspeed(hero.getYspeed() + 0.25);
                 hero.gravityEffect();
                 for(int i = 0; i < islands.size(); i++){
                     Island currIsland = islands.get(i);
@@ -90,14 +90,14 @@ public class GamePlay implements Initializable {
 
     }
     public void setup(){
-        hero.display(game_pane);
-        islands.add(new Island(79,381,406,170,"island1.png"));
-        for(int i = 0; i < islands.size(); i++) islands.get(i).display(game_pane);
-        animator.start();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        hero.display(game_pane);
+        islands.add(new Island(113,446,358,126,"island1.png"));
+        for(int i = 0; i < islands.size(); i++) islands.get(i).display(game_pane);
+        animator.start();
         pauseGroup.setDisable(true);
     }
 }
