@@ -51,25 +51,22 @@ public class Endgame {
         Timeline bouncer = new Timeline();
 
         bouncer.getKeyFrames().addAll(
-                makeKeyFrame(0, 0.0, 1.0, 1.0),
-                makeKeyFrame(100, 15.0, 0.95, 1.05),
-                makeKeyFrame(200, 35.0, 0.9, 1.1),
-                makeKeyFrame(300, 65.0, 0.85, 1.15),
-                makeKeyFrame(400,100.0,0.8,1.2),
-                makeKeyFrame(500, 135.0, 0.9, 1.1),
-                makeKeyFrame(600, 140.0, 1.1, 0.9),
-                makeKeyFrame(650, 145.0, 1.2, 0.8),
-                makeKeyFrame(700, 140.0, 1.1, 0.9),
-                makeKeyFrame(800, 135.0, 0.9, 1.1),
-                makeKeyFrame(900, 90.0, 0.8, 1.2),
-                makeKeyFrame(1000, 60.0, 0.85, 1.15),
-                makeKeyFrame(1100, 35.0, 0.9, 1.1),
-                makeKeyFrame(1200, 15.0, 0.95, 1.05),
-                makeKeyFrame(1300,0.0,1.0,1.0)
+                makeKeyFrame(0, 0.0, 0.9, 1.1),
+                makeKeyFrame(100, 15.0, 0.925, 1.075),
+                makeKeyFrame(200, 35.0, 0.95, 1.05),
+                makeKeyFrame(300, 65.0, 1.0, 1.0),
+                makeKeyFrame(400,100.0,1.05, 0.95),
+                makeKeyFrame(500, 150.0, 1.1, 0.9),
+                makeKeyFrame(600, 100.0, 1.05, 0.95),
+                makeKeyFrame(700, 65.0, 1.0, 1.0),
+                makeKeyFrame(800, 35.0, 0.95, 1.05),
+                makeKeyFrame(900, 15.0, 0.925, 1.075),
+                makeKeyFrame(1000,0.0,0.9,1.1)
         );
 
-        bouncer.setCycleCount(3);
-        visual_effects(bouncer);
+        bouncer.setCycleCount(INDEFINITE);
+        bouncer.play();
+        //visual_effects(bouncer);
     }
 
     private KeyFrame makeKeyFrame(int d, double y, double sx, double sy) {
