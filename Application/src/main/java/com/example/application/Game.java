@@ -70,6 +70,11 @@ public class Game extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void exit(){
+        System.exit(0);
+    }
+
     public void showEndMenu(ActionEvent e) throws IOException {
         st.changeScene(e,"EndGameMenu.fxml");
     }

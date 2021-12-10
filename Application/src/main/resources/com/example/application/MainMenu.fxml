@@ -210,7 +210,7 @@
                   <ColorAdjust contrast="1.0" />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" onAction="#showLoadMenu" prefHeight="61.0" prefWidth="184.0" text="Quit">
+            <Button mnemonicParsing="false" onAction="#exit" prefHeight="61.0" prefWidth="184.0" text="Quit">
                <font>
                   <Font name="Lucida Console" size="24.0" />
                </font>
