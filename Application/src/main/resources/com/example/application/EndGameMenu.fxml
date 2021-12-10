@@ -19,9 +19,9 @@
             <Image url="@../../../bg.jpg" />
          </image>
          <effect>
-            <ColorAdjust contrast="0.11" hue="-0.45" />
+            <ColorAdjust contrast="0.11" hue="-0.85" saturation="-0.06" />
          </effect></ImageView>
-      <Button focusTraversable="false" layoutX="1092.0" layoutY="10.0" mnemonicParsing="false" opacity="0.26" prefHeight="58.0" prefWidth="143.0">
+      <Button focusTraversable="false" layoutX="1097.0" layoutY="15.0" mnemonicParsing="false" opacity="0.26" prefHeight="58.0" prefWidth="149.0">
          <effect>
             <ColorAdjust contrast="1.0" />
          </effect>
@@ -29,22 +29,41 @@
             <Cursor fx:constant="DISAPPEAR" />
          </cursor>
       </Button>
-      <VBox alignment="CENTER" layoutX="381.0" layoutY="154.0" prefHeight="425.0" prefWidth="439.0" spacing="15.0">
+      <VBox alignment="CENTER" layoutX="415.0" layoutY="154.0" prefHeight="425.0" prefWidth="439.0" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#Revive" opacity="0.62" prefHeight="66.0" prefWidth="202.0" style="-fx-background-color: #9966ff;" text="REVIVE" textFill="WHITE">
+            <Group>
+               <children>
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Revive" opacity="0.75" prefHeight="67.0" prefWidth="261.0" style="-fx-background-color: navy;" text="REVIVE" textFill="WHITE">
+                     <font>
+                        <Font name="Lucida Console" size="37.0" />
+                     </font>
+                     <effect>
+                        <ColorAdjust brightness="0.01" contrast="1.0" hue="0.01" saturation="0.02" />
+                     </effect>
+                  </Button>
+                  <ImageView fitHeight="49.0" fitWidth="52.0" layoutX="171.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../coin1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="49.0" fitWidth="52.0" layoutX="183.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../coin1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="49.0" fitWidth="52.0" layoutX="199.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../coin1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Button mnemonicParsing="false" onAction="#showMainMenu" opacity="0.72" prefHeight="66.0" prefWidth="266.0" style="-fx-background-color: red;" text="MAIN MENU" textFill="WHITE">
                <font>
                   <Font name="Lucida Console" size="37.0" />
                </font>
                <effect>
-                  <ColorAdjust brightness="-0.08" contrast="1.0" hue="0.01" saturation="0.02" />
-               </effect>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#showMainMenu" opacity="0.62" prefHeight="66.0" prefWidth="250.0" style="-fx-background-color: #9966ff;" text="MAIN MENU" textFill="WHITE">
-               <font>
-                  <Font name="Lucida Console" size="37.0" />
-               </font>
-               <effect>
-                  <ColorAdjust brightness="-0.08" contrast="1.0" hue="0.01" saturation="0.02" />
+                  <ColorAdjust brightness="0.01" contrast="1.0" hue="-0.01" saturation="0.02" />
                </effect>
             </Button>
          </children>
@@ -59,12 +78,12 @@
             <Font name="Lucida Console" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="49.0" fitWidth="52.0" layoutX="1113.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="44.0" layoutX="1113.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="215.0" fitWidth="415.0" layoutX="809.0" layoutY="467.0" opacity="0.8" pickOnBounds="true">
+      <ImageView fitHeight="172.0" fitWidth="415.0" layoutX="839.0" layoutY="490.0" opacity="0.8" pickOnBounds="true">
          <image>
             <Image url="@../../../island1.png" />
          </image>
@@ -72,49 +91,7 @@
             <ColorAdjust brightness="0.06" contrast="0.41" saturation="-0.11" />
          </effect>
       </ImageView>
-      <Group layoutX="853.0" layoutY="397.0">
-         <children>
-            <ImageView fitHeight="115.0" fitWidth="151.0" layoutX="4.0" pickOnBounds="true" rotate="-0.6">
-               <image>
-                  <Image url="@../../../treasure_open.png" />
-               </image>
-               <rotationAxis>
-                  <Point3D y="1.0" />
-               </rotationAxis>
-            </ImageView>
-            <ImageView fitHeight="38.0" fitWidth="35.0" layoutX="70.995361328125" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../coin1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="45.995361328125" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../coin1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="63.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../coin1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="91.995361328125" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../coin1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="26.995361328125" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../coin1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="35.0" layoutX="15.995361328125" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../coin1.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Group>
-      <ImageView fx:id="orc_end" fitHeight="250.0" fitWidth="208.0" layoutX="991.0" layoutY="125.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" rotate="-178.5">
+      <ImageView fx:id="orc_end" fitHeight="250.0" fitWidth="208.0" layoutX="959.0" layoutY="108.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" rotate="-178.5">
          <image>
             <Image url="@../../../orcbossFinal.png" />
          </image>
@@ -125,55 +102,61 @@
             <ColorAdjust contrast="0.3" />
          </effect>
       </ImageView>
-      <ImageView fx:id="orc3" fitHeight="103.0" fitWidth="113.0" layoutX="63.0" layoutY="238.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="orc3" fitHeight="103.0" fitWidth="113.0" layoutX="280.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
             <Image url="@../../../orcredFinal.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="0.24" contrast="0.52" hue="0.02" />
+         </effect>
+         <rotationAxis>
+            <Point3D y="1.0" />
+         </rotationAxis>
       </ImageView>
-      <ImageView fx:id="orc5" fitHeight="114.0" fitWidth="113.0" layoutX="79.0" layoutY="397.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="orc1" fitHeight="114.0" fitWidth="113.0" layoutX="158.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
             <Image url="@../../../orcfinal.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="0.32" contrast="0.67" hue="-0.09" />
+         </effect>
+         <rotationAxis>
+            <Point3D y="1.0" />
+         </rotationAxis>
       </ImageView>
-      <ImageView fx:id="orc6" fitHeight="114.0" fitWidth="113.0" layoutX="236.0" layoutY="477.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcfinal.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="orc7" fitHeight="103.0" fitWidth="113.0" layoutX="79.0" layoutY="550.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcredFinal.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="orc4" fitHeight="103.0" fitWidth="113.0" layoutX="216.0" layoutY="326.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcredFinal.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="orc2" fitHeight="114.0" fitWidth="113.0" layoutX="216.0" layoutY="153.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcfinal.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="orc1" fitHeight="114.0" fitWidth="113.0" layoutX="33.0" layoutY="104.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../orcfinal.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="451.0" layoutY="149.0" prefHeight="86.0" prefWidth="311.0" text=" Highest Score : 76">
+      <Label layoutX="487.0" layoutY="149.0" prefHeight="86.0" prefWidth="311.0" text=" Highest Score : 76">
          <font>
             <Font name="SansSerif Bold" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="450.0" layoutY="91.0" prefHeight="86.0" prefWidth="291.0" text=" Current Score : 36">
+      <Label layoutX="488.0" layoutY="91.0" prefHeight="86.0" prefWidth="291.0" text=" Current Score : 36">
          <font>
             <Font name="SansSerif Bold" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="1175.0" layoutY="19.0" text="36 " textFill="#795700">
+      <Label layoutX="1177.0" layoutY="21.0" text="36">
          <font>
-            <Font name="Roboto Black" size="33.0" />
+            <Font size="34.0" />
          </font>
       </Label>
+      <ImageView fx:id="orc2" fitHeight="103.0" fitWidth="113.0" layoutX="39.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../../../orcredFinal.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.24" contrast="0.52" hue="0.02" />
+         </effect>
+         <rotationAxis>
+            <Point3D y="1.0" />
+         </rotationAxis>
+      </ImageView>
+      <ImageView fitHeight="167.0" fitWidth="407.0" layoutX="25.0" layoutY="485.0" opacity="0.8" pickOnBounds="true">
+         <image>
+            <Image url="@../../../island_large2.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.06" contrast="0.2" saturation="0.04" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -12,6 +12,7 @@ public class Hero extends GameObject{
     ImageView iv;
     private double ySpeed;
     private double xSpeed;
+
     public Hero(double x, double y){
         super(x,y);
         ySpeed = 0;
@@ -24,6 +25,7 @@ public class Hero extends GameObject{
         iv.setX(x); iv.setY(y);
         iv.setPreserveRatio(true);
     }
+
     @Override
     public Bounds getBounds(){
         return this.iv.getBoundsInParent();
