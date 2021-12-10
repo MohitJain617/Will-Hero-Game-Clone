@@ -63,6 +63,11 @@ public class Game extends Application {
     public void showGamePlay(ActionEvent e) throws IOException{
         st.changeScene(e,"GamePlay.fxml");
     }
+
+    public void exit(){
+        System.exit(0);
+    }
+
     public void showEndMenu(ActionEvent e) throws IOException {
         st.changeScene(e,"EndGameMenu.fxml");
     }
