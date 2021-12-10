@@ -2,6 +2,8 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -41,11 +43,6 @@
                   <Image url="@../../../cloud2.png" />
                </image>
             </ImageView>
-            <Text fill="#c49d00" layoutX="1177.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21">
-               <font>
-                  <Font name="Roboto Black" size="31.0" />
-               </font>
-            </Text>
             <ImageView fitHeight="206.0" fitWidth="345.0" layoutX="552.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../island2.png" />
@@ -79,12 +76,7 @@
                   <Image url="@../../../orcbossFinal.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="1125.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../coin1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="69.0" fitWidth="84.0" layoutX="606.0" layoutY="14.0" onMouseClicked="#showPauseMenu" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="69.0" fitWidth="84.0" layoutX="608.0" layoutY="26.0" onMouseClicked="#showPauseMenu" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pause.png" />
                </image>
@@ -92,11 +84,23 @@
                   <ColorAdjust brightness="0.26" contrast="1.0" hue="0.66" saturation="-0.3" />
                </effect>
             </ImageView>
-            <Button layoutX="67.0" layoutY="27.0" mnemonicParsing="false" opacity="0.2" prefHeight="42.0" prefWidth="47.0">
-               <effect>
-                  <ColorAdjust contrast="1.0" />
-               </effect>
-            </Button>
+            <TextField layoutX="1094.0" layoutY="27.0" opacity="0.27" prefHeight="54.0" prefWidth="149.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
+            <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="1112.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../coin1.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1175.0" layoutY="65.0" stroke="WHITE" strokeType="OUTSIDE" text="21" wrappingWidth="64.3553466796875">
+               <font>
+                  <Font name="SansSerif Bold" size="33.0" />
+               </font>
+            </Text>
+            <Slider layoutX="94.0" layoutY="38.0" style="-fx-region-background: black;" value="40.0" />
+            <ImageView blendMode="MULTIPLY" fitHeight="41.0" fitWidth="47.0" layoutX="40.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../volume.png" />
+               </image>
+            </ImageView>
          </children>
       </Group>
       <Group fx:id="pauseGroup" layoutX="614.0" layoutY="233.0" opacity="0.0">
