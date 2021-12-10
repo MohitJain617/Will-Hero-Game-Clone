@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class Island extends GameObject{
+public class Island extends GameObject implements ObstacleCollision{
     ImageView iv;
     public Island(double x, double y, double xwidth, double ywidth, String island) {
         super(x, y);
@@ -39,5 +39,12 @@ public class Island extends GameObject{
     @Override
     public Bounds getBounds() {
         return iv.getBoundsInParent();
+    }
+
+    @Override
+    public void ifObstacleCollides(Obstacle obs) {
+        if(obs instanceof Orcs){
+            ((Orcs) obs).setySpeed(-10);
+        }
     }
 }

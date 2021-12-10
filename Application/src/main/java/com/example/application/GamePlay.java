@@ -27,6 +27,7 @@ import static javafx.util.Duration.INDEFINITE;
 public class GamePlay implements Initializable {
     private Hero hero;
     private ArrayList<Island> islands;
+    private ArrayList<Obstacle> obstacles;
     AnimationTimer animator;
 
     @FXML
@@ -41,16 +42,31 @@ public class GamePlay implements Initializable {
     public GamePlay(){
         hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
+        obstacles = new ArrayList<Obstacle>();
         animator = new AnimationTimer(){
 
             @Override
             public void handle(long l) {
+                //normal gravity on hero
                 hero.setYspeed(hero.getYspeed() + 0.25);
                 hero.gravityEffect();
-                for(int i = 0; i < islands.size(); i++){
-                    Island currIsland = islands.get(i);
-                    if(currIsland.checkCollision(hero)){
+                //gravity on obstacles
+                for(Obstacle obs: obstacles){
+                    if(obs instanceof Orcs){
+                        ((Orcs) obs).setySpeed(((Orcs) obs).getySpeed() + 0);
+                    }
+                    obs.gravityEffect();
+                }
+                for (Island currIsland : islands) {
+                    //check collision with hero
+                    if (currIsland.checkCollision(hero)) {
                         currIsland.ifHeroCollides(hero);
+                    }
+                    //check collision with obstacles
+                    for(Obstacle obs: obstacles){
+                        if(currIsland.checkCollision(obs)){
+                            currIsland.ifObstacleCollides(obs);
+                        }
                     }
                 }
             }
@@ -96,7 +112,12 @@ public class GamePlay implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hero.display(game_pane);
         islands.add(new Island(113,446,358,126,"island1.png"));
-        for(int i = 0; i < islands.size(); i++) islands.get(i).display(game_pane);
+        islands.add(new Island(945,446,358,126,"island1.png"));
+        islands.add(new Island(500,446,358,126,"island1.png"));
+        obstacles.add(new RedOrc(1000,206));
+        obstacles.add(new BossOrc(659,206));
+        for (Island island : islands) island.display(game_pane);
+        for(Obstacle obs: obstacles) obs.display(game_pane);
         animator.start();
         pauseGroup.setDisable(true);
     }

@@ -6,23 +6,27 @@ package com.example.application;
         import javafx.scene.layout.AnchorPane;
 
 public class StdOrc extends GreenOrc{
-    private ImageView iv;
+    ImageView iv;
     double xSpeed; double ySpeed;
     public StdOrc(double xloc, double yloc) {
         super(xloc, yloc, 1, 20);
-        Image image = new Image("orcbossFinal.png");
+        Image image = new Image("orcfinal.png");
+        iv = new ImageView();
         iv.setImage(image);
-        iv.setPickOnBounds(true);
         iv.setPreserveRatio(true);
         iv.setLayoutX(xloc); iv.setLayoutY(yloc);
-        iv.setFitHeight(216); iv.setFitWidth(211);
+        iv.setFitHeight(71); iv.setFitWidth(84);
         xSpeed = 0; ySpeed = 0;
     }
 
 
+    @Override
     public double getxSpeed(){return this.xSpeed;}
+    @Override
     public double getySpeed(){return this.ySpeed;}
+    @Override
     public void setxSpeed(double x){this.xSpeed += x;}
+    @Override
     public void setySpeed(double y){this.ySpeed += y;}
     @Override
     public void gravityEffect() {
@@ -49,6 +53,11 @@ public class StdOrc extends GreenOrc{
 
     @Override
     public void ifWeaponCollides() {
+        //TODO
+    }
+
+    @Override
+    public void ifObstacleCollides(Obstacle obs) {
         //TODO
     }
 }

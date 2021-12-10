@@ -4,7 +4,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public abstract class Obstacle extends GameObject{
+public abstract class Obstacle extends GameObject implements ObstacleCollision{
     public Obstacle(double x, double y) {
         super(x, y);
     }
