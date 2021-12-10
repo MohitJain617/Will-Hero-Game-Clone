@@ -1,5 +1,6 @@
 package com.example.application;
 
+import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -13,18 +14,22 @@ public class Hero extends GameObject{
     private double xSpeed;
 
     public Hero(double x, double y){
-        super(x,y,144,118.5);
+        super(x,y);
         ySpeed = 0;
         xSpeed = 0;
         iv = new ImageView();
         img = new Image("hero.png");
         iv.setImage(img);
-        iv.setFitHeight(118.5);
-        iv.setFitWidth(144.0);
+        iv.setFitHeight(106.65);
+        iv.setFitWidth(129.6);
         iv.setX(x); iv.setY(y);
         iv.setPreserveRatio(true);
     }
 
+    @Override
+    public Bounds getBounds(){
+        return this.iv.getBoundsInParent();
+    }
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();
@@ -43,12 +48,6 @@ public class Hero extends GameObject{
     }
     public double getYspeed(){
         return ySpeed;
-    }
-    public void setXspeed(double speed){
-        xSpeed = speed;
-    }
-    public double getXspeed(){
-        return xSpeed;
     }
     @Override
     public void display(AnchorPane anc) {
