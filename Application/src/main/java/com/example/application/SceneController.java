@@ -1,6 +1,7 @@
 package com.example.application;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -29,5 +30,8 @@ public class SceneController {
         fade.setToValue(to);
         fade.setCycleCount(1);
         return fade;
+    }
+    public void something(Node n1){
+        TranslateTransition tran = new TranslateTransition();
     }
 }

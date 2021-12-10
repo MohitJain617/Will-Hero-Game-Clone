@@ -5,23 +5,33 @@ import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class Game extends Application {
+public class Game extends Application implements Initializable{
     private Stage stage;
     private Scene scene;
     private Parent root;
     private GamePlay gameplay;
     private Image icon ;
     private SceneController st;
+    @FXML
+    Group mainGroup;
+    @FXML
+    Group highScores;
 
     public Game(){
         st = new SceneController();
@@ -63,11 +73,24 @@ public class Game extends Application {
     public void showGamePlay(ActionEvent e) throws IOException{
         st.changeScene(e,"GamePlay.fxml");
     }
-
     public void exit(){
         System.exit(0);
     }
 
+    public void showHighScore(ActionEvent e){
+        this.highScores.setDisable(false);
+        st.fade(mainGroup,300,0.25).play();
+        System.out.println("Muhahahah");
+        st.fade(highScores,300,1).play();
+        this.mainGroup.setDisable(true);
+    }
+    public void backFromHighScore(MouseEvent e){
+        this.mainGroup.setDisable(false);
+        st.fade(mainGroup,300,1).play();
+        System.out.println("Kuhahahah");
+        st.fade(highScores,300,0).play();
+        this.highScores.setDisable(true);
+    }
     public void showEndMenu(ActionEvent e) throws IOException {
         st.changeScene(e,"EndGameMenu.fxml");
     }
@@ -96,8 +119,14 @@ public class Game extends Application {
         seqTransition.play();
     }
 
-
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(highScores != null){
+            this.highScores.setDisable(true);
+        }
     }
 }

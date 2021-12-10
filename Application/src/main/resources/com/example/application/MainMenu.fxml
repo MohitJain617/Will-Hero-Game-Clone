@@ -15,33 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.application.Game">
    <children>
-      <Group layoutX="340.0" layoutY="140.0" opacity="0.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="NAVY" height="520.0" layoutX="7.0" layoutY="-43.0" opacity="0.77" stroke="BLACK" strokeType="INSIDE" width="542.0" />
-            <ImageView fitHeight="336.0" fitWidth="315.0" layoutX="121.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../highscore.jpg" />
-               </image>
-               <effect>
-                  <ColorAdjust contrast="0.3" />
-               </effect>
-            </ImageView>
-            <Label alignment="CENTER" layoutX="38.0" layoutY="376.0" prefHeight="93.0" prefWidth="510.0" text="HIGHSCORE : 76" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Bold" size="51.0" />
-               </font>
-            </Label>
-            <ImageView blendMode="ADD" fitHeight="45.0" fitWidth="46.0" layoutX="20.0" layoutY="-31.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../../../36842ffa.png" />
-               </image>
-               <effect>
-                  <ColorAdjust contrast="-0.07" hue="-0.13" />
-               </effect>
-            </ImageView>
-         </children>
-      </Group>
-      <Group layoutY="-3.0">
+      <Group fx:id="mainGroup" layoutY="-3.0">
          <children>
             <ImageView fitHeight="734.0" fitWidth="1291.0" pickOnBounds="true">
                <image>
@@ -91,7 +65,6 @@
                   <ColorAdjust brightness="0.19" hue="-0.01" />
                </effect>
             </ImageView>
-            <VBox layoutY="3.0" />
             <Group layoutX="190.0" layoutY="446.0" rotate="10.2">
                <children>
                   <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="41.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
@@ -243,7 +216,7 @@
                         <ColorAdjust contrast="1.0" />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#showLoadMenu" prefHeight="69.0" prefWidth="253.0" text="High Scores">
+                  <Button mnemonicParsing="false" onAction="#showHighScore" prefHeight="69.0" prefWidth="253.0" text="High Scores">
                      <font>
                         <Font name="Lucida Console" size="24.0" />
                      </font>
@@ -266,6 +239,32 @@
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
             </Label>
+         </children>
+      </Group>
+      <Group fx:id="highScores" layoutX="340.0" layoutY="140.0" opacity="0.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="NAVY" height="520.0" layoutX="7.0" layoutY="-43.0" opacity="0.77" stroke="BLACK" strokeType="INSIDE" width="542.0" />
+            <ImageView fitHeight="336.0" fitWidth="315.0" layoutX="121.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../highscore.jpg" />
+               </image>
+               <effect>
+                  <ColorAdjust contrast="0.3" />
+               </effect>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="38.0" layoutY="376.0" prefHeight="93.0" prefWidth="510.0" text="HIGHSCORE : 76" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="51.0" />
+               </font>
+            </Label>
+            <ImageView blendMode="ADD" fitHeight="45.0" fitWidth="46.0" layoutX="20.0" layoutY="-31.0" onMouseClicked="#backFromHighScore" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../36842ffa.png" />
+               </image>
+               <effect>
+                  <ColorAdjust contrast="-0.07" hue="-0.13" />
+               </effect>
+            </ImageView>
          </children>
       </Group>
    </children>
