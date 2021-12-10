@@ -80,14 +80,12 @@ public class Game extends Application implements Initializable{
     public void showHighScore(ActionEvent e){
         this.highScores.setDisable(false);
         st.fade(mainGroup,300,0.25).play();
-        System.out.println("Muhahahah");
         st.fade(highScores,300,1).play();
         this.mainGroup.setDisable(true);
     }
     public void backFromHighScore(MouseEvent e){
         this.mainGroup.setDisable(false);
         st.fade(mainGroup,300,1).play();
-        System.out.println("Kuhahahah");
         st.fade(highScores,300,0).play();
         this.highScores.setDisable(true);
     }

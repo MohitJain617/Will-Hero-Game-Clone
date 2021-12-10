@@ -51,7 +51,7 @@ public class GamePlay implements Initializable {
                 //gravity on obstacles
                 for(Obstacle obs: obstacles){
                     if(obs instanceof Orcs){
-                        ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.1);
+                        ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.3);
                     }
                     obs.gravityEffect();
                 }

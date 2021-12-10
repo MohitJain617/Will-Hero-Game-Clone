@@ -147,6 +147,7 @@ public class Endgame {
                 new KeyValue(obj.scaleYProperty(), sy)
         );
     }
+}
 
 //    public void visual_effects(Timeline bounce){
 //
@@ -175,7 +176,6 @@ public class Endgame {
 //        par.play();
 //    }
 
-}
 
 
 //        PauseTransition p1 = new PauseTransition(Duration.millis(1000));
