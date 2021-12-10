@@ -6,12 +6,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class Island extends GameObject implements ObstacleCollision{
+
     ImageView iv;
+
     public Island(double x, double y, double xwidth, double ywidth, String island) {
         super(x, y);
         iv = new ImageView();
         Image img = new Image(island);
-        iv.setImage(img);
+        iv = new ImageView(img);
         iv.setFitHeight(ywidth);
         iv.setFitWidth(xwidth);
         iv.setLayoutX(x); iv.setLayoutY(y);
