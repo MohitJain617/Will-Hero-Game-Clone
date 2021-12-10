@@ -51,12 +51,13 @@ public class Endgame {
         Timeline bouncer = new Timeline();
 
         bouncer.getKeyFrames().addAll(
-                makeKeyFrame(0, 0.0, 0.9, 1.1),
+                makeKeyFrame(0, 0.0, 0.9, 1.075),
                 makeKeyFrame(100, 15.0, 0.925, 1.075),
                 makeKeyFrame(200, 35.0, 0.95, 1.05),
                 makeKeyFrame(300, 65.0, 1.0, 1.0),
                 makeKeyFrame(400,100.0,1.05, 0.95),
-                makeKeyFrame(500, 150.0, 1.1, 0.9),
+                makeKeyFrame(500, 155.0, 1.15, 0.85),
+                makeKeyFrame(520, 155.0, 1.15, 0.85),
                 makeKeyFrame(600, 100.0, 1.05, 0.95),
                 makeKeyFrame(700, 65.0, 1.0, 1.0),
                 makeKeyFrame(800, 35.0, 0.95, 1.05),
