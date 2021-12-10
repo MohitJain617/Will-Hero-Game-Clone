@@ -11,10 +11,10 @@ public abstract class Orcs extends Obstacle{
     public int getHealth(){
         return this.health;
     }
-    public abstract double getxSpeed();
-    public abstract double getySpeed();
-    public abstract void setxSpeed(double x);
-    public abstract void setySpeed(double y);
+    public abstract double getXspeed();
+    public abstract double getYspeed();
+    public abstract void setXspeed(double x);
+    public abstract void setYspeed(double y);
     @Override
     public Coins deathReward(){
         return this.coins;

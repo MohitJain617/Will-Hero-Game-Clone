@@ -7,26 +7,27 @@ import javafx.scene.layout.AnchorPane;
 
 public class BossOrc extends GreenOrc{
     ImageView iv;
+    Image image;
     double xSpeed; double ySpeed;
     public BossOrc(double xloc, double yloc) {
         super(xloc, yloc, 5, 100);
-        Image image = new Image("orcbossFinal.png");
+        image = new Image("orcbossFinal.png");
         iv = new ImageView();
         iv.setImage(image);
         iv.setPreserveRatio(true);
-        iv.setLayoutX(xloc); iv.setLayoutY(yloc);
+        iv.setX(xloc); iv.setY(yloc);
         iv.setFitHeight(216); iv.setFitWidth(211);
         xSpeed = 0; ySpeed = 0;
     }
 
     @Override
-    public double getxSpeed(){return this.xSpeed;}
+    public double getXspeed(){return this.xSpeed;}
     @Override
-    public double getySpeed(){return this.ySpeed;}
+    public double getYspeed(){return this.ySpeed;}
     @Override
-    public void setxSpeed(double x){this.xSpeed += x;}
+    public void setXspeed(double x){this.xSpeed += x;}
     @Override
-    public void setySpeed(double y){this.ySpeed += y;}
+    public void setYspeed(double y){this.ySpeed += y;}
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();

@@ -21,13 +21,13 @@ public class StdOrc extends GreenOrc{
 
 
     @Override
-    public double getxSpeed(){return this.xSpeed;}
+    public double getXspeed(){return this.xSpeed;}
     @Override
-    public double getySpeed(){return this.ySpeed;}
+    public double getYspeed(){return this.ySpeed;}
     @Override
-    public void setxSpeed(double x){this.xSpeed += x;}
+    public void setXspeed(double x){this.xSpeed += x;}
     @Override
-    public void setySpeed(double y){this.ySpeed += y;}
+    public void setYspeed(double y){this.ySpeed += y;}
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();

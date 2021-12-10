@@ -9,20 +9,15 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
-import static javafx.util.Duration.INDEFINITE;
 
 public class GamePlay implements Initializable {
     private Hero hero;
@@ -43,6 +38,8 @@ public class GamePlay implements Initializable {
         hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
+        obstacles.add(new RedOrc(1000,206));
+        obstacles.add(new BossOrc(659,206));
         animator = new AnimationTimer(){
 
             @Override
@@ -53,7 +50,7 @@ public class GamePlay implements Initializable {
                 //gravity on obstacles
                 for(Obstacle obs: obstacles){
                     if(obs instanceof Orcs){
-                        ((Orcs) obs).setySpeed(((Orcs) obs).getySpeed() + 0);
+                        ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.1);
                     }
                     obs.gravityEffect();
                 }
@@ -105,8 +102,6 @@ public class GamePlay implements Initializable {
         stage.show();
 
     }
-    public void setup(){
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -114,11 +109,9 @@ public class GamePlay implements Initializable {
         islands.add(new Island(113,446,358,126,"island1.png"));
         islands.add(new Island(945,446,358,126,"island1.png"));
         islands.add(new Island(500,446,358,126,"island1.png"));
-        obstacles.add(new RedOrc(1000,206));
-        obstacles.add(new BossOrc(659,206));
         for (Island island : islands) island.display(game_pane);
         for(Obstacle obs: obstacles) obs.display(game_pane);
-        animator.start();
         pauseGroup.setDisable(true);
+        animator.start();
     }
 }

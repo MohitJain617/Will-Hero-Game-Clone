@@ -61,14 +61,7 @@ public class Game extends Application {
         st.changeScene(e,"LoadGames.fxml");
     }
     public void showGamePlay(ActionEvent e) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GamePlay.fxml"));
-        root = loader.load();
-        gameplay = loader.getController();
-        gameplay.setup();
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        st.changeScene(e,"GamePlay.fxml");
     }
     public void showEndMenu(ActionEvent e) throws IOException {
         st.changeScene(e,"EndGameMenu.fxml");

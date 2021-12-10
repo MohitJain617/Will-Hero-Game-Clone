@@ -14,27 +14,27 @@ public class RedOrc extends Orcs{
         iv = new ImageView();
         iv.setImage(image);
         iv.setPreserveRatio(true);
-        iv.setLayoutX(xloc); iv.setLayoutY(yloc);
+        iv.setX(xloc); iv.setY(yloc);
         iv.setFitHeight(71); iv.setFitWidth(84);
         xSpeed = 0; ySpeed = 0;
     }
 
     @Override
-    public double getxSpeed(){return this.xSpeed;}
+    public double getXspeed(){return this.xSpeed;}
     @Override
-    public double getySpeed(){return this.ySpeed;}
+    public double getYspeed(){return this.ySpeed;}
     @Override
-    public void setxSpeed(double x){this.xSpeed += x;}
+    public void setXspeed(double x){this.xSpeed += x;}
     @Override
-    public void setySpeed(double y){this.ySpeed += y;}
+    public void setYspeed(double y){this.ySpeed += y;}
 
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();
         this.setLocation(curr.getX()+xSpeed,curr.getY()+ySpeed);
-        iv.setX(curr.getX()+xSpeed);
-        iv.setY(curr.getY()+ySpeed);
-        System.out.println(iv.getY());
+        curr = this.getLocation();
+        iv.setX(curr.getX());
+        iv.setY(curr.getY());
     }
 
     @Override
