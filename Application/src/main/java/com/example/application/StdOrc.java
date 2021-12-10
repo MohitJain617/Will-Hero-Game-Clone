@@ -14,7 +14,7 @@ public class StdOrc extends GreenOrc{
         iv = new ImageView();
         iv.setImage(image);
         iv.setPreserveRatio(true);
-        iv.setLayoutX(xloc); iv.setLayoutY(yloc);
+        iv.setX(xloc); iv.setY(yloc);
         iv.setFitHeight(71); iv.setFitWidth(84);
         xSpeed = 0; ySpeed = 0;
     }
@@ -25,9 +25,9 @@ public class StdOrc extends GreenOrc{
     @Override
     public double getYspeed(){return this.ySpeed;}
     @Override
-    public void setXspeed(double x){this.xSpeed += x;}
+    public void setXspeed(double x){this.xSpeed = x;}
     @Override
-    public void setYspeed(double y){this.ySpeed += y;}
+    public void setYspeed(double y){this.ySpeed = y;}
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();

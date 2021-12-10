@@ -103,7 +103,7 @@
       <Group fx:id="pauseGroup" layoutX="614.0" layoutY="233.0" opacity="0.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d5ecff00" height="200.0" layoutX="-75.0" layoutY="5.0" opacity="0.71" scaleX="1.5" scaleY="1.5" stroke="#3100b7" strokeType="INSIDE" strokeWidth="5.0" width="200.0" />
-            <VBox alignment="CENTER" layoutX="-96.0" spacing="5.0">
+            <VBox alignment="CENTER" layoutX="-96.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#resume" opacity="0.76" prefHeight="65.0" prefWidth="178.0" style="-fx-background-color: navy;" text="Resume" textFill="WHITE">
                      <font>

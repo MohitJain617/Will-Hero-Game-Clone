@@ -86,15 +86,7 @@ public class GamePlay implements Initializable {
         st.fade(mainGroup,300,1).play();
     }
     public void showEndMenu(ActionEvent e) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EndGameMenu.fxml"));
-        Parent root = loader.load();
-        Endgame endgame = loader.getController();
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        endgame.bounce();
+        new SceneController().changeScene(e,"EndGameMenu.fxml");
     }
     public void showGamePlay(ActionEvent e) throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
