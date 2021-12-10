@@ -25,9 +25,9 @@ public class BossOrc extends GreenOrc{
     @Override
     public double getYspeed(){return this.ySpeed;}
     @Override
-    public void setXspeed(double x){this.xSpeed += x;}
+    public void setXspeed(double x){this.xSpeed = x;}
     @Override
-    public void setYspeed(double y){this.ySpeed += y;}
+    public void setYspeed(double y){this.ySpeed = y;}
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();

@@ -9,10 +9,10 @@ public class RedOrc extends Orcs{
     ImageView iv;
     double xSpeed; double ySpeed;
     public RedOrc(double xloc, double yloc) {
+
         super(xloc, yloc, 1, 20);
         Image image = new Image("orcredFinal.png");
-        iv = new ImageView();
-        iv.setImage(image);
+        iv = new ImageView(image);
         iv.setPreserveRatio(true);
         iv.setX(xloc); iv.setY(yloc);
         iv.setFitHeight(71); iv.setFitWidth(84);
@@ -24,9 +24,9 @@ public class RedOrc extends Orcs{
     @Override
     public double getYspeed(){return this.ySpeed;}
     @Override
-    public void setXspeed(double x){this.xSpeed += x;}
+    public void setXspeed(double x){this.xSpeed = x;}
     @Override
-    public void setYspeed(double y){this.ySpeed += y;}
+    public void setYspeed(double y){this.ySpeed = y;}
 
     @Override
     public void gravityEffect() {

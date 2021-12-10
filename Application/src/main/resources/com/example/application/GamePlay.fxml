@@ -38,17 +38,17 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="161.0" fitWidth="265.0" layoutX="530.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../cloud2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="68.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="162.0" fitWidth="292.0" layoutX="68.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../cloud1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="758.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="202.0" fitWidth="305.0" layoutX="900.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../cloud1.png" />
                </image>
@@ -61,23 +61,43 @@
                   <ColorAdjust brightness="0.26" contrast="1.0" hue="0.66" saturation="-0.3" />
                </effect>
             </ImageView>
-            <TextField layoutX="1094.0" layoutY="27.0" opacity="0.27" prefHeight="54.0" prefWidth="149.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
-            <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="1112.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <TextField layoutX="1076.0" layoutY="27.0" opacity="0.27" prefHeight="54.0" prefWidth="187.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
+            <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1086.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../coin1.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1175.0" layoutY="65.0" stroke="WHITE" strokeType="OUTSIDE" text="21" wrappingWidth="64.3553466796875">
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1136.0" layoutY="63.0" stroke="WHITE" strokeType="OUTSIDE" text="21 Coins" wrappingWidth="147.5552978515625">
                <font>
-                  <Font name="SansSerif Bold" size="33.0" />
+                  <Font name="SansSerif Bold" size="28.0" />
                </font>
             </Text>
-            <ImageView blendMode="MULTIPLY" fitHeight="41.0" fitWidth="47.0" layoutX="40.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="56.0" fitWidth="77.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../volume.png" />
+                  <Image url="@../../../speaker.png" />
                </image>
             </ImageView>
             <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" prefHeight="718.0" prefWidth="1302.0" />
+            <Slider layoutX="91.0" layoutY="41.0" prefHeight="20.0" prefWidth="180.0" value="45.0">
+               <effect>
+                  <ColorAdjust contrast="-0.08" hue="0.56" />
+               </effect>
+            </Slider>
+            <ImageView fitHeight="114.0" fitWidth="106.0" layoutX="900.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../cloud2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="94.0" fitWidth="152.0" layoutX="360.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../cloud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="114.0" fitWidth="106.0" layoutX="720.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../cloud2.png" />
+               </image>
+            </ImageView>
          </children>
       </Group>
       <Group fx:id="pauseGroup" layoutX="614.0" layoutY="233.0" opacity="0.0">
@@ -104,6 +124,5 @@
             </VBox>
          </children>
       </Group>
-      <Slider style="-fx-region-background: black;" value="40.0" />
    </children>
 </AnchorPane>

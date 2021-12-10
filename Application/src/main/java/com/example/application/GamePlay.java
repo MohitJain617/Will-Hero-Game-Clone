@@ -35,6 +35,7 @@ public class GamePlay implements Initializable {
     Group mainGroup;
 
     public GamePlay(){
+
         hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
@@ -76,6 +77,7 @@ public class GamePlay implements Initializable {
         st.fade(pauseGroup,300,1).play();
         st.fade(mainGroup,300,0.7).play();
     }
+
     public void resume(ActionEvent e){
         animator.start();
         pauseGroup.setDisable(true);

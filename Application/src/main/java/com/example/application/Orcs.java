@@ -3,6 +3,7 @@ package com.example.application;
 public abstract class Orcs extends Obstacle{
     private int health;
     private Coins coins;
+
     public Orcs(double x, double y, int points, int health) {
         super(x, y);
         coins = new Coins(points);
