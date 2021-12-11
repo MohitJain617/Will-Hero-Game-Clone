@@ -40,7 +40,7 @@ public class GamePlay implements Initializable {
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
         obstacles.add(new RedOrc(1000,206));
-        obstacles.add(new BossOrc(659,206));
+        obstacles.add(new BossOrc(659,126));
         animator = new AnimationTimer(){
 
             @Override
@@ -51,7 +51,7 @@ public class GamePlay implements Initializable {
                 //gravity on obstacles
                 for(Obstacle obs: obstacles){
                     if(obs instanceof Orcs){
-                        ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.3);
+                        ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.35);
                     }
                     obs.gravityEffect();
                 }
@@ -100,9 +100,9 @@ public class GamePlay implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hero.display(game_pane);
-        islands.add(new Island(113,446,358,126,"island1.png"));
-        islands.add(new Island(945,446,358,126,"island1.png"));
-        islands.add(new Island(500,446,358,126,"island1.png"));
+        islands.add(new Island(113,366,358,126,"island1.png"));
+        islands.add(new Island(945,366,358,126,"island1.png"));
+        islands.add(new Island(500,366,358,126,"island1.png"));
         for (Island island : islands) island.display(game_pane);
         for(Obstacle obs: obstacles) obs.display(game_pane);
         pauseGroup.setDisable(true);

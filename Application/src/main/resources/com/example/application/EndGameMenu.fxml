@@ -3,6 +3,7 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -87,9 +88,10 @@
             </Group>
          </children>
       </VBox>
-      <ImageView fitHeight="62.0" fitWidth="59.0" layoutX="33.0" layoutY="16.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="27.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickOnSetting" opacity="0.07" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: black;" />
+      <ImageView blendMode="MULTIPLY" disable="true" fitHeight="49.0" fitWidth="47.0" layoutX="33.0" layoutY="16.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../settingIcon.png" />
+            <Image url="@../../../images.png" />
          </image>
       </ImageView>
       <Label layoutX="487.0" layoutY="149.0" prefHeight="86.0" prefWidth="311.0" text=" Highest Score : 76">
@@ -102,17 +104,27 @@
             <Font name="SansSerif Bold" size="31.0" />
          </font>
       </Label>
-      <TextField layoutX="1072.0" layoutY="18.0" opacity="0.27" prefHeight="54.0" prefWidth="187.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
+      <TextField disable="true" editable="false" layoutX="1072.0" layoutY="18.0" opacity="0.27" prefHeight="54.0" prefWidth="187.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
       <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1082.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1132.0" layoutY="54.0" stroke="WHITE" strokeType="OUTSIDE" text="36 Coins" wrappingWidth="147.5552978515625">
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1132.0" layoutY="54.0" stroke="BLACK" strokeType="OUTSIDE" text="36 Coins" wrappingWidth="147.5552978515625">
          <font>
             <Font name="SansSerif Bold" size="28.0" />
          </font>
       </Text>
-      <TextField disable="true" editable="false" layoutX="28.0" layoutY="12.0" opacity="0.27" prefHeight="66.0" prefWidth="69.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
+      <Group fx:id="settingGroup" layoutX="41.0" layoutY="89.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" opacity="0.55" stroke="WHITE" strokeType="INSIDE" width="188.0" />
+            <Slider layoutX="3.0" layoutY="1.0" prefHeight="38.0" prefWidth="183.0" value="30.0" />
+            <Label layoutX="50.0" layoutY="28.0" text="Volume" textFill="#0036a6">
+               <font>
+                  <Font name="Lucida Console" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
    </children>
 </AnchorPane>

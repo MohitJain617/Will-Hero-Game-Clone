@@ -76,10 +76,9 @@
          <image>
             <Image url="@../../../treasure_open.png" />
          </image>
-      </ImageView>
-      <ImageView fitHeight="301.0" fitWidth="441.0" layoutX="443.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView><ImageView fitHeight="301.0" fitWidth="441.0" layoutX="455.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../willherotitle.png" />
+            <Image url="@../../../willherotitle_1.png" />
          </image>
          <effect>
             <ColorAdjust brightness="0.08" contrast="0.36" hue="0.03" saturation="0.01" />
@@ -98,7 +97,7 @@
             <MotionBlur angle="40.37" radius="3.52" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="629.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="612.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
@@ -130,7 +129,7 @@
             <MotionBlur angle="87.48" radius="3.52" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="668.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="644.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
@@ -142,17 +141,11 @@
          <image>
             <Image url="@../../../coin1.png" />
          </image>
-         <effect>
-            <MotionBlur angle="40.37" radius="3.52" />
-         </effect>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="585.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="585.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
-         <effect>
-            <MotionBlur angle="40.37" radius="3.52" />
-         </effect>
       </ImageView>
       <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="558.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -178,13 +171,15 @@
             <MotionBlur angle="40.37" radius="3.52" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="604.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="548.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
-         <effect>
-            <MotionBlur angle="40.37" radius="3.52" />
-         </effect>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="665.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../coin1.png" />
+         </image>
       </ImageView>
    </children>
 </AnchorPane>

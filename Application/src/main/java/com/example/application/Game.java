@@ -103,9 +103,6 @@ public class Game extends Application implements Initializable{
         if(this.settingGroup.getOpacity() == 0) showSetting();
         else hideSettings();
     }
-    public void showEndMenu(ActionEvent e) throws IOException {
-        st.changeScene(e,"EndGameMenu.fxml");
-    }
 
     private void fadeintro(Scene fadeScene){
 

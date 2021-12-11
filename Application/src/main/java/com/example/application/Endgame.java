@@ -4,6 +4,7 @@ import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.ParallelCamera;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +25,9 @@ public class Endgame implements Initializable {
 
     @FXML
     AnchorPane end_pane;
+
+    @FXML
+    Group settingGroup;
 
     public Endgame(){
         orcs = new ArrayList<Orcs>();
@@ -64,12 +68,28 @@ public class Endgame implements Initializable {
         new SceneController().changeScene(e,"GamePlay.fxml");
     }
 
+    public void showSetting(){
+        this.settingGroup.setDisable(false);
+        new SceneController().fade(settingGroup,200,1).play();
+    }
+    public void hideSettings(){
+        this.settingGroup.setDisable(true);
+        new SceneController().fade(settingGroup,200,0).play();
+    }
+    public void clickOnSetting(ActionEvent e){
+        if(this.settingGroup.getOpacity() == 0) showSetting();
+        else hideSettings();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(end_pane != null) {
             for (Orcs orc : orcs) orc.display(end_pane);
             for (Island isle: islands) isle.display(end_pane);
             animator.start();
+        }
+        if(settingGroup != null){
+            this.settingGroup.setDisable(true);
+            this.settingGroup.setOpacity(0);
         }
     }
 }
