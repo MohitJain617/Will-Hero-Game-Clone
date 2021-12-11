@@ -32,6 +32,8 @@ public class Game extends Application implements Initializable{
     Group mainGroup;
     @FXML
     Group highScores;
+    @FXML
+    Group settingGroup;
 
     public Game(){
         st = new SceneController();
@@ -89,6 +91,18 @@ public class Game extends Application implements Initializable{
         st.fade(highScores,300,0).play();
         this.highScores.setDisable(true);
     }
+    public void showSetting(){
+        this.settingGroup.setDisable(false);
+        st.fade(settingGroup,200,1).play();
+    }
+    public void hideSettings(){
+        this.settingGroup.setDisable(true);
+        st.fade(settingGroup,200,0).play();
+    }
+    public void clickOnSetting(ActionEvent e){
+        if(this.settingGroup.getOpacity() == 0) showSetting();
+        else hideSettings();
+    }
     public void showEndMenu(ActionEvent e) throws IOException {
         st.changeScene(e,"EndGameMenu.fxml");
     }
@@ -125,6 +139,10 @@ public class Game extends Application implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(highScores != null){
             this.highScores.setDisable(true);
+        }
+        if(settingGroup != null){
+            this.settingGroup.setDisable(true);
+            this.settingGroup.setOpacity(0);
         }
     }
 }
