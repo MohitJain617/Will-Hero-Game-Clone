@@ -12,6 +12,7 @@ public abstract class GameObject implements Serializable {
         loc = new Location(x,y);
     }
     public abstract void gravityEffect();
+    public abstract void updateLocation();
     public abstract void ifHeroCollides(Hero hero); //action after hero collides
     public abstract void display(AnchorPane anc);
     public void setLocation(double x, double y){

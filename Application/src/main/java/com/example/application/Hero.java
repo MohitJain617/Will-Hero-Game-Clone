@@ -39,6 +39,13 @@ public class Hero extends GameObject{
     }
 
     @Override
+    public void updateLocation() {
+        Location curr = this.getLocation();
+        iv.setX(curr.getX());
+        iv.setY(curr.getY());
+    }
+
+    @Override
     public void ifHeroCollides(Hero hero) {
         //do nothing since hero can't collide with itself
     }

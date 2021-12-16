@@ -29,6 +29,13 @@ public class RedOrc extends Orcs{
     public void setYspeed(double y){this.ySpeed = y;}
 
     @Override
+    public void updateLocation() {
+        Location curr = this.getLocation();
+        iv.setX(curr.getX());
+        iv.setY(curr.getY());
+    }
+
+    @Override
     public void gravityEffect() {
         Location curr = this.getLocation();
         this.setLocation(curr.getX()+xSpeed,curr.getY()+ySpeed);

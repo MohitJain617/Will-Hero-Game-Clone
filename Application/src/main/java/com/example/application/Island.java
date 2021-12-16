@@ -16,7 +16,7 @@ public class Island extends GameObject implements ObstacleCollision{
         iv = new ImageView(img);
         iv.setFitHeight(ywidth);
         iv.setFitWidth(xwidth);
-        iv.setLayoutX(x); iv.setLayoutY(y);
+        iv.setX(x); iv.setY(y);
         iv.setPickOnBounds(true);
         iv.setPreserveRatio(true);
     }
@@ -25,6 +25,13 @@ public class Island extends GameObject implements ObstacleCollision{
     public void gravityEffect() {
         //nothing boi
     }
+    @Override
+    public void updateLocation() {
+        Location curr = this.getLocation();
+        iv.setX(curr.getX());
+        iv.setY(curr.getY());
+    }
+
 
     @Override
     public void ifHeroCollides(Hero hero) {

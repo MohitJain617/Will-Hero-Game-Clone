@@ -35,6 +35,13 @@ public class BossOrc extends GreenOrc{
         iv.setX(curr.getX()+xSpeed);
         iv.setY(curr.getY()+ySpeed);
     }
+    @Override
+    public void updateLocation() {
+        Location curr = this.getLocation();
+        iv.setX(curr.getX());
+        iv.setY(curr.getY());
+    }
+
 
     @Override
     public void ifHeroCollides(Hero hero) {

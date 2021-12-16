@@ -92,7 +92,7 @@
                   <Image url="@../../../cloud2.png" />
                </image>
             </ImageView>
-            <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" prefHeight="718.0" prefWidth="1302.0" />
+            <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" onMouseClicked="#heroDash" prefHeight="718.0" prefWidth="1302.0" />
             <Group layoutY="1.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" opacity="0.51" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />

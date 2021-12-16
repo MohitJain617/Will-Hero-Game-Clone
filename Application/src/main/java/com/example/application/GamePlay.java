@@ -24,6 +24,7 @@ public class GamePlay implements Initializable {
     private ArrayList<Island> islands;
     private ArrayList<Obstacle> obstacles;
     AnimationTimer animator;
+    private long dashTime;
 
     @FXML
     AnchorPane game_pane;
@@ -41,10 +42,11 @@ public class GamePlay implements Initializable {
         obstacles = new ArrayList<Obstacle>();
         obstacles.add(new RedOrc(1000,206));
         obstacles.add(new BossOrc(659,126));
+        dashTime = System.nanoTime();
         animator = new AnimationTimer(){
 
             @Override
-            public void handle(long l) {
+            public void handle(long now) {
                 //normal gravity on hero
                 hero.setYspeed(hero.getYspeed() + 0.25);
                 hero.gravityEffect();
@@ -54,6 +56,20 @@ public class GamePlay implements Initializable {
                         ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.35);
                     }
                     obs.gravityEffect();
+                }
+                //check for dash
+                if(dashTime > now){
+                   //make the objects move forward
+                    for(Obstacle obs: obstacles){
+                        Location curr = obs.getLocation();
+                        obs.setLocation(curr.getX()-40,curr.getY());
+                        obs.updateLocation();
+                    }
+                    for(Island currIsland : islands){
+                        Location curr = currIsland.getLocation();
+                        currIsland.setLocation(curr.getX()-40,curr.getY());
+                        currIsland.updateLocation();
+                    }
                 }
                 for (Island currIsland : islands) {
                     //check collision with hero
@@ -69,6 +85,9 @@ public class GamePlay implements Initializable {
                 }
             }
         };
+    }
+    public void heroDash(MouseEvent e){
+        dashTime = System.nanoTime() + 200000000;
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
