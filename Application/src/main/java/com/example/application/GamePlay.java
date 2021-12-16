@@ -48,8 +48,13 @@ public class GamePlay implements Initializable {
             @Override
             public void handle(long now) {
                 //normal gravity on hero
-                hero.setYspeed(hero.getYspeed() + 0.25);
-                hero.gravityEffect();
+                if(dashTime <= now) {
+                    hero.setYspeed(hero.getYspeed() + 0.3);
+                    hero.gravityEffect();
+                } else {
+                    hero.setYspeed(hero.getYspeed() + 0.05);
+                    hero.gravityEffect();
+                }
                 //gravity on obstacles
                 for(Obstacle obs: obstacles){
                     if(obs instanceof Orcs){
@@ -59,15 +64,16 @@ public class GamePlay implements Initializable {
                 }
                 //check for dash
                 if(dashTime > now){
+                    int dashSpeed = 60;
                    //make the objects move forward
                     for(Obstacle obs: obstacles){
                         Location curr = obs.getLocation();
-                        obs.setLocation(curr.getX()-40,curr.getY());
+                        obs.setLocation(curr.getX()-dashSpeed,curr.getY());
                         obs.updateLocation();
                     }
                     for(Island currIsland : islands){
                         Location curr = currIsland.getLocation();
-                        currIsland.setLocation(curr.getX()-40,curr.getY());
+                        currIsland.setLocation(curr.getX()-dashSpeed,curr.getY());
                         currIsland.updateLocation();
                     }
                 }
@@ -87,7 +93,7 @@ public class GamePlay implements Initializable {
         };
     }
     public void heroDash(MouseEvent e){
-        dashTime = System.nanoTime() + 200000000;
+        dashTime = System.nanoTime() + 150000000;
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
