@@ -16,7 +16,7 @@ public class BossOrc extends GreenOrc{
         iv.setImage(image);
         iv.setPreserveRatio(true);
         iv.setX(xloc); iv.setY(yloc);
-        iv.setFitHeight(216); iv.setFitWidth(211);
+        iv.setFitHeight(172.8); iv.setFitWidth(168.8);
         xSpeed = 0; ySpeed = 0;
     }
 
