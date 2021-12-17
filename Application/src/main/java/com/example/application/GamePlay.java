@@ -54,7 +54,8 @@ public class GamePlay implements Initializable {
                     hero.gravityEffect();
 
                 } else {
-                    hero.setYspeed(0);
+                   hero.setYspeed(0.5);
+                   hero.gravityEffect();
                 }
 
                 //gravity on obstacles
@@ -64,10 +65,9 @@ public class GamePlay implements Initializable {
                     }
                     obs.gravityEffect();
                 }
+
                 //check for dash
-
                 int dashSpeed = 60 ;
-
                 if(dashTime > now){
 
                    //make the objects move forward
