@@ -67,11 +67,8 @@ public class GamePlay implements Initializable {
                 //check for dash
 
                 int dashSpeed = 60 ;
-                if(dashTime > now){
 
-                    if(dashTime-now < 30*(1500000)) {
-                        dashSpeed -= Math.max(10, dashSpeed - 0.2);
-                    }
+                if(dashTime > now){
 
                    //make the objects move forward
                     for(Obstacle obs: obstacles){
