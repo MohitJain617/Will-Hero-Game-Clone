@@ -15,7 +15,7 @@ public class RedOrc extends Orcs{
         iv = new ImageView(image);
         iv.setPreserveRatio(true);
         iv.setX(xloc); iv.setY(yloc);
-        iv.setFitHeight(71); iv.setFitWidth(84);
+        iv.setFitHeight(57); iv.setFitWidth(67.5);
         xSpeed = 0; ySpeed = 0;
     }
 
