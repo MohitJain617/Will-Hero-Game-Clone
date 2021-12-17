@@ -40,13 +40,19 @@ public class GamePlay implements Initializable {
         hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
-        obstacles.add(new RedOrc(1000,206));
-        obstacles.add(new BossOrc(659,126));
+        obstacles.add(new RedOrc(1300,206));
+        obstacles.add(new BossOrc(720,126));
         dashTime = System.nanoTime();
         animator = new AnimationTimer(){
 
             @Override
             public void handle(long now) {
+
+                if(!hero.isAlive()) {
+                    System.out.println(hero.getLocation().getY());
+                    System.out.println("Hero died!");              // Show end menu
+                    System.exit(0);
+                }
                 //normal gravity on hero
                 if(dashTime <= now) {
                     hero.setXspeed(0);
@@ -97,8 +103,10 @@ public class GamePlay implements Initializable {
             }
         };
     }
+
     public void heroDash(MouseEvent e){
         dashTime = System.nanoTime() + 150000000;
+        System.out.println(hero.getLocation().getY());
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
@@ -130,9 +138,18 @@ public class GamePlay implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hero.display(game_pane);
-        islands.add(new Island(113,366,358,126,"island1.png"));
-        islands.add(new Island(945,366,358,126,"island1.png"));
-        islands.add(new Island(500,366,358,126,"island1.png"));
+
+        int x = 113;
+        for(int i=1;i<=50;i++){
+
+            islands.add(new Island(x+0,368,358,126,"island1.png"));
+            islands.add(new Island(x+520,363,358,126,"island_large2.png"));
+            islands.add(new Island(x+1080,366,358,126,"island_large1.png"));
+            islands.add(new Island(x+1550,360,400,130,"island_med.png"));
+            islands.add(new Island(x+2050,364,358,160,"island_large2.png"));
+            x+=2550 ;
+        }
+
         for (Island island : islands) island.display(game_pane);
         for(Obstacle obs: obstacles) obs.display(game_pane);
         pauseGroup.setDisable(true);

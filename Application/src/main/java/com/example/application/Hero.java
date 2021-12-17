@@ -26,6 +26,10 @@ public class Hero extends GameObject{
         iv.setPreserveRatio(true);
     }
 
+    public boolean isAlive(){
+        return this.getLocation().getY() <= 480 ;
+    }
+
     @Override
     public Bounds getBounds(){
         return this.iv.getBoundsInParent();
@@ -56,7 +60,6 @@ public class Hero extends GameObject{
     public double getYspeed(){
         return ySpeed;
     }
-
     public void setXspeed(double speed){
         xSpeed = speed;
     }
