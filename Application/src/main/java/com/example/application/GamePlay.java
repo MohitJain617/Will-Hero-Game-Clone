@@ -49,23 +49,14 @@ public class GamePlay implements Initializable {
             public void handle(long now) {
                 //normal gravity on hero
                 if(dashTime <= now) {
+                    hero.setXspeed(0);
                     hero.setYspeed(hero.getYspeed() + 0.3);
                     hero.gravityEffect();
 
                 } else {
-
                     hero.setYspeed(0);
-
-                    if(now < 70*(dashTime/100)) {
-                        hero.setXspeed(hero.getXspeed() + 0.02);
-                        hero.gravityEffect();
-                    }
-
-                    else{
-                        hero.setXspeed(hero.getXspeed() - 0.03);
-                        hero.gravityEffect();
-                    }
                 }
+
                 //gravity on obstacles
                 for(Obstacle obs: obstacles){
                     if(obs instanceof Orcs){
@@ -74,8 +65,14 @@ public class GamePlay implements Initializable {
                     obs.gravityEffect();
                 }
                 //check for dash
+
+                int dashSpeed = 60 ;
                 if(dashTime > now){
-                    int dashSpeed = 60;
+
+                    if(dashTime-now < 30*(1500000)) {
+                        dashSpeed -= Math.max(10, dashSpeed - 0.2);
+                    }
+
                    //make the objects move forward
                     for(Obstacle obs: obstacles){
                         Location curr = obs.getLocation();
