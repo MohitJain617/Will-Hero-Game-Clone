@@ -51,9 +51,20 @@ public class GamePlay implements Initializable {
                 if(dashTime <= now) {
                     hero.setYspeed(hero.getYspeed() + 0.3);
                     hero.gravityEffect();
+
                 } else {
-                    hero.setYspeed(hero.getYspeed() + 0.05);
-                    hero.gravityEffect();
+
+                    hero.setYspeed(0);
+
+                    if(now < 70*(dashTime/100)) {
+                        hero.setXspeed(hero.getXspeed() + 0.02);
+                        hero.gravityEffect();
+                    }
+
+                    else{
+                        hero.setXspeed(hero.getXspeed() - 0.03);
+                        hero.gravityEffect();
+                    }
                 }
                 //gravity on obstacles
                 for(Obstacle obs: obstacles){

@@ -56,6 +56,14 @@ public class Hero extends GameObject{
     public double getYspeed(){
         return ySpeed;
     }
+
+    public void setXspeed(double speed){
+        xSpeed = speed;
+    }
+    public double getXspeed(){
+        return xSpeed;
+    }
+
     @Override
     public void display(AnchorPane anc) {
         //add iv to the AnchorPane
