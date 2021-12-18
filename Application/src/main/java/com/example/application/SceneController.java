@@ -31,6 +31,15 @@ public class SceneController {
         fade.setCycleCount(1);
         return fade;
     }
+
+    public void changeScene(Node e, String filename) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(filename)));
+        stage = (Stage)((e.getScene()).getWindow());
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void something(Node n1){
         TranslateTransition tran = new TranslateTransition();
     }

@@ -25,6 +25,7 @@ public class GamePlay implements Initializable {
     private ArrayList<Obstacle> obstacles;
     AnimationTimer animator;
     private long dashTime;
+    int cnt = 0 ;
 
     @FXML
     AnchorPane game_pane;
@@ -40,8 +41,8 @@ public class GamePlay implements Initializable {
         hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
-        obstacles.add(new RedOrc(1300,206));
-        obstacles.add(new BossOrc(720,126));
+//        obstacles.add(new RedOrc(1300,206));
+//        obstacles.add(new BossOrc(720,126));
         dashTime = System.nanoTime();
         animator = new AnimationTimer(){
 
@@ -51,7 +52,13 @@ public class GamePlay implements Initializable {
                 if(!hero.isAlive()) {
                     System.out.println(hero.getLocation().getY());
                     System.out.println("Hero died!");              // Show end menu
-                    System.exit(0);
+                    try {
+                        animator.stop();
+                        new SceneController().changeScene(game_pane,"EndGameMenu.fxml");
+                        return ;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 //normal gravity on hero
                 if(dashTime <= now) {
@@ -106,7 +113,7 @@ public class GamePlay implements Initializable {
 
     public void heroDash(MouseEvent e){
         dashTime = System.nanoTime() + 150000000;
-        System.out.println(hero.getLocation().getY());
+        System.out.println(cnt++);
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
@@ -140,15 +147,21 @@ public class GamePlay implements Initializable {
         hero.display(game_pane);
 
         int x = 113;
-        for(int i=1;i<=50;i++){
+        for(int i=1;i<=11;i++){
 
             islands.add(new Island(x+0,368,358,126,"island1.png"));
             islands.add(new Island(x+520,363,358,126,"island_large2.png"));
-            islands.add(new Island(x+1080,366,358,126,"island_large1.png"));
-            islands.add(new Island(x+1550,360,400,130,"island_med.png"));
+            obstacles.add(new RedOrc(x+700,206));
+            islands.add(new Island(x+1080,368,358,126,"island_large1.png"));
+            islands.add(new Island(x+1550,375,400,130,"island_med.png"));
+            obstacles.add(new StdOrc(x+1700,126));
             islands.add(new Island(x+2050,364,358,160,"island_large2.png"));
+            obstacles.add(new StdOrc(x+2200,126));
             x+=2550 ;
         }
+
+        islands.add(new Island(x,364,358,160,"island_large2.png"));
+        obstacles.add(new BossOrc(x+100,126));
 
         for (Island island : islands) island.display(game_pane);
         for(Obstacle obs: obstacles) obs.display(game_pane);

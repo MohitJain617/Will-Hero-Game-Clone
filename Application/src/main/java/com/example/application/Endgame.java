@@ -38,6 +38,7 @@ public class Endgame implements Initializable {
         islands = new ArrayList<Island>();
         islands.add(new Island(801,460,433,172,"island_large1.png"));
         islands.add(new Island(45,455,407,162,"island1.png"));
+
         animator = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -80,6 +81,7 @@ public class Endgame implements Initializable {
         if(this.settingGroup.getOpacity() == 0) showSetting();
         else hideSettings();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(end_pane != null) {
