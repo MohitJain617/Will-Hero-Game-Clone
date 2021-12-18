@@ -23,6 +23,7 @@ public class GamePlay implements Initializable {
     private Hero hero;
     private ArrayList<Island> islands;
     private ArrayList<Obstacle> obstacles;
+    private ArrayList<Reward> rewards;
     AnimationTimer animator;
     private long dashTime;
     int cnt = 0 ;
@@ -41,6 +42,8 @@ public class GamePlay implements Initializable {
         hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
+        rewards = new ArrayList<Reward>();
+        rewards.add(new CoinChest(720,305));
 //        obstacles.add(new RedOrc(1300,206));
 //        obstacles.add(new BossOrc(720,126));
         dashTime = System.nanoTime();
@@ -94,6 +97,11 @@ public class GamePlay implements Initializable {
                         currIsland.setLocation(curr.getX()-dashSpeed,curr.getY());
                         currIsland.updateLocation();
                     }
+                    for(Reward reward: rewards){
+                        Location curr = reward.getLocation();
+                        reward.setLocation(curr.getX()-dashSpeed,curr.getY());
+                        reward.updateLocation();
+                    }
                 }
                 for (Island currIsland : islands) {
                     //check collision with hero
@@ -105,6 +113,11 @@ public class GamePlay implements Initializable {
                         if(currIsland.checkCollision(obs)){
                             currIsland.ifObstacleCollides(obs);
                         }
+                    }
+                }
+                for(Reward reward: rewards){
+                    if(reward.checkCollision(hero)){
+                        reward.ifHeroCollides(hero);
                     }
                 }
             }
@@ -165,6 +178,7 @@ public class GamePlay implements Initializable {
 
         for (Island island : islands) island.display(game_pane);
         for(Obstacle obs: obstacles) obs.display(game_pane);
+        for(Reward rew: rewards) rew.display(game_pane);
         pauseGroup.setDisable(true);
         animator.start();
     }
