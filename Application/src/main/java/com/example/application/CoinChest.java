@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class CoinChest extends Reward{
+
     boolean retrieved;
     public CoinChest(double x, double y) {
         super(x, y);

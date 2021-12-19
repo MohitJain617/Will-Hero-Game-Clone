@@ -27,7 +27,7 @@ public class Hero extends GameObject{
     }
 
     public boolean isAlive(){
-        return this.getLocation().getY() <= 480 ;
+        return this.getLocation().getY() <= 550 ;
     }
 
     @Override
@@ -69,7 +69,6 @@ public class Hero extends GameObject{
 
     @Override
     public void display(AnchorPane anc) {
-        //add iv to the AnchorPane
         anc.getChildren().add(iv);
     }
 

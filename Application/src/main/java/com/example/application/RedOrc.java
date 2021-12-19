@@ -12,6 +12,7 @@ public class RedOrc extends Orcs{
         super(xloc, yloc, 1, 20);
         Image image = new Image("orcredFinal.png");
         ImageView iv = new ImageView(image);
+        iv.setPickOnBounds(true);
         iv.setPreserveRatio(true);
         iv.setX(xloc); iv.setY(yloc);
         iv.setFitHeight(57); iv.setFitWidth(67.5);

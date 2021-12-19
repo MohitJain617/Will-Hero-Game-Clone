@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class GamePlay implements Initializable {
@@ -26,6 +27,7 @@ public class GamePlay implements Initializable {
     private ArrayList<Reward> rewards;
     AnimationTimer animator;
     private long dashTime;
+    private final Random random ;
     int cnt = 0 ;
 
     @FXML
@@ -39,13 +41,11 @@ public class GamePlay implements Initializable {
 
     public GamePlay(){
 
-        hero = new Hero(300.0,230.0);
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
         rewards = new ArrayList<Reward>();
-        rewards.add(new CoinChest(720,305));
-//        obstacles.add(new RedOrc(1300,206));
-//        obstacles.add(new BossOrc(720,126));
+        random = new Random();
+        setup_Game();
         dashTime = System.nanoTime();
         animator = new AnimationTimer(){
 
@@ -124,6 +124,44 @@ public class GamePlay implements Initializable {
         };
     }
 
+    public void setup_Game(){
+
+        hero = new Hero(300.0,230.0);
+        rewards.add(new CoinChest(2800,310));
+
+        int x = 250;
+
+        String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
+        String []Small_Island_Images = {"island_med.png","island_small.png"};
+
+        for(int i=1;i<=11;i++){
+
+            ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
+            ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
+
+            for(int k=1;k<=3;k++){ ind1.add(random.nextInt(Large_Island_Images.length)); }
+            for(int k=1;k<=2;k++){ ind2.add(random.nextInt(Small_Island_Images.length)); }
+
+            islands.add(new Island(x+0,368,358,126,Large_Island_Images[ind1.get(0)]));
+            islands.add(new Island(x+500,363,358,126,Small_Island_Images[ind2.get(0)]));
+
+            obstacles.add(new RedOrc(x+600,126));
+
+            islands.add(new Island(x+950,368,358,126,Large_Island_Images[ind1.get(1)]));
+            islands.add(new Island(x+1450,375,358,126,Small_Island_Images[ind2.get(1)]));
+
+            obstacles.add(new StdOrc(x+1550,126));
+
+            islands.add(new Island(x+1900,364,358,160,Large_Island_Images[ind1.get(2)]));
+            obstacles.add(new StdOrc(x+2000,126));
+
+            x+=2450 ;
+        }
+
+        islands.add(new Island(x,364,358,160,"island_large2.png"));
+        obstacles.add(new BossOrc(x+100,126));
+    }
+
     public void heroDash(MouseEvent e){
         dashTime = System.nanoTime() + 150000000;
         System.out.println(cnt++);
@@ -152,30 +190,12 @@ public class GamePlay implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         hero.display(game_pane);
-
-        int x = 113;
-        for(int i=1;i<=11;i++){
-
-            islands.add(new Island(x+0,368,358,126,"island1.png"));
-            islands.add(new Island(x+520,363,358,126,"island_large2.png"));
-            obstacles.add(new RedOrc(x+700,206));
-            islands.add(new Island(x+1080,368,358,126,"island_large1.png"));
-            islands.add(new Island(x+1550,375,400,130,"island_med.png"));
-            obstacles.add(new StdOrc(x+1700,126));
-            islands.add(new Island(x+2050,364,358,160,"island_large2.png"));
-            obstacles.add(new StdOrc(x+2200,126));
-            x+=2550 ;
-        }
-
-        islands.add(new Island(x,364,358,160,"island_large2.png"));
-        obstacles.add(new BossOrc(x+100,126));
-
         for (Island island : islands) island.display(game_pane);
         for(Obstacle obs: obstacles) obs.display(game_pane);
         for(Reward rew: rewards) rew.display(game_pane);

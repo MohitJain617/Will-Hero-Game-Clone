@@ -52,9 +52,12 @@ public class Island extends GameObject implements ObstacleCollision{
 
     @Override
     public void ifObstacleCollides(Obstacle obs) {
+
         if(obs instanceof Orcs){
-            ((Orcs) obs).setYspeed(-10.5);
-            ((Orcs) obs).setXspeed(0);
+            if(obs.getLocation().getY() < this.getLocation().getY()){
+                (obs).setYspeed(-10.5);
+                (obs).setXspeed(0);
+            }
         }
     }
 }
