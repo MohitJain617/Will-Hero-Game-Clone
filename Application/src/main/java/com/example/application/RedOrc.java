@@ -6,7 +6,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class RedOrc extends Orcs{
-    double xSpeed; double ySpeed;
     public RedOrc(double xloc, double yloc) {
 
         super(xloc, yloc, 1, 20);
@@ -16,7 +15,6 @@ public class RedOrc extends Orcs{
         iv.setPreserveRatio(true);
         iv.setX(xloc); iv.setY(yloc);
         iv.setFitHeight(57); iv.setFitWidth(67.5);
-        xSpeed = 0; ySpeed = 0;
         this.setImageView(iv);
     }
 

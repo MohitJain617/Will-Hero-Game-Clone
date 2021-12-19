@@ -120,6 +120,11 @@ public class GamePlay implements Initializable {
                         reward.ifHeroCollides(hero);
                     }
                 }
+                for(Obstacle obs: obstacles){
+                    if(obs.checkCollision(hero)){
+                        obs.ifHeroCollides(hero);
+                    }
+                }
             }
         };
     }
@@ -160,6 +165,8 @@ public class GamePlay implements Initializable {
 
         islands.add(new Island(x,364,358,160,"island_large2.png"));
         obstacles.add(new BossOrc(x+100,126));
+        //TNT
+        obstacles.add(new TNT(2200,295));
     }
 
     public void heroDash(MouseEvent e){

@@ -12,6 +12,7 @@ public class Hero extends GameObject{
     ImageView iv;
     private double ySpeed;
     private double xSpeed;
+    private boolean alive;
 
     public Hero(double x, double y){
         super(x,y);
@@ -24,10 +25,14 @@ public class Hero extends GameObject{
         iv.setFitWidth(103.68);
         iv.setX(x); iv.setY(y);
         iv.setPreserveRatio(true);
+        alive = true;
     }
-
+    public void damage(){
+        alive = false;
+    }
     public boolean isAlive(){
-        return this.getLocation().getY() <= 550 ;
+        if(this.getLocation().getY() > 480) alive = false;
+        return alive;
     }
 
     @Override
@@ -69,6 +74,7 @@ public class Hero extends GameObject{
 
     @Override
     public void display(AnchorPane anc) {
+        //add iv to the AnchorPane
         anc.getChildren().add(iv);
     }
 
