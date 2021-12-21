@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class GamePlay implements Initializable {
     private Hero hero;
@@ -51,7 +48,7 @@ public class GamePlay implements Initializable {
 
             @Override
             public void handle(long now) {
-
+                //-----HERO--------
                 if(!hero.isAlive()) {
                     System.out.println(hero.getLocation().getY());
                     System.out.println("Hero died!");              // Show end menu
@@ -74,6 +71,7 @@ public class GamePlay implements Initializable {
                    hero.gravityEffect();
                 }
 
+                //-------OBSTACLES and ISLANDS----------
                 //gravity on obstacles
                 for(Obstacle obs: obstacles){
                     if(obs instanceof Orcs){
@@ -86,7 +84,7 @@ public class GamePlay implements Initializable {
                 int dashSpeed = 60 ;
                 if(dashTime > now){
 
-                   //make the objects move forward
+                   //make the objects move backwards
                     for(Obstacle obs: obstacles){
                         Location curr = obs.getLocation();
                         obs.setLocation(curr.getX()-dashSpeed,curr.getY());
@@ -103,6 +101,7 @@ public class GamePlay implements Initializable {
                         reward.updateLocation();
                     }
                 }
+                //---------COLLISION CHECKS-------------
                 for (Island currIsland : islands) {
                     //check collision with hero
                     if (currIsland.checkCollision(hero)) {
@@ -115,6 +114,7 @@ public class GamePlay implements Initializable {
                         }
                     }
                 }
+                //hero vs reward and obstacles
                 for(Reward reward: rewards){
                     if(reward.checkCollision(hero)){
                         reward.ifHeroCollides(hero);
@@ -125,6 +125,9 @@ public class GamePlay implements Initializable {
                         obs.ifHeroCollides(hero);
                     }
                 }
+                //REMOVAL of OBSTACLES:
+                obstacles.removeIf(obs -> obs.isAlive() == false);
+
             }
         };
     }

@@ -17,14 +17,15 @@ public class TNT extends Obstacle{
         iv.setFitHeight(70); iv.setFitWidth(70);
         this.setImageView(iv);
         fuse = true;
-        timer = 1000000000;
+        timer = 1200000000;
     }
     @Override
     public void ifHeroCollides(Hero hero) {
         //kill hero
         if(fuse){
-//            hero.damage();
             blast();
+        } else if(System.nanoTime() < timer){
+            hero.damage();
         }
     }
     private void blast(){
@@ -47,6 +48,8 @@ public class TNT extends Obstacle{
     public boolean isAlive() {
         if((!fuse) && (System.nanoTime() - timer > 0)) {
             System.out.println("REMOVE TNT");
+            ImageView iv = this.getImageView();
+            iv.setOpacity(0);
             return false;
         }
         return true;
