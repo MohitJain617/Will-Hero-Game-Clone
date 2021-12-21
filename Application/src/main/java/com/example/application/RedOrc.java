@@ -14,13 +14,8 @@ public class RedOrc extends Orcs{
         iv.setPickOnBounds(true);
         iv.setPreserveRatio(true);
         iv.setX(xloc); iv.setY(yloc);
-        iv.setFitHeight(57); iv.setFitWidth(67.5);
+        iv.setFitHeight(67.5); iv.setFitWidth(67.5);
         this.setImageView(iv);
-    }
-
-    @Override
-    public void ifHeroCollides(Hero hero) {
-        //TODO
     }
 
     @Override

@@ -21,10 +21,10 @@ public class Hero extends GameObject{
         iv = new ImageView();
         img = new Image("hero.png");
         iv.setImage(img);
-        iv.setFitHeight(85.32);
-        iv.setFitWidth(103.68);
-        iv.setX(x); iv.setY(y);
         iv.setPreserveRatio(true);
+        iv.setFitHeight(90);
+        iv.setFitWidth(90);
+        iv.setX(x); iv.setY(y);
         alive = true;
     }
     public void damage(){

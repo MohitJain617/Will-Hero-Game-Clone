@@ -122,6 +122,7 @@ public class GamePlay implements Initializable {
                 }
                 for(Obstacle obs: obstacles){
                     if(obs.checkCollision(hero)){
+                        dashTime = 0;
                         obs.ifHeroCollides(hero);
                     }
                 }

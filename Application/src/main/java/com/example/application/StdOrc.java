@@ -21,11 +21,6 @@ public class StdOrc extends GreenOrc{
     }
 
     @Override
-    public void ifHeroCollides(Hero hero) {
-        //TODO
-    }
-
-    @Override
     public void ifWeaponCollides() {
         //TODO
     }
