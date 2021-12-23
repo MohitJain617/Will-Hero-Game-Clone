@@ -5,11 +5,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serial;
 import java.util.Objects;
 
 public class Hero extends GameObject{
-    Image img;
-    ImageView iv;
+    transient ImageView iv;
     private double ySpeed;
     private double xSpeed;
     private boolean alive;
@@ -18,15 +20,24 @@ public class Hero extends GameObject{
         super(x,y);
         ySpeed = 0;
         xSpeed = 0;
+        render();
+        alive = true;
+    }
+    private void render(){
         iv = new ImageView();
-        img = new Image("hero.png");
+        Image img = new Image("hero.png");
         iv.setImage(img);
         iv.setPreserveRatio(true);
         iv.setFitHeight(90);
         iv.setFitWidth(90);
-        iv.setX(x); iv.setY(y);
-        alive = true;
+        iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
     }
+    @Serial
+    private void readObject(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
+        inputStream.defaultReadObject();
+        render();
+    }
+
     public void damage(){
         alive = false;
     }

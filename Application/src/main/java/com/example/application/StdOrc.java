@@ -5,21 +5,31 @@ package com.example.application;
         import javafx.scene.image.ImageView;
         import javafx.scene.layout.AnchorPane;
 
-public class StdOrc extends GreenOrc{
-    double xSpeed; double ySpeed;
-    public StdOrc(double xloc, double yloc) {
+        import java.io.IOException;
+        import java.io.ObjectInputStream;
+        import java.io.Serial;
 
+public class StdOrc extends GreenOrc{
+    public StdOrc(double xloc, double yloc) {
         super(xloc, yloc, 1, 20);
+        render();
+    }
+
+    private void render(){
         Image image = new Image("orcfinal.png");
-        ImageView iv = new ImageView();
-        iv.setImage(image);
+        ImageView iv = new ImageView(image);
+        iv.setPickOnBounds(true);
         iv.setPreserveRatio(true);
-        iv.setX(xloc); iv.setY(yloc);
+        iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
         iv.setFitHeight(59); iv.setFitWidth(69);
-        xSpeed = 0; ySpeed = 0;
         this.setImageView(iv);
     }
 
+    @Serial
+    private void readObject(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
+        inputStream.defaultReadObject();
+        render();
+    }
     @Override
     public void ifWeaponCollides() {
         //TODO

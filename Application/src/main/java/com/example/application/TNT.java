@@ -3,21 +3,33 @@ package com.example.application;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serial;
+
 public class TNT extends Obstacle{
     private boolean fuse;
     private long timer;
     public TNT(double xloc, double yloc) {
         super(xloc, yloc);
-        Image image = new Image("TNT.png");
-        ImageView iv = new ImageView();
-        iv.setImage(image);
-        iv.setPreserveRatio(true);
-        iv.setPickOnBounds(true);
-        iv.setX(xloc); iv.setY(yloc);
-        iv.setFitHeight(70); iv.setFitWidth(70);
-        this.setImageView(iv);
+        render();
         fuse = true;
         timer = 1200000000;
+    }
+    private void render(){
+        Image image = new Image("TNT.png");
+        ImageView iv = new ImageView(image);
+        iv.setPickOnBounds(true);
+        iv.setPreserveRatio(true);
+        iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
+        iv.setFitHeight(70); iv.setFitWidth(70);
+        this.setImageView(iv);
+    }
+
+    @Serial
+    private void readObject(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
+        inputStream.defaultReadObject();
+        render();
     }
     @Override
     public void ifHeroCollides(Hero hero) {

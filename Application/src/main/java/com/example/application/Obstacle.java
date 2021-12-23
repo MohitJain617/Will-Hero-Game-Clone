@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public abstract class Obstacle extends GameObject implements ObstacleCollision{
-    ImageView iv;
+    transient ImageView iv;
     private double xSpeed;
     private double ySpeed;
 

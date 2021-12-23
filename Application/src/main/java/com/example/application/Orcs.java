@@ -1,6 +1,7 @@
 package com.example.application;
 
-public abstract class Orcs extends Obstacle{
+
+public abstract class Orcs extends Obstacle {
     private int health;
     private Coins coins;
 

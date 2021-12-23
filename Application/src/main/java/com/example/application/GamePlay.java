@@ -14,27 +14,28 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.*;
 
-public class GamePlay implements Initializable {
+public class GamePlay implements Initializable, Serializable {
     private Hero hero;
     private ArrayList<Island> islands;
     private ArrayList<Obstacle> obstacles;
     private ArrayList<Reward> rewards;
-    AnimationTimer animator;
+    transient AnimationTimer animator;
     private long dashTime;
     private final Random random ;
-    int cnt = 0 ;
+    private int cnt = 0 ;
 
     @FXML
-    AnchorPane game_pane;
+    transient AnchorPane game_pane;
 
     @FXML
-    Group pauseGroup;
+    transient Group pauseGroup;
 
     @FXML
-    Group mainGroup;
+    transient Group mainGroup;
 
     public GamePlay(){
 
@@ -44,6 +45,9 @@ public class GamePlay implements Initializable {
         random = new Random();
         setup_Game();
         dashTime = System.nanoTime();
+        animatorLogic();
+    }
+    private void animatorLogic(){
         animator = new AnimationTimer(){
 
             @Override
@@ -67,8 +71,8 @@ public class GamePlay implements Initializable {
                     hero.gravityEffect();
 
                 } else {
-                   hero.setYspeed(0.5);
-                   hero.gravityEffect();
+                    hero.setYspeed(0.5);
+                    hero.gravityEffect();
                 }
 
                 //-------OBSTACLES and ISLANDS----------
@@ -84,7 +88,7 @@ public class GamePlay implements Initializable {
                 int dashSpeed = 60 ;
                 if(dashTime > now){
 
-                   //make the objects move backwards
+                    //make the objects move backwards
                     for(Obstacle obs: obstacles){
                         Location curr = obs.getLocation();
                         obs.setLocation(curr.getX()-dashSpeed,curr.getY());
@@ -131,6 +135,7 @@ public class GamePlay implements Initializable {
 
             }
         };
+
     }
 
     public void setup_Game(){

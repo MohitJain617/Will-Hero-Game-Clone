@@ -5,20 +5,39 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serial;
+
 public class Island extends GameObject implements ObstacleCollision{
 
-    ImageView iv;
+    transient ImageView iv;
+    private double xWidth;
+    private double yWidth;
+    private String islandName;
 
     public Island(double x, double y, double xwidth, double ywidth, String island) {
         super(x, y);
+        this.xWidth = xwidth;
+        this.yWidth = ywidth;
+        this.islandName = island;
+        render();
+    }
+
+    private void render(){
         iv = new ImageView();
-        Image img = new Image(island);
+        Image img = new Image(islandName);
         iv = new ImageView(img);
-        iv.setFitHeight(ywidth);
-        iv.setFitWidth(xwidth);
-        iv.setX(x); iv.setY(y);
+        iv.setFitHeight(yWidth);
+        iv.setFitWidth(xWidth);
+        iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
         iv.setPickOnBounds(true);
         iv.setPreserveRatio(true);
+    }
+    @Serial
+    private void readObject(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
+        inputStream.defaultReadObject();
+        render();
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.example.application;
 
-public class Coins {
+import java.io.Serializable;
+
+public class Coins implements Serializable {
     private int value;
     public Coins(int val){
         this.value = val;
