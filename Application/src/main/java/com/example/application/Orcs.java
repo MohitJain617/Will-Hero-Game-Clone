@@ -54,4 +54,33 @@ public abstract class Orcs extends Obstacle {
             System.out.println("Head on");
         }
     }
+
+    @Override
+    public void ifObstacleCollides(Obstacle orc){
+
+        Location Loc1 = this.getLocation();
+        Location Loc2 = orc.getLocation();
+
+        System.out.println("Locations :" + Loc1.getY() + " " + Loc2.getY());
+
+        if(Loc2.getY() - Loc1.getY() >= 40){
+            this.setYspeed(-5);
+            orc.setYspeed(5);
+            System.out.println("Ek ke upr ek");
+            return ;
+        }
+
+        if(Loc1.getY() - Loc2.getY() >= 40){
+            orc.setYspeed(-5);
+            this.setYspeed(5);
+            System.out.println("Ek ke upr ek");
+        }
+
+        else{
+            orc.setXspeed(10);
+            this.setXspeed(0);
+            System.out.println("Side se dhakka");
+        }
+
+    }
 }

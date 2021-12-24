@@ -73,6 +73,7 @@ public class Game extends Application implements Initializable{
         st.changeScene(e,"LoadGames.fxml");
     }
     public void showGamePlay(ActionEvent e) throws IOException{
+
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
         root = loader.load();
         GamePlay currentGamePlay = loader.getController();

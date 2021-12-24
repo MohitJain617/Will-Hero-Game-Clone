@@ -15,6 +15,7 @@ public class Hero extends GameObject{
     private double ySpeed;
     private double xSpeed;
     private boolean alive;
+    private int collectedCoins;
 
     public Hero(double x, double y){
         super(x,y);
@@ -22,6 +23,7 @@ public class Hero extends GameObject{
         xSpeed = 0;
         render();
         alive = true;
+        collectedCoins = 0 ;
     }
     private void render(){
         iv = new ImageView();
@@ -50,12 +52,12 @@ public class Hero extends GameObject{
     public Bounds getBounds(){
         return this.iv.getBoundsInParent();
     }
+
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();
         this.setLocation(curr.getX()+xSpeed,curr.getY()+ySpeed);
-        iv.setX(curr.getX()+xSpeed);
-        iv.setY(curr.getY()+ySpeed);
+        this.updateLocation();
     }
 
     @Override
@@ -88,5 +90,9 @@ public class Hero extends GameObject{
         //add iv to the AnchorPane
         anc.getChildren().add(iv);
     }
+
+    public int getCollectedCoins(){ return this.collectedCoins ; }
+
+    public void setCollectedCoins(int coins){ this.collectedCoins = coins ; }
 
 }

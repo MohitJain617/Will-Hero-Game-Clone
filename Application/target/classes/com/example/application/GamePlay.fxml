@@ -67,7 +67,7 @@
                   <Image url="@../../../coin1.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1136.0" layoutY="63.0" stroke="BLACK" strokeType="OUTSIDE" text="21 Coins" wrappingWidth="147.5552978515625">
+            <Text fx:id="score" fill="WHITE" fontSmoothingType="LCD" layoutX="1136.0" layoutY="63.0" stroke="BLACK" strokeType="OUTSIDE" text="21 Coins" wrappingWidth="147.5552978515625">
                <font>
                   <Font name="SansSerif Bold" size="28.0" />
                </font>
