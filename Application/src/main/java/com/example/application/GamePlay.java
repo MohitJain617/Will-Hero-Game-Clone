@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.*;
 
-public class GamePlay implements Initializable, Serializable {
+public class GamePlay implements Serializable {
     private Hero hero;
     private ArrayList<Island> islands;
     private ArrayList<Obstacle> obstacles;
@@ -27,6 +27,7 @@ public class GamePlay implements Initializable, Serializable {
     private long dashTime;
     private final Random random ;
     private int cnt = 0 ;
+    private boolean pause;
 
     @FXML
     transient AnchorPane game_pane;
@@ -43,6 +44,7 @@ public class GamePlay implements Initializable, Serializable {
         obstacles = new ArrayList<Obstacle>();
         rewards = new ArrayList<Reward>();
         random = new Random();
+        pause = false;
         setup_Game();
         dashTime = System.nanoTime();
         animatorLogic();
@@ -58,7 +60,8 @@ public class GamePlay implements Initializable, Serializable {
                     System.out.println("Hero died!");              // Show end menu
                     try {
                         animator.stop();
-                        new SceneController().changeScene(game_pane,"EndGameMenu.fxml");
+                        hero = new Hero(300,120);
+                        showEndMenu(game_pane);
                         return ;
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -198,7 +201,24 @@ public class GamePlay implements Initializable, Serializable {
         st.fade(mainGroup,300,1).play();
     }
     public void showEndMenu(ActionEvent e) throws IOException {
-        new SceneController().changeScene(e,"EndGameMenu.fxml");
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EndGameMenu.fxml")));
+        Parent root = loader.load();
+        Endgame ender = loader.getController();
+        ender.setGamePlay(this);
+        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void showEndMenu(Node e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EndGameMenu.fxml")));
+        Parent root = loader.load();
+        Endgame ender = loader.getController();
+        ender.setGamePlay(this);
+        Stage stage = (Stage)(e.getScene().getWindow());
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     public void showGamePlay(ActionEvent e) throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
@@ -208,14 +228,26 @@ public class GamePlay implements Initializable, Serializable {
         stage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        hero.display(game_pane);
-        for (Island island : islands) island.display(game_pane);
-        for(Obstacle obs: obstacles) obs.display(game_pane);
-        for(Reward rew: rewards) rew.display(game_pane);
-        pauseGroup.setDisable(true);
-        animator.start();
+    public void copy(GamePlay gp) throws IOException {
+        this.islands = gp.islands;
+        this.hero = gp.hero;
+        this.dashTime = gp.dashTime;
+        this.obstacles = gp.obstacles;
+        this.rewards = gp.rewards;
+        this.pause = gp.pause;
+        this.reinitialize();
+    }
+    public void reinitialize() throws IOException {
+        if(game_pane != null){
+            hero.display(game_pane);
+            for (Island island : islands) island.display(game_pane);
+            for(Obstacle obs: obstacles) obs.display(game_pane);
+            for(Reward rew: rewards) rew.display(game_pane);
+            pauseGroup.setDisable(true);
+            if(!pause) animator.start();
+            else {
+                showPauseMenu(null);
+            }
+        }
     }
 }
