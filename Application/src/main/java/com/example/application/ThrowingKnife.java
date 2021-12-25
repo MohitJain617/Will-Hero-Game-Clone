@@ -33,6 +33,10 @@ public class ThrowingKnife extends Weapon{
         inputStream.defaultReadObject();
         render();
     }
+    @Override
+    public void setLocation(double x, double y){
+        super.setLocation(x+70,y+50);
+    }
     public void undisplay(){
         this.getImageView().setOpacity(0);
     }

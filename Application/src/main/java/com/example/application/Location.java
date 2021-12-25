@@ -1,6 +1,8 @@
 package com.example.application;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private double x;
     private double y;
     public Location(double x, double y){

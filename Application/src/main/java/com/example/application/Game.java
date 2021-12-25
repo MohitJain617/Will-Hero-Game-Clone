@@ -43,6 +43,12 @@ public class Game extends Application implements Initializable{
         gameplay.setGame(this);
         icon = new Image("hero.png");
         savedGames = new HashMap<String,GamePlay>();
+        //TO initialize the output.ser
+//        try {
+//            serialize();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -151,7 +157,7 @@ public class Game extends Application implements Initializable{
             out.writeObject(savedGames);
         } catch (IOException e) {
             //do something
-            System.out.println("IOException while serializing");
+            e.printStackTrace();
         } catch (NullPointerException f){
             System.out.println("Null pointer exception");
         }
@@ -165,7 +171,7 @@ public class Game extends Application implements Initializable{
         try {
             in = new ObjectInputStream(new FileInputStream("src\\output.ser"));
             System.out.println("Does reach checkpoint 1");
-            savedGames = (HashMap<String,GamePlay>)in.readObject();
+            savedGames = (HashMap)in.readObject();
         } catch (IOException e) {
             System.out.println("IOException while deserializing.");
         } catch (ClassNotFoundException e) {

@@ -2,6 +2,7 @@ package com.example.application;
 
 import javafx.animation.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -35,23 +38,23 @@ public class GamePlay implements Serializable {
     private transient SceneController st;
 
     @FXML
-    transient AnchorPane game_pane;
+    private transient AnchorPane game_pane;
 
     @FXML
-    transient Group pauseGroup;
+    private transient Group pauseGroup;
 
     @FXML
-    transient Group savingGroup;
+    private transient Group savingGroup;
 
     @FXML
-    transient Group mainGroup;
+    private transient Group mainGroup;
     @FXML
-    transient TextField tf;
+    private transient TextField tf;
     @FXML
-    transient Text message;
+    private transient Text message;
 
     @FXML
-    private Text score ;
+    private transient Text score ;
 
     public GamePlay(){
 
@@ -308,8 +311,8 @@ public class GamePlay implements Serializable {
     }
     public void reinitialize() throws IOException {
         if(game_pane != null){
-            hero.display(game_pane);
             hero.displayWeapon(game_pane);
+            hero.display(game_pane);
             for (Island island : islands) island.display(game_pane);
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);
@@ -319,6 +322,15 @@ public class GamePlay implements Serializable {
             else {
                 showPauseMenu(null);
             }
+            game_pane.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent k) {
+                    if(k.getCode().equals(KeyCode.SPACE)){
+                        //TODO
+                        heroDash(null);
+                    }
+                }
+            });
         }
     }
 }
