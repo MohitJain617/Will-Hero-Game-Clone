@@ -12,8 +12,11 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.Pair;
@@ -36,6 +39,12 @@ public class Game extends Application implements Initializable{
     Group highScores;
     @FXML
     Group settingGroup;
+
+    //Load Game injections
+    @FXML
+    private Text selectText;
+    @FXML
+    private ChoiceBox<String> gameChoiceBox;
 
     public Game(){
         st = new SceneController();
@@ -205,6 +214,49 @@ public class Game extends Application implements Initializable{
         if(settingGroup != null){
             this.settingGroup.setDisable(true);
             this.settingGroup.setOpacity(0);
+        }
+        //------Initalizing for loadGame----------
+        if(gameChoiceBox != null){
+            try {
+                deserialize();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            gameChoiceBox.getItems().addAll(savedGames.keySet());
+        }
+        //----------------------------------------
+    }
+    //Event Handlers inside Load Game:
+    public void playLoadedGame(ActionEvent e) {
+        if(gameChoiceBox == null) {
+            return;
+        }
+        else if(gameChoiceBox.getValue() == null) {
+            this.selectText.setText("No saved game selected");
+        } else {
+            String key = gameChoiceBox.getValue();
+            this.gameplay = savedGames.get(key);
+            try {
+                showGamePlay(e);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    public void deleteGame(ActionEvent e){
+        if(gameChoiceBox != null){
+            String key = gameChoiceBox.getValue();
+            if(key == null){
+                this.selectText.setText("No saved game selected");
+            } else {
+                savedGames.remove(key);
+                try {
+                    serialize();
+                    showMainMenu(e);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
     }
 }
