@@ -2,6 +2,7 @@ package com.example.application;
 
 import javafx.animation.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -56,12 +57,12 @@ public class GamePlay implements Serializable {
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
         rewards = new ArrayList<Reward>();
-        weaponInstances = new ArrayList<>() ;
         random = new Random();
         pause = false;
         setup_Game();
         dashTime = System.nanoTime();
         st = new SceneController();
+        weaponInstances = new ArrayList<Weapon>();
         animatorLogic();
     }
     private void animatorLogic(){
@@ -98,13 +99,14 @@ public class GamePlay implements Serializable {
                     hero.gravityEffect();
                 }
 
+                //-----Animate weapons------
                 for(Weapon weapon : weaponInstances){
-
                     if(weapon.use()){
                         weapon.gravityEffect();
                     }
                 }
 
+                //------remove animated weapons-----
                 Iterator<Weapon> itr = weaponInstances.iterator();
                 while(itr.hasNext()){
 
@@ -113,12 +115,8 @@ public class GamePlay implements Serializable {
 
                 }
 
-
-
-                        //-------OBSTACLES and ISLANDS----------
-
+                //-------OBSTACLES and ISLANDS----------
                 // Gravity on obstacles
-
                 for (Obstacle obs : obstacles) {
                     if (obs instanceof Orcs) {
                         ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.35);
@@ -127,7 +125,6 @@ public class GamePlay implements Serializable {
 
                 // Checking for Dash
                 int dashSpeed = 70 ;
-
                 if(dashTime > now){
                     // Make all the objects move backwards
                     for(Obstacle obs: obstacles){
@@ -151,7 +148,6 @@ public class GamePlay implements Serializable {
                 }
 
                 //---------COLLISION CHECKS-------------
-
                 // Jumps on Islands
                 for (Island currIsland : islands) {
 
@@ -162,7 +158,7 @@ public class GamePlay implements Serializable {
 
                     //check collision with obstacles
                     for(Obstacle obs: obstacles){
-                        if(currIsland.checkCollision(obs)){
+                        if(currIsland.checkCollision(obs)) {
                             currIsland.ifObstacleCollides(obs);
                         }
                     }
@@ -178,28 +174,28 @@ public class GamePlay implements Serializable {
                         dashTime = dashTime/100;
                         obs.ifHeroCollides(hero);
                     }
+                    for(Weapon we: weaponInstances){
+                        if(obs.checkCollision(we)){
+                            obs.ifWeaponCollides(we);
+                            we.setLifeTime(0);
+                        }
+                    }
                 }
-
+                //--------Obstacle vs Obstacle-----------
                 for( int i=0 ; i < obstacles.size() ; i++ ){
-
                     if(obstacles.get(i) instanceof TNT){ continue ; }
-
                     for( int j=i+1 ; j < obstacles.size() ; j++){
-
                         if(obstacles.get(i) instanceof TNT){ continue ; }
-
                         Obstacle orc1 = obstacles.get(i);
                         Obstacle orc2 = obstacles.get(j);
-
                         if(orc1.checkCollision(orc2)){
-
                             System.out.println(i+" "+j);
                             orc1.ifObstacleCollides(orc2);
                         }
                     }
                 }
-                //REMOVAL of OBSTACLES
 
+                //REMOVAL of OBSTACLES
                 for(Obstacle obs : obstacles){
                     if(!obs.isAlive()){
                         // obs.getCoins();              //  1
@@ -261,7 +257,7 @@ public class GamePlay implements Serializable {
     }
 
     public void heroDash(MouseEvent e){
-        dashTime = System.nanoTime() + 100000000;
+        dashTime = System.nanoTime() + 120000000;
 
         if(hero.getCurrentWeapon()!=null){
             Weapon temp = hero.getCurrentWeapon() ;

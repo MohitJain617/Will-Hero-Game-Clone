@@ -41,7 +41,7 @@ public abstract class Obstacle extends GameObject implements ObstacleCollision{
     public double getYspeed(){return this.ySpeed;}
     public void setXspeed(double x){this.xSpeed = x;}
     public void setYspeed(double y){this.ySpeed = y;}
-    public abstract void ifWeaponCollides();
+    public abstract void ifWeaponCollides(Weapon w);
     public abstract boolean isAlive();
     public abstract Coins deathReward();
 }

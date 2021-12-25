@@ -16,12 +16,12 @@ public class Sword extends Weapon {
     }
     private void render(){
         ImageView iv = new ImageView();
-        Image img = new Image("WeaponKnife.png");
+        Image img = new Image("sword.png");
         iv.setImage(img);
         iv.setPreserveRatio(true);
-        iv.setFitHeight(45);
-        iv.setFitWidth(45);
-        iv.setRotate(-45); //rotate by 90 degrees
+        iv.setFitHeight(90);
+        iv.setFitWidth(90);
+        iv.setRotate(-90);
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
         this.setImageView(iv);
     }
@@ -36,12 +36,6 @@ public class Sword extends Weapon {
     }
     @Override
     public void setLocation(double x, double y){
-        super.setLocation(x+10,y+50);
-    }
-    public void undisplay(){
-        this.getImageView().setOpacity(0);
-    }
-    public void display(){
-        this.getImageView().setOpacity(1);
+        super.setLocation(x,y);
     }
 }

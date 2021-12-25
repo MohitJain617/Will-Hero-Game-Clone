@@ -25,7 +25,7 @@ public class Hero extends GameObject{
         xSpeed = 0;
         render();
         alive = true;
-        currentWeapon =  new ThrowingKnife(x,y);
+        currentWeapon =  new Sword(x,y);
         collectedCoins = 0 ;
     }
     private void render(){
@@ -73,7 +73,8 @@ public class Hero extends GameObject{
         iv.setX(curr.getX());
         iv.setY(curr.getY());
         if(currentWeapon != null){
-            currentWeapon.setLocation(curr.getX(),curr.getY()+50);
+            if(currentWeapon instanceof Sword) currentWeapon.setLocation(curr.getX()-40,curr.getY()+30);
+            else currentWeapon.setLocation(curr.getX(),curr.getY()+50);
             currentWeapon.updateLocation();
         }
     }

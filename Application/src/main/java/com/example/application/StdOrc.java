@@ -35,13 +35,5 @@ public class StdOrc extends GreenOrc{
         inputStream.defaultReadObject();
         render();
     }
-    @Override
-    public void ifWeaponCollides() {
-        //TODO
-    }
 
-//    @Override
-//    public void ifObstacleCollides(Obstacle obs) {
-//        //TODO
-//    }
 }

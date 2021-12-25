@@ -36,13 +36,4 @@ public class RedOrc extends Orcs{
         inputStream.defaultReadObject();
         render();
     }
-    @Override
-    public void ifWeaponCollides() {
-        //TODO
-    }
-
-//    @Override
-//    public void ifObstacleCollides(Obstacle obs) {
-//        //TODO
-//    }
 }

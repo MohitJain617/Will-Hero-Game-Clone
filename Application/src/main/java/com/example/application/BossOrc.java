@@ -41,10 +41,6 @@ public class BossOrc extends GreenOrc{
         //TODO
     }
 
-    @Override
-    public void ifWeaponCollides() {
-        //TODO
-    }
 
     @Override
     public void ifObstacleCollides(Obstacle obs) {

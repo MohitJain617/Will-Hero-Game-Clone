@@ -59,8 +59,11 @@ public class TNT extends Obstacle{
         timer = timer + System.nanoTime();
     }
     @Override
-    public void ifWeaponCollides() {
+    public void ifWeaponCollides(Weapon w) {
         //set the timer off
+        if(fuse){
+            blast();
+        }
     }
 
     @Override
