@@ -2,18 +2,13 @@ package com.example.application;
 
 import javafx.animation.*;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -21,7 +16,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URL;
 import java.util.*;
 
 public class GamePlay implements Serializable {
@@ -29,6 +23,7 @@ public class GamePlay implements Serializable {
     private ArrayList<Island> islands;
     private ArrayList<Obstacle> obstacles;
     private ArrayList<Reward> rewards;
+    private ArrayList<Weapon> weaponInstances;
     transient AnimationTimer animator;
     private long dashTime;
     private final Random random ;
@@ -61,6 +56,7 @@ public class GamePlay implements Serializable {
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
         rewards = new ArrayList<Reward>();
+        weaponInstances = new ArrayList<>() ;
         random = new Random();
         pause = false;
         setup_Game();
@@ -102,7 +98,24 @@ public class GamePlay implements Serializable {
                     hero.gravityEffect();
                 }
 
-                //-------OBSTACLES and ISLANDS----------
+                for(Weapon weapon : weaponInstances){
+
+                    if(weapon.use()){
+                        weapon.gravityEffect();
+                    }
+                }
+
+                Iterator<Weapon> itr = weaponInstances.iterator();
+                while(itr.hasNext()){
+
+                    Weapon wi = itr.next();
+                    if(!wi.use()){  itr.remove(); wi.undisplay(); }
+
+                }
+
+
+
+                        //-------OBSTACLES and ISLANDS----------
 
                 // Gravity on obstacles
 
@@ -185,18 +198,21 @@ public class GamePlay implements Serializable {
                         }
                     }
                 }
-                //REMOVAL of OBSTACLES:
-                ArrayList<Obstacle> remove = new ArrayList<>();
+                //REMOVAL of OBSTACLES
 
                 for(Obstacle obs : obstacles){
                     if(!obs.isAlive()){
                         // obs.getCoins();              //  1
                         hero.setCollectedCoins(hero.getCollectedCoins()+1);
-                        remove.add(obs);
                     }
                 }
 
-                for(Obstacle obs : remove){ obstacles.remove(obs) ; }
+                Iterator<Obstacle> itr1 = obstacles.iterator();
+                while(itr1.hasNext()){
+
+                    Obstacle obs = itr1.next();
+                    if(!obs.isAlive()){  itr1.remove();} // obs.undisplay() ;
+                }
 
                 score.setText(hero.getCollectedCoins() + " Coins");
             }
@@ -246,7 +262,13 @@ public class GamePlay implements Serializable {
 
     public void heroDash(MouseEvent e){
         dashTime = System.nanoTime() + 100000000;
-        System.out.println(cnt++);
+
+        if(hero.getCurrentWeapon()!=null){
+            Weapon temp = hero.getCurrentWeapon() ;
+            weaponInstances.add(temp) ;
+            temp.display(game_pane);
+        }
+        // System.out.println(cnt++);
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
@@ -319,8 +341,8 @@ public class GamePlay implements Serializable {
     public void reinitialize() throws IOException {
         if(game_pane != null){
             System.out.println("Game_pane is not null");
-            hero.displayWeapon(game_pane);
             hero.display(game_pane);
+            hero.displayWeapon(game_pane);
             for (Island island : islands) island.display(game_pane);
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);

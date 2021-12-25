@@ -73,7 +73,7 @@ public class Hero extends GameObject{
         iv.setX(curr.getX());
         iv.setY(curr.getY());
         if(currentWeapon != null){
-            currentWeapon.setLocation(curr.getX(),curr.getY());
+            currentWeapon.setLocation(curr.getX(),curr.getY()+50);
             currentWeapon.updateLocation();
         }
     }
@@ -110,5 +110,9 @@ public class Hero extends GameObject{
     public int getCollectedCoins(){ return this.collectedCoins ; }
 
     public void setCollectedCoins(int coins){ this.collectedCoins = coins ; }
+
+    public Weapon getCurrentWeapon(){
+        return this.currentWeapon.copy() ;      // TODO copy
+    }
 
 }

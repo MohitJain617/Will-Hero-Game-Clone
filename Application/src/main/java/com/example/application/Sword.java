@@ -8,8 +8,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serial;
 
-public class ThrowingKnife extends Weapon{
-    public ThrowingKnife(double x, double y) {
+public class Sword extends Weapon {
+
+    public Sword(double x, double y) {
         super(x, y);
         render();
     }
@@ -32,5 +33,15 @@ public class ThrowingKnife extends Weapon{
     private void readObject(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
         inputStream.defaultReadObject();
         render();
+    }
+    @Override
+    public void setLocation(double x, double y){
+        super.setLocation(x+10,y+50);
+    }
+    public void undisplay(){
+        this.getImageView().setOpacity(0);
+    }
+    public void display(){
+        this.getImageView().setOpacity(1);
     }
 }
