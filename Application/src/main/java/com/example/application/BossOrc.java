@@ -39,11 +39,28 @@ public class BossOrc extends GreenOrc{
     @Override
     public void ifHeroCollides(Hero hero) {
         //TODO
+        Location heroLoc = hero.getLocation();
+        Location orcLoc = this.getLocation();
+        if (heroLoc.getY() - orcLoc.getY() >= 160) {
+            // hero dies
+            hero.damage();
+        } else if (orcLoc.getX() - heroLoc.getX() <= 180) {
+            //head on collision
+            this.setXspeed(5);
+        } else {
+            //hero jumps and orc falls
+            hero.setYspeed(-5);
+            this.setYspeed(5);
+        }
     }
 
 
     @Override
     public void ifObstacleCollides(Obstacle obs) {
-        //TODO
+        if(obs instanceof TNT){
+            obs.ifObstacleCollides(this);
+        } else {
+
+        }
     }
 }

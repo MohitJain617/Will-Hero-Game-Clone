@@ -111,7 +111,7 @@ public class GamePlay implements Serializable {
                 while(itr.hasNext()){
 
                     Weapon wi = itr.next();
-                    if(!wi.use()){  itr.remove(); wi.undisplay(); }
+                    if(!wi.use()){  itr.remove(); wi.undisplay(game_pane); }
 
                 }
 
@@ -349,5 +349,11 @@ public class GamePlay implements Serializable {
                 showPauseMenu(null);
             }
         }
+    }
+    public void changeWeaponToSword(MouseEvent e){
+        System.out.println("Change to sword");
+    }
+    public void changeWeaponToThrowingKnife(MouseEvent e){
+        System.out.println("Chane to TK");
     }
 }

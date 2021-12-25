@@ -77,8 +77,8 @@ public abstract class Weapon extends GameObject {
         return this.lifeTime >= System.nanoTime() ;
     }
 
-    public void undisplay(){
-        iv.setOpacity(0);
+    public void undisplay(AnchorPane pane){
+        pane.getChildren().remove(iv);
     }
     public void display(){
         iv.setOpacity(1);

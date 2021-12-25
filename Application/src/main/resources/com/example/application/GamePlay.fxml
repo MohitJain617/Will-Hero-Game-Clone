@@ -95,8 +95,8 @@
             <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" onMouseClicked="#heroDash" prefHeight="718.0" prefWidth="1302.0" />
             <Group layoutY="1.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" opacity="0.51" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="174.0" layoutY="618.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" rotate="20.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" onMouseClicked="#changeWeaponToSword" opacity="0.51" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <ImageView disable="true" fitHeight="60.0" fitWidth="60.0" layoutX="174.0" layoutY="618.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" rotate="20.0">
                      <image>
                         <Image url="@../../../sword.png" />
                      </image>
@@ -110,10 +110,10 @@
             </Slider>
             <Group layoutX="127.0" layoutY="2.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" opacity="0.51" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="163.0" layoutY="623.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" rotate="20.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" onMouseClicked="#changeWeaponToThrowingKnife" opacity="0.51" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="180.0" layoutY="623.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" rotate="20.0">
                      <image>
-                        <Image url="@../../../WeaponShuriken.png" />
+                        <Image url="@../../../WeaponKnife.png" />
                      </image>
                   </ImageView>
                </children>

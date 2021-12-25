@@ -71,6 +71,10 @@ public abstract class Orcs extends Obstacle {
             obs.ifObstacleCollides(this);
             return;
         }
+        if(obs instanceof BossOrc){
+            this.setXspeed(-5);
+            return;
+        }
         //orc vs orc now
         Location Loc1 = this.getLocation();
         Location Loc2 = obs.getLocation();

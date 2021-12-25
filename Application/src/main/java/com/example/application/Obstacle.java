@@ -31,7 +31,9 @@ public abstract class Obstacle extends GameObject implements ObstacleCollision{
     public void display(AnchorPane anc) {
         anc.getChildren().add(iv);
     }
-
+    public void undisplay(AnchorPane anc){
+        anc.getChildren().remove(anc);
+    }
     @Override
     public Bounds getBounds() {
         return iv.getBoundsInParent();

@@ -25,7 +25,7 @@ public class Hero extends GameObject{
         xSpeed = 0;
         render();
         alive = true;
-        currentWeapon =  new Sword(x,y);
+        currentWeapon =  null;
         collectedCoins = 0 ;
     }
     private void render(){
