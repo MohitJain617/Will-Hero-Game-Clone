@@ -9,8 +9,10 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,6 +30,8 @@ public class GamePlay implements Serializable {
     private final Random random ;
     private int cnt = 0 ;
     private boolean pause;
+    private transient Game game;
+    private transient SceneController st;
 
     @FXML
     transient AnchorPane game_pane;
@@ -36,7 +40,14 @@ public class GamePlay implements Serializable {
     transient Group pauseGroup;
 
     @FXML
+    transient Group savingGroup;
+
+    @FXML
     transient Group mainGroup;
+    @FXML
+    transient TextField tf;
+    @FXML
+    transient Text message;
 
     public GamePlay(){
 
@@ -47,6 +58,7 @@ public class GamePlay implements Serializable {
         pause = false;
         setup_Game();
         dashTime = System.nanoTime();
+        st = new SceneController();
         animatorLogic();
     }
     private void animatorLogic(){
@@ -142,7 +154,6 @@ public class GamePlay implements Serializable {
     }
 
     public void setup_Game(){
-
         hero = new Hero(300.0,230.0);
         rewards.add(new CoinChest(2800,310));
 
@@ -187,15 +198,15 @@ public class GamePlay implements Serializable {
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
-        SceneController st = new SceneController();
         pauseGroup.setDisable(false);
         st.fade(pauseGroup,300,1).play();
         st.fade(mainGroup,300,0.7).play();
     }
 
-    public void resume(ActionEvent e){
+    public void resume(ActionEvent e) throws IOException {
         animator.start();
         pauseGroup.setDisable(true);
+        exitSaveScreen(null);
         SceneController st = new SceneController();
         st.fade(pauseGroup,300,0).play();
         st.fade(mainGroup,300,1).play();
@@ -220,12 +231,20 @@ public class GamePlay implements Serializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void showGamePlay(ActionEvent e) throws IOException{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void showSaveScreen(ActionEvent e){
+        this.savingGroup.setDisable(false);
+        st.fade(savingGroup,300,1).play();
+    }
+    public void saveCurrentGame(ActionEvent e) throws IOException {
+        if(tf.getText().equals("")){
+            message.setText("Empty file name");
+        } else {
+            message.setText(this.game.addGamePlay(tf.getText(),this));
+        }
+    }
+    public void exitSaveScreen(ActionEvent e) throws IOException {
+        this.savingGroup.setDisable(true);
+        st.fade(savingGroup,300,0).play();
     }
 
     public void copy(GamePlay gp) throws IOException {
@@ -235,11 +254,16 @@ public class GamePlay implements Serializable {
         this.obstacles = gp.obstacles;
         this.rewards = gp.rewards;
         this.pause = gp.pause;
+        this.game = gp.game;
         this.reinitialize();
+    }
+    public void setGame(Game ga) {
+        this.game = ga;
     }
     public void reinitialize() throws IOException {
         if(game_pane != null){
             hero.display(game_pane);
+            hero.displayWeapon(game_pane);
             for (Island island : islands) island.display(game_pane);
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);

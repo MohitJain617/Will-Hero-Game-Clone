@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serial;
 import java.util.Objects;
 
@@ -15,13 +16,14 @@ public class Hero extends GameObject{
     private double ySpeed;
     private double xSpeed;
     private boolean alive;
-
+    private Weapon currentWeapon;
     public Hero(double x, double y){
         super(x,y);
         ySpeed = 0;
         xSpeed = 0;
         render();
         alive = true;
+        currentWeapon =  new ThrowingKnife(x,y);
     }
     private void render(){
         iv = new ImageView();
@@ -31,6 +33,10 @@ public class Hero extends GameObject{
         iv.setFitHeight(90);
         iv.setFitWidth(90);
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
+    }
+    @Serial
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
     }
     @Serial
     private void readObject(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
@@ -54,8 +60,7 @@ public class Hero extends GameObject{
     public void gravityEffect() {
         Location curr = this.getLocation();
         this.setLocation(curr.getX()+xSpeed,curr.getY()+ySpeed);
-        iv.setX(curr.getX()+xSpeed);
-        iv.setY(curr.getY()+ySpeed);
+        updateLocation();
     }
 
     @Override
@@ -63,6 +68,10 @@ public class Hero extends GameObject{
         Location curr = this.getLocation();
         iv.setX(curr.getX());
         iv.setY(curr.getY());
+        if(currentWeapon != null){
+            currentWeapon.setLocation(curr.getX(),curr.getY());
+            currentWeapon.updateLocation();
+        }
     }
 
     @Override
@@ -88,5 +97,9 @@ public class Hero extends GameObject{
         //add iv to the AnchorPane
         anc.getChildren().add(iv);
     }
-
+    public void displayWeapon(AnchorPane anc){
+        if(currentWeapon != null){
+            anc.getChildren().add(currentWeapon.getImageView());
+        }
+    }
 }

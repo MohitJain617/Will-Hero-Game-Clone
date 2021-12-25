@@ -7,6 +7,7 @@ package com.example.application;
 
         import java.io.IOException;
         import java.io.ObjectInputStream;
+        import java.io.ObjectOutputStream;
         import java.io.Serial;
 
 public class StdOrc extends GreenOrc{
@@ -25,6 +26,10 @@ public class StdOrc extends GreenOrc{
         this.setImageView(iv);
     }
 
+    @Serial
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+    }
     @Serial
     private void readObject(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
         inputStream.defaultReadObject();

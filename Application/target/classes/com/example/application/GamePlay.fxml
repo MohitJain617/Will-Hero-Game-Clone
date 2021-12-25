@@ -130,7 +130,7 @@
                         <Font name="Lucida Console" size="32.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" opacity="0.76" prefHeight="66.0" prefWidth="242.0" style="-fx-background-color: navy;" text="Save Game" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#showSaveScreen" opacity="0.76" prefHeight="66.0" prefWidth="242.0" style="-fx-background-color: navy;" text="Save Game" textFill="WHITE">
                      <font>
                         <Font name="Lucida Console" size="32.0" />
                      </font>
@@ -142,6 +142,31 @@
                   </Button>
                </children>
             </VBox>
+            <Group fx:id="savingGroup" disable="true" opacity="0.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000c8" height="200.0" layoutX="-75.0" layoutY="5.0" scaleX="1.5" scaleY="1.5" stroke="#3100b7" strokeType="INSIDE" strokeWidth="5.0" width="200.0" />
+                  <VBox alignment="CENTER" layoutX="-86.0" layoutY="11.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="tf" alignment="CENTER" prefHeight="56.0" prefWidth="221.0" promptText="Enter Filename">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#saveCurrentGame" opacity="0.82" prefHeight="45.0" prefWidth="190.0" style="-fx-background-color: blue;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font name="Lucida Console" size="32.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#exitSaveScreen" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: red;" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="Lucida Console" size="32.0" />
+                           </font>
+                        </Button>
+                        <Text fx:id="message" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </Group>
          </children>
       </Group>
    </children>

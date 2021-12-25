@@ -16,10 +16,11 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import java.io.IOException;
+import javafx.util.Pair;
+
+import java.io.*;
 import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Game extends Application implements Initializable{
     private Stage stage;
@@ -28,6 +29,7 @@ public class Game extends Application implements Initializable{
     private GamePlay gameplay;
     private Image icon ;
     private SceneController st;
+    private HashMap<String, GamePlay> savedGames;
     @FXML
     Group mainGroup;
     @FXML
@@ -38,7 +40,9 @@ public class Game extends Application implements Initializable{
     public Game(){
         st = new SceneController();
         gameplay = new GamePlay();
+        gameplay.setGame(this);
         icon = new Image("hero.png");
+        savedGames = new HashMap<String,GamePlay>();
     }
 
     @Override
@@ -73,6 +77,7 @@ public class Game extends Application implements Initializable{
         st.changeScene(e,"LoadGames.fxml");
     }
     public void showGamePlay(ActionEvent e) throws IOException{
+        this.gameplay.setGame(this);
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
         root = loader.load();
         GamePlay currentGamePlay = loader.getController();
@@ -138,6 +143,52 @@ public class Game extends Application implements Initializable{
 
     public static void main(String[] args) {
         launch(args);
+    }
+    public void serialize() throws IOException {
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream("src\\output.ser"));
+            out.writeObject(savedGames);
+        } catch (IOException e) {
+            //do something
+            System.out.println("IOException while serializing");
+        } catch (NullPointerException f){
+            System.out.println("Null pointer exception");
+        }
+        finally
+        {
+            if (out != null) out.close();
+        }
+    }
+    public void deserialize() throws IOException {
+        ObjectInputStream in = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream("src\\output.ser"));
+            System.out.println("Does reach checkpoint 1");
+            savedGames = (HashMap<String,GamePlay>)in.readObject();
+        } catch (IOException e) {
+            System.out.println("IOException while deserializing.");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found exception des");
+        } finally {
+            if (in != null) in.close();
+        }
+    }
+    public String addGamePlay(String name, GamePlay gp) throws IOException {
+        deserialize();
+        //-----PRINTING STUFF TO CHECK-----
+        for(Map.Entry map: savedGames.entrySet()){
+            String key = (String) map.getKey();
+            System.out.println(key);
+        }
+        //-----whats inside the hashmap-----
+        if(savedGames.containsKey(name)){
+            return "Given name already exists";
+        } else {
+            savedGames.put(name,gp);
+            serialize();
+            return "Save successful";
+        }
     }
 
     @Override

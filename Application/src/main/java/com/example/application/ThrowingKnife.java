@@ -1,32 +1,29 @@
 package com.example.application;
 
-import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serial;
 
-public class RedOrc extends Orcs{
-    public RedOrc(double xloc, double yloc) {
-
-        super(xloc, yloc, 1, 20);
+public class ThrowingKnife extends Weapon{
+    public ThrowingKnife(double x, double y) {
+        super(x, y);
         render();
     }
-
     private void render(){
-        Image image = new Image("orcredFinal.png");
-        ImageView iv = new ImageView(image);
-        iv.setPickOnBounds(true);
+        ImageView iv = new ImageView();
+        Image img = new Image("WeaponKnife.png");
+        iv.setImage(img);
         iv.setPreserveRatio(true);
+        iv.setFitHeight(45);
+        iv.setFitWidth(45);
+        iv.setRotate(90); //rotate by 90 degrees
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
-        iv.setFitHeight(67.5); iv.setFitWidth(67.5);
         this.setImageView(iv);
     }
-
     @Serial
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
@@ -36,13 +33,10 @@ public class RedOrc extends Orcs{
         inputStream.defaultReadObject();
         render();
     }
-    @Override
-    public void ifWeaponCollides() {
-        //TODO
+    public void undisplay(){
+        this.getImageView().setOpacity(0);
     }
-
-    @Override
-    public void ifObstacleCollides(Obstacle obs) {
-        //TODO
+    public void display(){
+        this.getImageView().setOpacity(1);
     }
 }
