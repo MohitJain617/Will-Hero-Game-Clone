@@ -25,7 +25,7 @@ public abstract class Orcs extends Obstacle {
 
     @Override
     public boolean isAlive(){
-        if(this.getLocation().getY() > 720) return false;
+        if(this.getLocation().getY() > 650) return false;
         return (this.health > 0);
     }
 
@@ -39,7 +39,10 @@ public abstract class Orcs extends Obstacle {
         //near 65 is the sweet spot for head on collision
         //-51 for (orc - hero) for hero to die
         //80  for (orc - hero) for hero to jump
-        if(orcLoc.getY()-heroLoc.getY() <= -52){
+
+        System.out.println("Locations :" + heroLoc.getY() + " " + orcLoc.getY());
+
+        if(heroLoc.getY() - orcLoc.getY() >= 48){
             hero.damage();
             System.out.println("Hero dies by orc");
             // hero dies

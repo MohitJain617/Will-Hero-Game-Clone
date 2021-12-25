@@ -79,8 +79,11 @@ public class GamePlay implements Serializable {
                     System.out.println("Hero died!");              // Show end menu
                     try {
                         animator.stop();
+                        int points = hero.getCollectedCoins() ;
                         hero = new Hero(300,120);
-                        //hero.setLocation(300,120);
+                        hero.setCollectedCoins(points);
+//                        hero.setLocation(300,120);
+//                        hero.updateLocation();
                         showEndMenu(game_pane);
                         return ;
                     } catch (IOException e) {
@@ -159,7 +162,7 @@ public class GamePlay implements Serializable {
                 }
                 for(Obstacle obs: obstacles){
                     if(obs.checkCollision(hero)){
-                        dashTime = dashSpeed/100;
+                        dashTime = dashTime/100;
                         obs.ifHeroCollides(hero);
                     }
                 }
@@ -308,6 +311,10 @@ public class GamePlay implements Serializable {
     }
     public void setGame(Game ga) {
         this.game = ga;
+    }
+
+    public int getScore(){
+        return hero.getCollectedCoins();
     }
     public void reinitialize() throws IOException {
         if(game_pane != null){

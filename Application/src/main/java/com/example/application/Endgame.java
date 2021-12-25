@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.*;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -31,6 +33,9 @@ public class Endgame implements Initializable {
 
     @FXML
     Group settingGroup;
+
+    @FXML
+    Label Score ;
 
     public Endgame(){
         gameplay = new GamePlay();
@@ -100,12 +105,14 @@ public class Endgame implements Initializable {
     public void setGamePlay(GamePlay gp) throws IOException {
         System.out.println("Copying the previous gameplay hopefully");
         this.gameplay.copy(gp);
+        Score.setText("Current Score : "+gp.getScore());
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(end_pane != null) {
             for (Orcs orc : orcs) orc.display(end_pane);
             for (Island isle: islands) isle.display(end_pane);
+
             animator.start();
         }
         if(settingGroup != null){

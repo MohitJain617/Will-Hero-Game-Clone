@@ -99,7 +99,7 @@
             <Font name="SansSerif Bold" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="488.0" layoutY="91.0" prefHeight="86.0" prefWidth="291.0" text=" Current Score : 36">
+      <Label fx:id="Score" layoutX="488.0" layoutY="91.0" prefHeight="86.0" prefWidth="291.0" text=" Current Score : 36">
          <font>
             <Font name="SansSerif Bold" size="31.0" />
          </font>
