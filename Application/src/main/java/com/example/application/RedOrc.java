@@ -41,8 +41,8 @@ public class RedOrc extends Orcs{
         //TODO
     }
 
-    @Override
-    public void ifObstacleCollides(Obstacle obs) {
-        //TODO
-    }
+//    @Override
+//    public void ifObstacleCollides(Obstacle obs) {
+//        //TODO
+//    }
 }

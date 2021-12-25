@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -49,6 +50,9 @@ public class GamePlay implements Serializable {
     @FXML
     transient Text message;
 
+    @FXML
+    private Text score ;
+
     public GamePlay(){
 
         islands = new ArrayList<Island>();
@@ -73,41 +77,43 @@ public class GamePlay implements Serializable {
                     try {
                         animator.stop();
                         hero = new Hero(300,120);
+                        //hero.setLocation(300,120);
                         showEndMenu(game_pane);
                         return ;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
-                //normal gravity on hero
+
+                // Normal Gravity on hero
                 if(dashTime <= now) {
                     hero.setXspeed(0);
                     hero.setYspeed(hero.getYspeed() + 0.3);
                     hero.gravityEffect();
 
                 } else {
-                    hero.setYspeed(0.5);
+                    hero.setYspeed(0.5);          // To restrict unlimited flying
                     hero.gravityEffect();
                 }
 
                 //-------OBSTACLES and ISLANDS----------
-                //gravity on obstacles
-                for(Obstacle obs: obstacles){
-                    if(obs instanceof Orcs){
+
+                // Gravity on obstacles
+
+                for (Obstacle obs : obstacles) {
+                    if (obs instanceof Orcs) {
                         ((Orcs) obs).setYspeed(((Orcs) obs).getYspeed() + 0.35);
                     }
-                    obs.gravityEffect();
                 }
 
-                //check for dash
+                // Checking for Dash
                 int dashSpeed = 60 ;
-                if(dashTime > now){
 
-                    //make the objects move backwards
+                if(dashTime > now){
+                    // Make all the objects move backwards
                     for(Obstacle obs: obstacles){
                         Location curr = obs.getLocation();
                         obs.setLocation(curr.getX()-dashSpeed,curr.getY());
-                        obs.updateLocation();
                     }
                     for(Island currIsland : islands){
                         Location curr = currIsland.getLocation();
@@ -120,12 +126,21 @@ public class GamePlay implements Serializable {
                         reward.updateLocation();
                     }
                 }
+
+                for(Obstacle obs: obstacles){
+                    obs.gravityEffect();
+                }
+
                 //---------COLLISION CHECKS-------------
+
+                // Jumps on Islands
                 for (Island currIsland : islands) {
+
                     //check collision with hero
                     if (currIsland.checkCollision(hero)) {
                         currIsland.ifHeroCollides(hero);
                     }
+
                     //check collision with obstacles
                     for(Obstacle obs: obstacles){
                         if(currIsland.checkCollision(obs)){
@@ -141,13 +156,43 @@ public class GamePlay implements Serializable {
                 }
                 for(Obstacle obs: obstacles){
                     if(obs.checkCollision(hero)){
-                        dashTime = 0;
+                        dashTime = dashSpeed/100;
                         obs.ifHeroCollides(hero);
                     }
                 }
-                //REMOVAL of OBSTACLES:
-                obstacles.removeIf(obs -> obs.isAlive() == false);
 
+                for( int i=0 ; i < obstacles.size() ; i++ ){
+
+                    if(obstacles.get(i) instanceof TNT){ continue ; }
+
+                    for( int j=i+1 ; j < obstacles.size() ; j++){
+
+                        if(obstacles.get(i) instanceof TNT){ continue ; }
+
+                        Obstacle orc1 = obstacles.get(i);
+                        Obstacle orc2 = obstacles.get(j);
+
+                        if(orc1.checkCollision(orc2)){
+
+                            System.out.println(i+" "+j);
+                            orc1.ifObstacleCollides(orc2);
+                        }
+                    }
+                }
+                //REMOVAL of OBSTACLES:
+                ArrayList<Obstacle> remove = new ArrayList<>();
+
+                for(Obstacle obs : obstacles){
+                    if(!obs.isAlive()){
+                        // obs.getCoins();              //  1
+                        hero.setCollectedCoins(hero.getCollectedCoins()+1);
+                        remove.add(obs);
+                    }
+                }
+
+                for(Obstacle obs : remove){ obstacles.remove(obs) ; }
+
+                score.setText(hero.getCollectedCoins() + " Coins");
             }
         };
 
@@ -162,6 +207,8 @@ public class GamePlay implements Serializable {
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
         String []Small_Island_Images = {"island_med.png","island_small.png"};
 
+        obstacles.add(new StdOrc(x+600,26));
+
         for(int i=1;i<=11;i++){
 
             ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
@@ -170,9 +217,8 @@ public class GamePlay implements Serializable {
             for(int k=1;k<=3;k++){ ind1.add(random.nextInt(Large_Island_Images.length)); }
             for(int k=1;k<=2;k++){ ind2.add(random.nextInt(Small_Island_Images.length)); }
 
-            islands.add(new Island(x+0,368,358,126,Large_Island_Images[ind1.get(0)]));
+            islands.add(new Island( x+0 ,368,358,126,Large_Island_Images[ind1.get(0)]));
             islands.add(new Island(x+500,363,358,126,Small_Island_Images[ind2.get(0)]));
-
             obstacles.add(new RedOrc(x+600,126));
 
             islands.add(new Island(x+950,368,358,126,Large_Island_Images[ind1.get(1)]));
@@ -189,11 +235,11 @@ public class GamePlay implements Serializable {
         islands.add(new Island(x,364,358,160,"island_large2.png"));
         obstacles.add(new BossOrc(x+100,126));
         //TNT
-        obstacles.add(new TNT(2200,295));
+        obstacles.add(new TNT(3950,295));
     }
 
     public void heroDash(MouseEvent e){
-        dashTime = System.nanoTime() + 150000000;
+        dashTime = System.nanoTime() + 100000000;
         System.out.println(cnt++);
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
@@ -268,6 +314,7 @@ public class GamePlay implements Serializable {
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);
             pauseGroup.setDisable(true);
+            score.setText(hero.getCollectedCoins()+" Coins");
             if(!pause) animator.start();
             else {
                 showPauseMenu(null);

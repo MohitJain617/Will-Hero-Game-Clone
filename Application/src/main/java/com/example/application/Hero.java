@@ -17,6 +17,8 @@ public class Hero extends GameObject{
     private double xSpeed;
     private boolean alive;
     private Weapon currentWeapon;
+    private int collectedCoins;
+
     public Hero(double x, double y){
         super(x,y);
         ySpeed = 0;
@@ -24,6 +26,7 @@ public class Hero extends GameObject{
         render();
         alive = true;
         currentWeapon =  new ThrowingKnife(x,y);
+        collectedCoins = 0 ;
     }
     private void render(){
         iv = new ImageView();
@@ -56,11 +59,12 @@ public class Hero extends GameObject{
     public Bounds getBounds(){
         return this.iv.getBoundsInParent();
     }
+
     @Override
     public void gravityEffect() {
         Location curr = this.getLocation();
         this.setLocation(curr.getX()+xSpeed,curr.getY()+ySpeed);
-        updateLocation();
+        this.updateLocation();
     }
 
     @Override
@@ -102,4 +106,9 @@ public class Hero extends GameObject{
             anc.getChildren().add(currentWeapon.getImageView());
         }
     }
+
+    public int getCollectedCoins(){ return this.collectedCoins ; }
+
+    public void setCollectedCoins(int coins){ this.collectedCoins = coins ; }
+
 }

@@ -17,6 +17,7 @@ public class TNT extends Obstacle{
         fuse = true;
         timer = 1200000000;
     }
+
     private void render(){
         Image image = new Image("TNT.png");
         ImageView iv = new ImageView(image);
@@ -36,6 +37,7 @@ public class TNT extends Obstacle{
         inputStream.defaultReadObject();
         render();
     }
+
     @Override
     public void ifHeroCollides(Hero hero) {
         //kill hero

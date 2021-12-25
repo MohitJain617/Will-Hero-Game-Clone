@@ -15,6 +15,7 @@ public abstract class Reward extends GameObject {
     }
     public void setImageView(ImageView iv){this.iv = iv;}
     protected ImageView getImageView(){return this.iv;}
+
     @Override
     public void gravityEffect(){
         Location curr = this.getLocation();
