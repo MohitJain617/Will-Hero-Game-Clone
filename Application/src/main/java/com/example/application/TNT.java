@@ -81,6 +81,10 @@ public class TNT extends Obstacle{
 
     @Override
     public void ifObstacleCollides(Obstacle obs) {
-
+        if(fuse){
+            blast();
+        } else if(System.nanoTime() < timer){
+            //do something
+        }
     }
 }

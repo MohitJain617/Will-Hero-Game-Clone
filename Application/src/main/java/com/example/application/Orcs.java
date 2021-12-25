@@ -39,7 +39,7 @@ public abstract class Orcs extends Obstacle {
         //near 65 is the sweet spot for head on collision
         //-51 for (orc - hero) for hero to die
         //80  for (orc - hero) for hero to jump
-        if(orcLoc.getY()-heroLoc.getY() <= -50){
+        if(orcLoc.getY()-heroLoc.getY() <= -52){
             hero.damage();
             System.out.println("Hero dies by orc");
             // hero dies
@@ -56,28 +56,32 @@ public abstract class Orcs extends Obstacle {
     }
 
     @Override
-    public void ifObstacleCollides(Obstacle orc){
-
+    public void ifObstacleCollides(Obstacle obs){
+        if(obs instanceof TNT){
+            obs.ifObstacleCollides(this);
+            return;
+        }
+        //orc vs orc now
         Location Loc1 = this.getLocation();
-        Location Loc2 = orc.getLocation();
+        Location Loc2 = obs.getLocation();
 
         System.out.println("Locations :" + Loc1.getY() + " " + Loc2.getY());
 
         if(Loc2.getY() - Loc1.getY() >= 40){
             this.setYspeed(-5);
-            orc.setYspeed(5);
+            obs.setYspeed(5);
             System.out.println("Ek ke upr ek");
             return ;
         }
 
         if(Loc1.getY() - Loc2.getY() >= 40){
-            orc.setYspeed(-5);
+            obs.setYspeed(-5);
             this.setYspeed(5);
             System.out.println("Ek ke upr ek");
         }
 
         else{
-            orc.setXspeed(10);
+            obs.setXspeed(10);
             this.setXspeed(0);
             System.out.println("Side se dhakka");
         }

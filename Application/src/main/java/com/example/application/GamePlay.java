@@ -107,7 +107,7 @@ public class GamePlay implements Serializable {
                 }
 
                 // Checking for Dash
-                int dashSpeed = 60 ;
+                int dashSpeed = 70 ;
 
                 if(dashTime > now){
                     // Make all the objects move backwards
