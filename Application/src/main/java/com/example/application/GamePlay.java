@@ -318,6 +318,7 @@ public class GamePlay implements Serializable {
     }
     public void reinitialize() throws IOException {
         if(game_pane != null){
+            System.out.println("Game_pane is not null");
             hero.displayWeapon(game_pane);
             hero.display(game_pane);
             for (Island island : islands) island.display(game_pane);
@@ -329,15 +330,6 @@ public class GamePlay implements Serializable {
             else {
                 showPauseMenu(null);
             }
-            game_pane.setOnKeyPressed(new EventHandler<KeyEvent>() {
-                @Override
-                public void handle(KeyEvent k) {
-                    if(k.getCode().equals(KeyCode.SPACE)){
-                        //TODO
-                        heroDash(null);
-                    }
-                }
-            });
         }
     }
 }
