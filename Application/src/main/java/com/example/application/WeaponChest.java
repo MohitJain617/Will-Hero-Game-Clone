@@ -1,6 +1,5 @@
 package com.example.application;
 
-import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -10,15 +9,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serial;
 
-public class CoinChest extends Reward{
+public class WeaponChest extends Reward {
 
-    boolean retrieved;
-    public CoinChest(double x, double y) {
-        super(x, y);
+    private boolean retrieved;
+    private Weapon weapon ;
+
+    public WeaponChest(double x, double y , Weapon weapon) {
+        super(x,y);
         render();
         retrieved = false;
+        this.weapon = weapon ;
     }
-
     private void render(){
         Image img = new Image("treasure_close.png");
         ImageView iv = new ImageView(img);
@@ -39,8 +40,9 @@ public class CoinChest extends Reward{
         render();
     }
 
-    @Override
+    //@Override
     public void ifHeroCollides(Hero hero) {
+
         if(retrieved) return;
         ImageView iv = this.getImageView();
         iv.setImage(new Image("treasure_open.png"));
@@ -49,7 +51,8 @@ public class CoinChest extends Reward{
         Location curr = this.getLocation();
         this.setLocation(curr.getX(),curr.getY()-23);
         this.updateLocation();
+        System.out.println("Adding Weapon to hero");
+        hero.addWeapon(this.weapon);
         retrieved = true;
     }
-
 }

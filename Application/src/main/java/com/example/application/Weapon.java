@@ -11,6 +11,7 @@ public abstract class Weapon extends GameObject {
     private double xSpeed;
     private long lifeTime ;
     transient ImageView iv;
+    transient Image img ;
 
     public Weapon(double x, double y) {
         super(x, y);
@@ -18,6 +19,7 @@ public abstract class Weapon extends GameObject {
         currentLevel = 1;
         xSpeed = 0;
         lifeTime = 0 ;
+        img  = new Image("demonSlash.gif");
     }
     public void setImageView(ImageView iv){this.iv = iv;}
     protected ImageView getImageView(){return this.iv;}
@@ -60,7 +62,9 @@ public abstract class Weapon extends GameObject {
         }
         else{
             w =  new Sword(this.getLocation().getX()+90, this.getLocation().getY()+10);
-            Image img = new Image("demonSlash.gif");
+            if(img==null){
+                img =  new Image("demonSlash.gif");
+            }
             w.iv.setImage(img);
             w.iv.setRotate(180);
             w.iv.setFitWidth(100);

@@ -70,6 +70,7 @@ public class GamePlay implements Serializable {
 
             @Override
             public void handle(long now) {
+
                 //-----HERO--------
                 if(!hero.isAlive()) {
                     System.out.println(hero.getLocation().getY());
@@ -166,7 +167,10 @@ public class GamePlay implements Serializable {
                 //hero vs reward and obstacles
                 for(Reward reward: rewards){
                     if(reward.checkCollision(hero)){
+
                         reward.ifHeroCollides(hero);
+                        hero.displayWeapon(game_pane);
+                        System.out.println("Should get its weapon");
                     }
                 }
                 for(Obstacle obs: obstacles){
@@ -204,6 +208,7 @@ public class GamePlay implements Serializable {
                 }
 
                 Iterator<Obstacle> itr1 = obstacles.iterator();
+
                 while(itr1.hasNext()){
 
                     Obstacle obs = itr1.next();
@@ -217,8 +222,10 @@ public class GamePlay implements Serializable {
     }
 
     public void setup_Game(){
+
         hero = new Hero(300.0,230.0);
-        rewards.add(new CoinChest(2800,310));
+        //rewards.add(new CoinChest(2800,310));
+        rewards.add(new WeaponChest(2800,310,new Sword(0,0))) ;
 
         int x = 250;
 
@@ -335,6 +342,7 @@ public class GamePlay implements Serializable {
         return hero.getCollectedCoins();
     }
     public void reinitialize() throws IOException {
+
         if(game_pane != null){
             System.out.println("Game_pane is not null");
             hero.display(game_pane);
