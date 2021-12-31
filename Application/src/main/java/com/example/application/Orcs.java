@@ -1,6 +1,8 @@
 package com.example.application;
 
 
+import javafx.scene.layout.AnchorPane;
+
 public abstract class Orcs extends Obstacle {
     private int health;
     private Coins coins;
@@ -20,8 +22,16 @@ public abstract class Orcs extends Obstacle {
 
     @Override
     public boolean isAlive(){
-        boolean flag = !(this.getLocation().getY() > 650);
-        if(this.health <= 0 && flag==true){
+
+        boolean flag ;
+
+        if(this.getClass() == BossOrc.class){
+            flag = !(this.getLocation().getY() > 580);
+        }
+
+        else{ flag = !(this.getLocation().getY() > 650); }
+
+        if(this.health <= 0 && flag){
             this.setXspeed(0);
             this.setYspeed(10);
             this.iv.setRotate(20);
@@ -29,9 +39,13 @@ public abstract class Orcs extends Obstacle {
         }
         if(!flag){
             this.iv.setDisable(true);
-            this.iv.setOpacity(0);
         }
+
         return flag;
+    }
+
+    public void undisplay(AnchorPane game_pane){
+        game_pane.getChildren().remove(this.iv);
     }
 
     @Override
@@ -72,14 +86,47 @@ public abstract class Orcs extends Obstacle {
 
     @Override
     public void ifObstacleCollides(Obstacle obs){
+
         if(obs instanceof TNT){
             obs.ifObstacleCollides(this);
             return;
         }
         if(obs instanceof BossOrc){
-            this.setXspeed(-5);
+
+            Location Loc1 = this.getLocation();
+            Location Loc2 = obs.getLocation();
+
+            System.out.println("Locations :" + Loc1.getY() + " " + Loc2.getY());
+
+            if(Loc2.getY() - Loc1.getY() >= 34){
+                this.setYspeed(-5);
+                obs.setYspeed(5);
+                System.out.println("Ek ke upr ek");
+                return ;
+            }
+
+            if(Loc1.getY() - Loc2.getY() >= 34){
+                obs.setYspeed(-5);
+                this.setYspeed(5);
+                System.out.println("2");
+            }
+
+            else{
+
+                if(obs.getLocation().getX() > this.getLocation().getX()){
+                    obs.setXspeed(2);
+                    this.setXspeed(-5);
+                }
+
+                else{
+                    this.setXspeed(10);
+                }
+                System.out.println("Head on");
+            }
+
             return;
         }
+
         //orc vs orc now
         Location Loc1 = this.getLocation();
         Location Loc2 = obs.getLocation();

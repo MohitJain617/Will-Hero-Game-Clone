@@ -60,6 +60,10 @@ public class Hero extends GameObject{
         return alive;
     }
 
+    public void setAlive(boolean b){
+        this.alive = b ;
+    }
+
     @Override
     public Bounds getBounds(){
         return this.iv.getBoundsInParent();
