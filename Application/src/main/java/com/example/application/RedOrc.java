@@ -11,6 +11,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 
 public class RedOrc extends Orcs{
+    @Serial
+    private static final long serialVersionUID = 14L;
     public RedOrc(double xloc, double yloc) {
 
         super(xloc, yloc, 1, 20);

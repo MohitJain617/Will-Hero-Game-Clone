@@ -3,7 +3,11 @@ package com.example.application;
 
 import javafx.scene.layout.AnchorPane;
 
+import java.io.Serial;
+
 public abstract class Orcs extends Obstacle {
+    @Serial
+    private static final long serialVersionUID = 13L;
     private int health;
     private Coins coins;
 

@@ -1,8 +1,11 @@
 package com.example.application;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Location implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 11L;
     private double x;
     private double y;
     public Location(double x, double y){

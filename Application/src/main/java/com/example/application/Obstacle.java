@@ -4,7 +4,11 @@ import javafx.geometry.Bounds;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.Serial;
+
 public abstract class Obstacle extends GameObject implements ObstacleCollision{
+    @Serial
+    private static final long serialVersionUID = 12L;
     transient ImageView iv;
     private double xSpeed;
     private double ySpeed;

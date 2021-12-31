@@ -12,6 +12,8 @@ import java.io.Serial;
 import java.util.Objects;
 
 public class Hero extends GameObject{
+    @Serial
+    private static final long serialVersionUID = 9L;
     private transient ImageView iv;
     private transient AnchorPane game_pane;
 

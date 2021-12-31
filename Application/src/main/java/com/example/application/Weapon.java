@@ -5,7 +5,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.Serial;
+
 public abstract class Weapon extends GameObject {
+    @Serial
+    private static final long serialVersionUID = 21L;
 
     private int currentLevel;
     private double xSpeed;

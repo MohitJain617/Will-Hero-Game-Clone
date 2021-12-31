@@ -11,6 +11,8 @@ import java.io.Serial;
 
 public class WeaponChest extends Reward {
 
+    @Serial
+    private static final long serialVersionUID = 22L;
     private boolean retrieved;
     private Weapon weapon ;
 

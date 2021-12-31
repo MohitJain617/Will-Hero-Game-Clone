@@ -10,6 +10,8 @@ import java.io.Serial;
 
 public class Sword extends Weapon {
 
+    @Serial
+    private static final long serialVersionUID = 17L;
     public Sword(double x, double y) {
         super(x, y);
         render();

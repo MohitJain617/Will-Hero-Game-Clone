@@ -11,6 +11,8 @@ package com.example.application;
         import java.io.Serial;
 
 public class StdOrc extends GreenOrc{
+    @Serial
+    private static final long serialVersionUID = 16L;
     public StdOrc(double xloc, double yloc) {
         super(xloc, yloc, 1, 20);
         render();

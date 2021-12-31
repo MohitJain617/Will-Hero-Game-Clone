@@ -17,10 +17,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
 public class GamePlay implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 6L;
     private Hero hero;
     private ArrayList<Island> islands;
     private ArrayList<Obstacle> obstacles;

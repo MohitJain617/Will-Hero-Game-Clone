@@ -34,6 +34,7 @@ public class Game extends Application implements Initializable{
     private Image icon ;
     private SceneController st;
     private HashMap<String, GamePlay> savedGames;
+    private User user;
     @FXML
     Group mainGroup;
     @FXML
@@ -53,6 +54,7 @@ public class Game extends Application implements Initializable{
         gameplay.setGame(this);
         icon = new Image("hero.png");
         savedGames = new HashMap<String,GamePlay>();
+        user = new User();
         //TO initialize the output.ser
 //        try {
 //            serialize();

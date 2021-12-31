@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 
 public class FloatingCoin extends Reward{
+    @Serial
+    private static final long serialVersionUID = 4L;
     private boolean retrieved;
     private Coins coinreward;
     public FloatingCoin(double x, double y) {

@@ -11,6 +11,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 
 public class CoinChest extends Reward{
+    @Serial
+    private static final long serialVersionUID = 2L;
     private Coins coinreward;
     private boolean retrieved;
     public CoinChest(double x, double y) {

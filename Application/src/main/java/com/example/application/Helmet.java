@@ -1,9 +1,12 @@
 package com.example.application;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Helmet implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 8L;
     private Weapon S;
     private Weapon TK;
     public Helmet() {

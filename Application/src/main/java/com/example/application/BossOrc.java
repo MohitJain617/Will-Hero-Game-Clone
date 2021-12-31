@@ -11,6 +11,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 
 public class BossOrc extends GreenOrc{
+    @Serial
+    private static final long serialVersionUID = 1L;
     public BossOrc(double xloc, double yloc) {
         super(xloc, yloc, 5, 100);
         render();

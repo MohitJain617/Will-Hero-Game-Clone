@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 
 public class TNT extends Obstacle{
+    @Serial
+    private static final long serialVersionUID = 19L;
     private boolean fuse;
     private long timer;
     public TNT(double xloc, double yloc) {

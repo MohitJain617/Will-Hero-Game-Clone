@@ -11,8 +11,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 
 public class Island extends GameObject implements ObstacleCollision{
+    @Serial
+    private static final long serialVersionUID = 10L;
 
-    transient ImageView iv;
+    private transient ImageView iv;
     private double xWidth;
     private double yWidth;
     private String islandName;

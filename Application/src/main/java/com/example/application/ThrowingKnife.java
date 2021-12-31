@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 
 public class ThrowingKnife extends Weapon{
+    @Serial
+    private static final long serialVersionUID = 18L;
     public ThrowingKnife(double x, double y) {
         super(x, y);
         render();
