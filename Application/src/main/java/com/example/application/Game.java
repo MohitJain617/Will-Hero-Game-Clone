@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -217,6 +218,7 @@ public class Game extends Application implements Initializable{
         }
         //------Initalizing for loadGame----------
         if(gameChoiceBox != null){
+
             try {
                 deserialize();
             } catch (IOException e) {
