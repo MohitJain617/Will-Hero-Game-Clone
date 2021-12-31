@@ -38,21 +38,35 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <ImageView fitHeight="161.0" fitWidth="265.0" layoutX="530.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../cloud2.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="162.0" fitWidth="292.0" layoutX="68.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../cloud1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="202.0" fitWidth="305.0" layoutX="900.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../cloud1.png" />
-               </image>
-            </ImageView>
+            <Group layoutX="68.0" layoutY="60.0">
+               <children>
+                  <ImageView fx:id="cloud_2" fitHeight="161.0" fitWidth="265.0" layoutX="550.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../cloud2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cloud_1" fitHeight="162.0" fitWidth="292.0" layoutX="-20.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../cloud1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cloud_3" fitHeight="202.0" fitWidth="305.0" layoutX="950.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../cloud1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cloud_4" fitHeight="114.0" fitWidth="106.0" layoutX="870.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../cloud2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cloud_5" fitHeight="94.0" fitWidth="152.0" layoutX="320.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../cloud1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
             <ImageView fitHeight="69.0" fitWidth="84.0" layoutX="608.0" layoutY="26.0" onMouseClicked="#showPauseMenu" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pause.png" />
@@ -75,21 +89,6 @@
             <ImageView fitHeight="56.0" fitWidth="77.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../speaker.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="114.0" fitWidth="106.0" layoutX="900.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../cloud2.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="94.0" fitWidth="152.0" layoutX="360.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../cloud1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="114.0" fitWidth="106.0" layoutX="720.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../cloud2.png" />
                </image>
             </ImageView>
             <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" onMouseClicked="#heroDash" prefHeight="718.0" prefWidth="1302.0" />

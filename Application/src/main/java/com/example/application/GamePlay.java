@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -32,6 +33,8 @@ public class GamePlay implements Serializable {
     private boolean pause;
     private transient Game game;
     private transient SceneController st;
+    private transient ArrayList<ImageView> clouds;
+    private double[] mov = new double[]{ 0.8,0.8,0.8,0.85,0.85};
 
     @FXML
     private transient AnchorPane game_pane;
@@ -52,17 +55,34 @@ public class GamePlay implements Serializable {
     @FXML
     private transient Text score ;
 
+    @FXML
+    private transient ImageView cloud_1;
+
+    @FXML
+    private transient ImageView cloud_2;
+
+    @FXML
+    private transient ImageView cloud_3;
+
+    @FXML
+    private transient ImageView cloud_4;
+
+    @FXML
+    private transient ImageView cloud_5;
+
     public GamePlay(){
 
         islands = new ArrayList<Island>();
         obstacles = new ArrayList<Obstacle>();
         rewards = new ArrayList<Reward>();
+        clouds = new ArrayList<ImageView>();
         random = new Random();
         pause = false;
         setup_Game();
         dashTime = System.nanoTime();
         st = new SceneController();
         weaponInstances = new ArrayList<Weapon>();
+
         animatorLogic();
     }
     private void animatorLogic(){
@@ -216,16 +236,23 @@ public class GamePlay implements Serializable {
                 }
 
                 score.setText(hero.getCollectedCoins() + " Coins");
+
+                for(int i=0 ; i<clouds.size() ; i++){
+                    ImageView iv = clouds.get(i);
+                    double pos = iv.getLayoutX()-mov[i];
+                    if(pos <= -70){ pos = 1400 ;}
+                    iv.setLayoutX(pos);
+                }
             }
         };
-
     }
 
     public void setup_Game(){
 
         hero = new Hero(300.0,230.0);
         //rewards.add(new CoinChest(2800,310));
-        rewards.add(new WeaponChest(2800,310,new Sword(0,0))) ;
+        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
+        rewards.add(new WeaponChest(3900,310,new Sword(0,0))) ;
 
         int x = 250;
 
@@ -257,10 +284,12 @@ public class GamePlay implements Serializable {
             x+=2450 ;
         }
 
+        obstacles.add(new TNT(x-4000,295));
+
         islands.add(new Island(x,364,358,160,"island_large2.png"));
         obstacles.add(new BossOrc(x+100,126));
         //TNT
-        obstacles.add(new TNT(3950,295));
+        //obstacles.add(new TNT(3950,295));
     }
 
     public void heroDash(MouseEvent e){
@@ -350,6 +379,7 @@ public class GamePlay implements Serializable {
             for (Island island : islands) island.display(game_pane);
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);
+            clouds.add(cloud_1); clouds.add(cloud_2); clouds.add(cloud_3); clouds.add(cloud_4); clouds.add(cloud_5);
             pauseGroup.setDisable(true);
             score.setText(hero.getCollectedCoins()+" Coins");
             if(!pause) animator.start();

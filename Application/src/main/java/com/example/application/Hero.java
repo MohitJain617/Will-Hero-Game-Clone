@@ -127,6 +127,7 @@ public class Hero extends GameObject{
     public void addWeapon(Weapon weapon){
 
         int verdict = this.helmet.addWeapon(weapon);
+
         if(verdict == 0){
             this.currentWeapon = weapon ;
             System.out.println("Valid weapon given to hero");
