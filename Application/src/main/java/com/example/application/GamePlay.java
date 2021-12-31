@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.InetSocketAddress;
 import java.util.*;
 
 public class GamePlay implements Serializable {
@@ -257,9 +256,9 @@ public class GamePlay implements Serializable {
     public void setup_Game(){
 
         hero = new Hero(300.0,230.0);
-        //rewards.add(new CoinChest(2800,310));
-//        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
-//        rewards.add(new WeaponChest(3900,310,new Sword(0,0))) ;
+        rewards.add(new CoinChest(2800,310));
+        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
+        rewards.add(new WeaponChest(3900,310,new Sword(0,0))) ;
 
         int x = 250;
 
@@ -268,36 +267,34 @@ public class GamePlay implements Serializable {
 
         //obstacles.add(new StdOrc(x+600,26));
 
-//        for(int i=1;i<=2;i++){
-//
-//            ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
-//            ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
-//
-//            for(int k=1;k<=3;k++){ ind1.add(random.nextInt(Large_Island_Images.length)); }
-//            for(int k=1;k<=2;k++){ ind2.add(random.nextInt(Small_Island_Images.length)); }
-//
-//            islands.add(new Island( x+0 ,368,358,126,Large_Island_Images[ind1.get(0)]));
-//            islands.add(new Island(x+500,363,358,126,Small_Island_Images[ind2.get(0)]));
-//            obstacles.add(new RedOrc(x+600,126));
-//
-//            islands.add(new Island(x+950,368,358,126,Large_Island_Images[ind1.get(1)]));
-//            islands.add(new Island(x+1450,375,358,126,Small_Island_Images[ind2.get(1)]));
-//
-//            obstacles.add(new StdOrc(x+1550,126));
-//
-//            islands.add(new Island(x+1900,364,358,160,Large_Island_Images[ind1.get(2)]));
-//            obstacles.add(new StdOrc(x+2000,126));
-//
-//            x+=2450 ;
-//        }
+        for(int i=1;i<=2;i++){
+
+            ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
+            ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
+
+            for(int k=1;k<=3;k++){ ind1.add(random.nextInt(Large_Island_Images.length)); }
+            for(int k=1;k<=2;k++){ ind2.add(random.nextInt(Small_Island_Images.length)); }
+
+            islands.add(new Island( x+0 ,368,358,126,Large_Island_Images[ind1.get(0)]));
+            islands.add(new Island(x+500,363,358,126,Small_Island_Images[ind2.get(0)]));
+            obstacles.add(new RedOrc(x+600,126));
+
+            islands.add(new Island(x+950,368,358,126,Large_Island_Images[ind1.get(1)]));
+            islands.add(new Island(x+1450,375,358,126,Small_Island_Images[ind2.get(1)]));
+
+            obstacles.add(new StdOrc(x+1550,126));
+
+            islands.add(new Island(x+1900,364,358,160,Large_Island_Images[ind1.get(2)]));
+            obstacles.add(new StdOrc(x+2000,126));
+
+            x+=2450 ;
+        }
 
         islands.add(new Island(x+0,364,358,160,Large_Island_Images[0]));
         islands.add(new Island(x+300,364,358,160,Large_Island_Images[1]));
         islands.add(new Island(x+600,364,358,160,Large_Island_Images[2]));
         islands.add(new Island(x+900,364,358,160,Large_Island_Images[1]));
 
-        obstacles.add(new RedOrc(x+500,120));
-        //obstacles.add(new RedOrc(x+600,120));
         obstacles.add(new BossOrc(x+800,100));
 
         islands.add(new Island(x+1700,364,358,160,Large_Island_Images[1]));
