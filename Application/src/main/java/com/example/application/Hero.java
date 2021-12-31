@@ -133,6 +133,7 @@ public class Hero extends GameObject{
     public void addWeapon(Weapon weapon){
 
         int verdict = this.helmet.addWeapon(weapon);
+
         if(verdict == 0){
             chooseWeapon(weapon.getClass().getSimpleName(),this.game_pane);
         }

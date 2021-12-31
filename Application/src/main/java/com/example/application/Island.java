@@ -60,7 +60,7 @@ public class Island extends GameObject implements ObstacleCollision{
     @Override
     public void ifHeroCollides(Hero hero) {
         if(hero.getLocation().getY() < this.getLocation().getY()){
-            hero.setYspeed(-11);
+            hero.setYspeed(-10);
         }
     }
 
@@ -79,7 +79,7 @@ public class Island extends GameObject implements ObstacleCollision{
 
         if(obs instanceof Orcs){
             if(obs.getLocation().getY() < this.getLocation().getY()){
-                (obs).setYspeed(-10.5);
+                (obs).setYspeed(-12);
                 (obs).setXspeed(0);
             }
         }
