@@ -21,7 +21,12 @@ public abstract class Orcs extends Obstacle {
     @Override
     public boolean isAlive(){
         boolean flag = !(this.getLocation().getY() > 650);
-        if(this.health <= 0) flag = false;
+        if(this.health <= 0 && flag==true){
+            this.setXspeed(0);
+            this.setYspeed(10);
+            this.iv.setRotate(20);
+            return true ;
+        }
         if(!flag){
             this.iv.setDisable(true);
             this.iv.setOpacity(0);

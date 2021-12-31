@@ -137,6 +137,7 @@ public class GamePlay implements Serializable {
                 }
 
                 //-------OBSTACLES and ISLANDS----------
+
                 // Gravity on obstacles
                 for (Obstacle obs : obstacles) {
                     if (obs instanceof Orcs) {
