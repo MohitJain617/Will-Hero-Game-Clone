@@ -167,10 +167,8 @@ public class GamePlay implements Serializable {
                 //hero vs reward and obstacles
                 for(Reward reward: rewards){
                     if(reward.checkCollision(hero)){
-
                         reward.ifHeroCollides(hero);
                         hero.displayWeapon(game_pane);
-                        System.out.println("Should get its weapon");
                     }
                 }
                 for(Obstacle obs: obstacles){
@@ -346,7 +344,6 @@ public class GamePlay implements Serializable {
         if(game_pane != null){
             System.out.println("Game_pane is not null");
             hero.display(game_pane);
-            hero.displayWeapon(game_pane);
             for (Island island : islands) island.display(game_pane);
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);
@@ -359,9 +356,9 @@ public class GamePlay implements Serializable {
         }
     }
     public void changeWeaponToSword(MouseEvent e){
-        System.out.println("Change to sword");
+        this.hero.chooseWeapon("Sword",game_pane);
     }
     public void changeWeaponToThrowingKnife(MouseEvent e){
-        System.out.println("Chane to TK");
+        this.hero.chooseWeapon("ThrowingKnife",game_pane);
     }
 }

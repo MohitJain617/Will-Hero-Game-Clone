@@ -84,10 +84,9 @@ public abstract class Weapon extends GameObject {
     public void undisplay(AnchorPane pane){
         pane.getChildren().remove(iv);
     }
-    public void display(){
-        iv.setOpacity(1);
+    public void levelUp(){
+        this.currentLevel++;
     }
-
     public void setLifeTime(long lt){
         this.lifeTime = lt;
     }

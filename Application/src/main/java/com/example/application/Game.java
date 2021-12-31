@@ -182,7 +182,7 @@ public class Game extends Application implements Initializable{
             System.out.println("Does reach checkpoint 1");
             savedGames = (HashMap)in.readObject();
         } catch (IOException e) {
-            System.out.println("IOException while deserializing.");
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found exception des");
         } finally {
