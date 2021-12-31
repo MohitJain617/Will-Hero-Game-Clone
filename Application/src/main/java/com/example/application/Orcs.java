@@ -105,7 +105,7 @@ public abstract class Orcs extends Obstacle {
                 return ;
             }
 
-            if(Loc1.getY() - Loc2.getY() >= 34){
+            if(Loc1.getY() - Loc2.getY() >= 35){
                 obs.setYspeed(-5);
                 this.setYspeed(5);
                 System.out.println("2");
