@@ -107,6 +107,7 @@ public class Endgame implements Initializable {
         this.gameplay.copy(gp);
         Score.setText("Current Score : "+gp.getScore());
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(end_pane != null) {
