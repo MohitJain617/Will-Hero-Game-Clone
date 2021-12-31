@@ -9,6 +9,7 @@ public abstract class Weapon extends GameObject {
 
     private int currentLevel;
     private double xSpeed;
+    private double ySpeed;
     private long lifeTime ;
     transient ImageView iv;
     transient Image img ;
@@ -23,7 +24,12 @@ public abstract class Weapon extends GameObject {
     }
     public void setImageView(ImageView iv){this.iv = iv;}
     protected ImageView getImageView(){return this.iv;}
-
+    public void setXSpeed(double d){
+        this.xSpeed = d;
+    }
+    public void setYSpeed(double d){
+        this.ySpeed = d;
+    }
     public void display(AnchorPane anc) {
         anc.getChildren().add(iv);
     }
@@ -39,7 +45,7 @@ public abstract class Weapon extends GameObject {
     @Override
     public void gravityEffect(){
         Location loc = this.getLocation();
-        this.setLocation(loc.getX()+xSpeed,loc.getY());
+        this.setLocation(loc.getX()+xSpeed,loc.getY()+ySpeed);
         updateLocation();
     }
     @Override
@@ -87,7 +93,13 @@ public abstract class Weapon extends GameObject {
     public void levelUp(){
         this.currentLevel++;
     }
+    public int getLevel(){
+        return this.currentLevel;
+    }
     public void setLifeTime(long lt){
         this.lifeTime = lt;
+    }
+    public void setRotate(double degree){
+        this.iv.setRotate(degree);
     }
 }

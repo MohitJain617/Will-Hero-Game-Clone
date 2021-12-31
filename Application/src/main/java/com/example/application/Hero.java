@@ -19,7 +19,7 @@ public class Hero extends GameObject{
     private double xSpeed;
     private boolean alive;
     private Weapon currentWeapon;
-    private int collectedCoins;
+    private Coins collectedCoins;
     private Helmet helmet ;
 
     public Hero(double x, double y){
@@ -29,10 +29,8 @@ public class Hero extends GameObject{
         render();
         alive = true;
         currentWeapon =  null ;
-        collectedCoins = 0 ;
+        collectedCoins = new Coins(0) ;
         helmet = new Helmet() ;
-        helmet.addWeapon(new Sword(0,0));
-        helmet.addWeapon(new ThrowingKnife(0,0));
     }
     private void render(){
         iv = new ImageView();
@@ -119,10 +117,12 @@ public class Hero extends GameObject{
         }
     }
 
-    public int getCollectedCoins(){ return this.collectedCoins ; }
+    public int getCollectedCoins(){ return this.collectedCoins.getValue() ; }
 
-    public void setCollectedCoins(int coins){ this.collectedCoins = coins ; }
-
+    public void collectCoins(Coins c){
+        if(c == null) return;
+        this.collectedCoins.addCoins(c);
+    }
     public Weapon getCurrentWeapon(){
 
         if(this.currentWeapon == null ){ return null ; }

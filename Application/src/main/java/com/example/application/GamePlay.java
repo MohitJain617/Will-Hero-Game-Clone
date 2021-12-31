@@ -99,7 +99,7 @@ public class GamePlay implements Serializable {
                         animator.stop();
                         int points = hero.getCollectedCoins() ;
                         hero = new Hero(300,120);
-                        hero.setCollectedCoins(points);
+//                        hero.setCollectedCoins(points);
 //                        hero.setLocation(300,120);
 //                        hero.updateLocation();
                         showEndMenu(game_pane);
@@ -221,15 +221,11 @@ public class GamePlay implements Serializable {
                 //REMOVAL of OBSTACLES
                 for(Obstacle obs : obstacles){
                     if(!obs.isAlive()){
-                        // obs.getCoins();              //  1
-                        hero.setCollectedCoins(hero.getCollectedCoins()+1);
+                        hero.collectCoins(obs.deathReward());
                     }
                 }
-
                 Iterator<Obstacle> itr1 = obstacles.iterator();
-
                 while(itr1.hasNext()){
-
                     Obstacle obs = itr1.next();
                     if(!obs.isAlive()){  itr1.remove();} // obs.undisplay() ;
                 }
@@ -298,6 +294,17 @@ public class GamePlay implements Serializable {
             Weapon temp = hero.getCurrentWeapon() ;
             weaponInstances.add(temp) ;
             temp.display(game_pane);
+            //if level 2 throwing knife----
+            if(temp instanceof ThrowingKnife){
+                if(temp.getLevel() >= 2){
+                    temp = hero.getCurrentWeapon();
+                    temp.setYSpeed(-5); temp.setXSpeed(37);
+                    temp.setRotate(80);
+                    weaponInstances.add(temp);
+                    temp.display(game_pane);
+                }
+            }
+            //----------------------------
         }
         // System.out.println(cnt++);
     }

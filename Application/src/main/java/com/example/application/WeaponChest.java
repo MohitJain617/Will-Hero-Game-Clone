@@ -21,13 +21,23 @@ public class WeaponChest extends Reward {
         this.weapon = weapon ;
     }
     private void render(){
-        Image img = new Image("treasure_close.png");
+        Image img = null;
+        if(!retrieved) {
+            img = new Image("treasure_close.png");
+        } else {
+            img = new Image("treasure_open.png");
+        }
         ImageView iv = new ImageView(img);
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
         iv.setPreserveRatio(true);
         iv.setPickOnBounds(true);
-        iv.setFitHeight(100);
-        iv.setFitWidth(100);
+        if(!retrieved) {
+            iv.setFitHeight(100);
+            iv.setFitWidth(100);
+        } else {
+            iv.setFitHeight(120);
+            iv.setFitWidth(120);
+        }
         super.setImageView(iv);
     }
     @Serial
