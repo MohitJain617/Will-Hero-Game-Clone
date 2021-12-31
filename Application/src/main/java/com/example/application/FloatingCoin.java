@@ -24,8 +24,13 @@ public class FloatingCoin extends Reward{
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
         iv.setPreserveRatio(true);
         iv.setPickOnBounds(true);
-        iv.setFitHeight(30);
-        iv.setFitWidth(30);
+        iv.setFitHeight(60);
+        iv.setFitWidth(60);
+        if(retrieved) {
+            iv.setOpacity(0);
+            this.getImageView().setFitWidth(0);
+            this.getImageView().setFitHeight(0);
+        }
         super.setImageView(iv);
     }
     @Serial
@@ -42,6 +47,11 @@ public class FloatingCoin extends Reward{
     public void ifHeroCollides(Hero hero) {
         if(retrieved) return;
         else {
+            hero.collectCoins(this.coinreward);
+            this.getImageView().setOpacity(0);
+            this.getImageView().setFitWidth(0);
+            this.getImageView().setFitHeight(0);
+            retrieved = true;
         }
     }
 }

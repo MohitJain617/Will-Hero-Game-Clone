@@ -2,7 +2,6 @@ package com.example.application;
 
 import javafx.animation.*;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -257,7 +256,8 @@ public class GamePlay implements Serializable {
 
         hero = new Hero(300.0,230.0);
         rewards.add(new CoinChest(2800,310));
-        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
+        rewards.add(new CoinChest(2600,310));
+//        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
         rewards.add(new WeaponChest(3900,310,new Sword(0,0))) ;
 
         int x = 250;
@@ -265,7 +265,7 @@ public class GamePlay implements Serializable {
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
         String []Small_Island_Images = {"island_med.png","island_small.png"};
 
-        //obstacles.add(new StdOrc(x+600,26));
+        obstacles.add(new StdOrc(x+600,26));
 
         for(int i=1;i<=2;i++){
 
@@ -286,6 +286,7 @@ public class GamePlay implements Serializable {
 
             islands.add(new Island(x+1900,364,358,160,Large_Island_Images[ind1.get(2)]));
             obstacles.add(new StdOrc(x+2000,126));
+            rewards.add(new FloatingCoin(x+2200,100));
 
             x+=2450 ;
         }
@@ -295,6 +296,7 @@ public class GamePlay implements Serializable {
         islands.add(new Island(x+600,364,358,160,Large_Island_Images[2]));
         islands.add(new Island(x+900,364,358,160,Large_Island_Images[1]));
 
+        obstacles.add(new StdOrc(x+600,100));
         obstacles.add(new BossOrc(x+800,100));
 
         islands.add(new Island(x+1700,364,358,160,Large_Island_Images[1]));
