@@ -12,16 +12,16 @@ import java.util.ResourceBundle;
 
 public class VictoryScreen implements Initializable {
 
-    int score;
+    private int score;
     //User user;
 
     @FXML
-    private Text text ;
+    Text text ;
 
     @FXML
-    private Text curr_score ;
+    Text curr_score ;
 
-    VictoryScreen() {
+    public VictoryScreen() {
         score = 0 ;
     }
 
