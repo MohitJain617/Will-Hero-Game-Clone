@@ -33,13 +33,13 @@ public class GamePlay implements Serializable {
     transient AnimationTimer animator;
     private long dashTime;
     private final Random random ;
-    private ImageView crown_Img ;
+    private transient ImageView crown_Img ;
     //private int cnt = 0 ;
     private boolean pause;
+    private final double[] mov = new double[]{ 0.8,0.8,0.8,0.85,0.85};
     private transient Game game;
     private transient SceneController st;
     private transient ArrayList<ImageView> clouds;
-    private transient double[] mov = new double[]{ 0.8,0.8,0.8,0.85,0.85};
 
     @FXML
     private transient Group swordGroup;

@@ -128,6 +128,7 @@ public class Hero extends GameObject{
     public void collectCoins(Coins c){
         if(c == null) return;
         this.collectedCoins.addCoins(c);
+        User.getInstance().collectCoins(c);
     }
     public Weapon getCurrentWeapon(){
 
