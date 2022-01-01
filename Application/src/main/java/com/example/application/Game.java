@@ -41,6 +41,10 @@ public class Game extends Application implements Initializable{
     Group highScores;
     @FXML
     Group settingGroup;
+    @FXML
+    Text totalCoins ;
+    @FXML
+    Label highScore_Text;
 
     //Load Game injections
     @FXML
@@ -211,8 +215,13 @@ public class Game extends Application implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        if(totalCoins!=null){
+            totalCoins.setText(User.getInstance().getCoins()+" Coins");
+        }
         if(highScores != null){
             this.highScores.setDisable(true);
+            highScore_Text.setText("HIGHSCORE : "+user.getHighScore());
         }
         if(settingGroup != null){
             this.settingGroup.setDisable(true);

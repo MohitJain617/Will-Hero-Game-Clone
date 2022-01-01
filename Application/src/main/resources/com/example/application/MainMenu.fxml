@@ -242,15 +242,15 @@
             </VBox>
             <Group layoutX="1065.0" layoutY="-2.0">
                <children>
-                  <TextField disable="true" editable="false" layoutX="0.9166679382324219" layoutY="26.0" opacity="0.27" prefHeight="54.0" prefWidth="187.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
+                  <TextField disable="true" editable="false" layoutX="0.9166679382324219" layoutY="26.0" opacity="0.27" prefHeight="54.0" prefWidth="202.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
                   <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="10.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../coin1.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="54.91666793823242" layoutY="61.0" stroke="BLACK" strokeType="OUTSIDE" text="21 Coins" wrappingWidth="147.5552978515625">
+                  <Text fx:id="totalCoins" fill="WHITE" fontSmoothingType="LCD" layoutX="54.91666793823242" layoutY="61.0" stroke="BLACK" strokeType="OUTSIDE" text="10 Coins" wrappingWidth="147.5552978515625">
                      <font>
-                        <Font name="SansSerif Bold" size="28.0" />
+                        <Font name="SansSerif Bold" size="26.0" />
                      </font>
                   </Text>
                </children>
@@ -272,7 +272,7 @@
                   </ImageView>
                </children>
             </Group>
-            <Label alignment="CENTER" layoutX="38.0" layoutY="376.0" prefHeight="93.0" prefWidth="510.0" text="HIGHSCORE : 76" textFill="WHITE">
+            <Label fx:id="highScore_Text" alignment="CENTER" layoutX="38.0" layoutY="376.0" prefHeight="93.0" prefWidth="510.0" text="HIGHSCORE : 76" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="51.0" />
                </font>

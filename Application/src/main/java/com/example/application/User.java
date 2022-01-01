@@ -69,7 +69,8 @@ public class User {
         return false;
     }
 
-    public int getCoins(){return coins.getValue();}
+    public int getCoins(){ return coins.getValue();}
+
     public boolean useCoins(int needed){
         return coins.useCoins(needed);
     }
