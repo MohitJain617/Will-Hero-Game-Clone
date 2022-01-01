@@ -65,7 +65,7 @@ public class WeaponChest extends Reward {
         Location curr = this.getLocation();
         this.setLocation(curr.getX(),curr.getY()-23);
         this.updateLocation();
-        System.out.println("Adding Weapon to hero");
+//        System.out.println("Adding Weapon to hero");
         hero.addWeapon(this.weapon);
         retrieved = true;
     }

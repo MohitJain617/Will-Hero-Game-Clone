@@ -13,7 +13,7 @@ public class User {
             deserializeData();
         } catch(Exception e){
             coins = new Coins(0);
-            System.out.println("Error while deserializing coins");
+//            System.out.println("Error while deserializing coins");
         }
         if(coins == null) coins = new Coins(0);
     }
@@ -38,7 +38,7 @@ public class User {
                 highScore = 0;
             }
         } catch (IOException e) {
-            System.out.println("IOException while deserilizing");
+//            System.out.println("IOException while deserilizing");
             coins = new Coins(0);
             highScore = 0;
         } catch (ClassNotFoundException e) {
@@ -57,9 +57,9 @@ public class User {
             out.writeObject(userData);
         } catch (IOException e) {
             //do something
-            System.out.println("IOException while serializing coins");
+//            System.out.println("IOException while serializing coins");
         } catch (NullPointerException f){
-            System.out.println("Null pointer exception");
+//            System.out.println("Null pointer exception");
         }
         finally
         {

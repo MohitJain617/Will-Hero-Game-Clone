@@ -71,7 +71,6 @@ public class TNT extends Obstacle{
     @Override
     public boolean isAlive() {
         if((!fuse) && (System.nanoTime() - timer > 0)) {
-            System.out.println("REMOVE TNT");
             ImageView iv = this.getImageView();
             iv.setOpacity(0);
             return false;

@@ -117,7 +117,6 @@ public class Endgame implements Initializable {
     }
 
     public void setGamePlay(GamePlay gp) throws IOException {
-        System.out.println("Copying the previous gameplay hopefully");
         this.gameplay.copy(gp);
         this.user = User.getInstance();
         set_scores();

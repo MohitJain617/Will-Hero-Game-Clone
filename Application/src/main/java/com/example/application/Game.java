@@ -188,9 +188,9 @@ public class Game extends Application implements Initializable{
             out.writeObject(savedGames);
         } catch (IOException e) {
             //do something
-            e.printStackTrace();
+//            e.printStackTrace();
         } catch (NullPointerException f){
-            System.out.println("Null pointer exception");
+//            System.out.println("Null pointer exception");
         }
         finally
         {
@@ -204,20 +204,15 @@ public class Game extends Application implements Initializable{
             System.out.println("Does reach checkpoint 1");
             savedGames = (HashMap)in.readObject();
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            System.out.println("Class not found exception des");
+//            System.out.println("Class not found exception des");
         } finally {
             if (in != null) in.close();
         }
     }
     public String addGamePlay(String name, GamePlay gp) throws IOException {
         deserialize();
-        //-----PRINTING STUFF TO CHECK-----
-        for(Map.Entry map: savedGames.entrySet()){
-            String key = (String) map.getKey();
-            System.out.println(key);
-        }
         //-----whats inside the hashmap-----
         if(savedGames.containsKey(name)){
             return "Given name already exists";
@@ -290,7 +285,7 @@ public class Game extends Application implements Initializable{
     }
     @Override
     public void stop(){
-        System.out.println("System is Closing");
+        System.out.println("Saving before shutting down.");
         try {
             this.user.serializeData();
         } catch (IOException e){

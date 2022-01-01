@@ -128,8 +128,8 @@ public class GamePlay implements Serializable {
                 //-----HERO--------
 
                 if(!hero.isAlive()) {
-                    System.out.println(hero.getLocation().getY());
-                    System.out.println("Hero died!");              // Show end menu
+//                    System.out.println(hero.getLocation().getY());
+//                    System.out.println("Hero died!");              // Show end menu
                     try {
                         animator.stop();
                         int points = hero.getCollectedCoins() ;
@@ -555,7 +555,7 @@ public class GamePlay implements Serializable {
     public void reinitialize() throws IOException {
 
         if(game_pane != null){
-            System.out.println("Game_pane is not null");
+//            System.out.println("Game_pane is not null");
             for (Island island : islands) island.display(game_pane);
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);

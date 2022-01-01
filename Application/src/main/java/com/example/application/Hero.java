@@ -173,7 +173,7 @@ public class Hero extends GameObject{
     public void chooseWeapon(String name, AnchorPane pane){
         //null check
         if(this.game_pane == null) {
-            System.out.println("The pane inside Hero is null");
+//            System.out.println("The pane inside Hero is null");
             return;
         }
         // get weapon from helmet
