@@ -30,9 +30,9 @@ public class VictoryScreen{
         new SceneController().changeScene(e,"MainMenu.fxml");
     }
 
-    public void setParameters(int collectedCoins, User user) {
+    public void setParameters(int collectedCoins) {
         this.score = collectedCoins;
-        this.user = user ;
+        this.user = User.getInstance() ;
         reinitialize();
     }
 
@@ -46,7 +46,7 @@ public class VictoryScreen{
             }
 
             else{
-                text.setText("SCORE !");
+                text.setText("SCORE");
             }
         }
     }

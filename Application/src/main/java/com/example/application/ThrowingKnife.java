@@ -35,4 +35,10 @@ public class ThrowingKnife extends Weapon{
         inputStream.defaultReadObject();
         render();
     }
+
+    @Override
+    public int damagePower() {
+        return 20;
+        //no matter the level;
+    }
 }

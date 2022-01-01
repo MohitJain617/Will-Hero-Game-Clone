@@ -34,7 +34,7 @@ public class GamePlay implements Serializable {
     private long dashTime;
     private final Random random ;
     private transient ImageView crown_Img ;
-    //private int cnt = 0 ;
+    private int deathCount;
     private boolean pause;
     private final double[] mov = new double[]{ 0.8,0.8,0.8,0.85,0.85};
     private transient Game game;
@@ -97,7 +97,7 @@ public class GamePlay implements Serializable {
         dashTime = System.nanoTime();
         st = new SceneController();
         weaponInstances = new ArrayList<Weapon>();
-
+        deathCount = 0;
         animatorLogic();
     }
     private void animatorLogic(){
@@ -129,7 +129,7 @@ public class GamePlay implements Serializable {
                         hero.updateLocation();
                         hero.setYspeed(0);
                         hero.setAlive(true);
-
+                        deathCount++;
                         showEndMenu(game_pane);
                         return ;
                     } catch (IOException e) {
@@ -450,6 +450,7 @@ public class GamePlay implements Serializable {
     }
 
     public void showEndMenu(Node e) throws IOException{
+        deathCount++;
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EndGameMenu.fxml")));
         Parent root = loader.load();
         Endgame ender = loader.getController();
@@ -464,7 +465,7 @@ public class GamePlay implements Serializable {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("WinGameMenu.fxml")));
         Parent root = loader.load();
         VictoryScreen victory = loader.getController();
-        victory.setParameters(hero.getCollectedCoins(),User.getInstance());
+        victory.setParameters(hero.getCollectedCoins());
         Stage stage = (Stage)(e.getScene().getWindow());
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -496,6 +497,7 @@ public class GamePlay implements Serializable {
         this.rewards = gp.rewards;
         this.pause = gp.pause;
         this.game = gp.game;
+        this.deathCount = gp.deathCount;
         this.reinitialize();
     }
 
@@ -532,5 +534,8 @@ public class GamePlay implements Serializable {
     }
     public void changeWeaponToThrowingKnife(MouseEvent e){
         this.hero.chooseWeapon("ThrowingKnife",game_pane);
+    }
+    public boolean canRevive(){
+        return (deathCount < 2);
     }
 }

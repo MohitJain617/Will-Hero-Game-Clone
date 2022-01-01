@@ -9,13 +9,14 @@ public class User {
     private int highScore;
     private User(){
         name = "Player";
+        highScore = 0;
         try{
             deserializeCoins();
         } catch(Exception e){
             coins = new Coins(0);
             System.out.println("Error while deserializing coins");
         }
-        highScore = 0;
+        if(coins == null) coins = new Coins(0);
     }
     public static User getInstance(){
         if(user == null){
