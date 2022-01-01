@@ -277,12 +277,9 @@ public class Game extends Application implements Initializable{
     public void stop(){
         System.out.println("System is Closing");
         try {
-            this.user.serializeCoins();
+            this.user.serializeData();
         } catch (IOException e){
             System.out.println("IO Exception caught");
-        }
-        finally {
-            //do something
         }
     }
 }

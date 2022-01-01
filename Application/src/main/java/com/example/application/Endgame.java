@@ -122,6 +122,9 @@ public class Endgame implements Initializable {
         if(this.gameplay.canRevive() && this.user.getCoins() >= 3){
 
         }
+        else {
+
+        }
     }
     public void set_scores(){
 
