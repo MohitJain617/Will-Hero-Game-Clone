@@ -9,9 +9,8 @@ public class User {
     private int highScore;
     private User(){
         name = "Player";
-        highScore = 0;
         try{
-            deserializeCoins();
+            deserializeData();
         } catch(Exception e){
             coins = new Coins(0);
             System.out.println("Error while deserializing coins");
@@ -24,24 +23,38 @@ public class User {
         }
         return user;
     }
-    public void deserializeCoins() throws IOException {
+    public void deserializeData() throws IOException {
         ObjectInputStream in = null;
         try {
             in = new ObjectInputStream(new FileInputStream("src\\saveCoins.ser"));
-            coins = (Coins)in.readObject();
+            Object[] userData;
+            userData = (Object[])in.readObject();
+            if(userData != null){
+                coins = (Coins)userData[0];
+                highScore = (Integer)userData[1];
+                System.out.println("User data: "+coins.getValue()+" " + highScore);
+            } else {
+                coins = new Coins(0);
+                highScore = 0;
+            }
         } catch (IOException e) {
             System.out.println("IOException while deserilizing");
+            coins = new Coins(0);
+            highScore = 0;
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found exception in deserialization.");
         } finally {
             if (in != null) in.close();
         }
     }
-    public void serializeCoins() throws IOException {
+    public void serializeData() throws IOException {
         ObjectOutputStream out = null;
         try {
             out = new ObjectOutputStream(new FileOutputStream("src\\saveCoins.ser"));
-            out.writeObject(coins);
+            Object[] userData = new Object[2];
+            userData[0] = coins;
+            userData[1] = highScore;
+            out.writeObject(userData);
         } catch (IOException e) {
             //do something
             System.out.println("IOException while serializing coins");
