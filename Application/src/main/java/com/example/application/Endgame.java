@@ -115,8 +115,14 @@ public class Endgame implements Initializable {
         this.gameplay.copy(gp);
         this.user = User.getInstance();
         set_scores();
+        setReviveButton();
     }
 
+    public void setReviveButton(){
+        if(this.gameplay.canRevive() && this.user.getCoins() >= 3){
+
+        }
+    }
     public void set_scores(){
 
         Coins.setText(user.getCoins()+" Coins");
