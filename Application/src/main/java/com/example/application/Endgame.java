@@ -55,8 +55,8 @@ public class Endgame implements Initializable {
         orcs.add(new RedOrc(75,60));
         orcs.add(new StdOrc(179,182));
         islands = new ArrayList<Island>();
-        islands.add(new Island(801,460,433,172,"island_large1.png"));
-        islands.add(new Island(45,455,407,162,"island1.png"));
+        islands.add(new Island(801,410,433,172,"island_large1.png"));
+        islands.add(new Island(45,405,407,162,"island1.png"));
 
         animator = new AnimationTimer() {
             @Override
@@ -65,7 +65,7 @@ public class Endgame implements Initializable {
                 //gravity on obstacles
                 for(Orcs obs: orcs){
                     if(obs instanceof GreenOrc) obs.setYspeed(obs.getYspeed() + 0.3);
-                    else obs.setYspeed(obs.getYspeed() + 0.2);
+                    else obs.setYspeed(obs.getYspeed() + 0.25);
                     obs.gravityEffect();
                 }
                 for (Island currIsland : islands) {

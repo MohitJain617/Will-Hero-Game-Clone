@@ -574,6 +574,6 @@ public class GamePlay implements Serializable {
         this.hero.chooseWeapon("ThrowingKnife",game_pane);
     }
     public boolean canRevive(){
-        return (deathCount < 10);
+        return (deathCount < 2);
     }
 }

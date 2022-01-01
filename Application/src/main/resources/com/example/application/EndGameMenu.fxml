@@ -39,17 +39,22 @@
       </Rectangle>
       <AnchorPane fx:id="end_pane" layoutX="1.0" layoutY="65.0" prefHeight="659.0" prefWidth="1271.0">
          <children>
-            <Text fx:id="High_Score" fill="#000103" layoutX="461.0" layoutY="161.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="High Score : 36" textAlignment="CENTER" wrappingWidth="344.0733642578125">
+            <Text fx:id="High_Score" fill="#baf5ff" layoutX="461.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="High Score : 36" textAlignment="CENTER" wrappingWidth="344.0733642578125">
                <font>
                   <Font name="SansSerif Bold" size="33.0" />
                </font>
             </Text>
+            <ImageView fitHeight="187.0" fitWidth="239.0" layoutX="513.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../blast-unscreen.gif" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
       <VBox alignment="CENTER" layoutX="415.0" layoutY="154.0" prefHeight="425.0" prefWidth="439.0" spacing="15.0">
          <children>
             <Group fx:id="reviveButton">
                <children>
-                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Revive" opacity="0.63" prefHeight="85.0" prefWidth="261.0" style="-fx-background-color: navy;" textFill="WHITE">
+                  <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Revive" opacity="0.63" prefHeight="85.0" prefWidth="261.0" style="-fx-background-color: blue;" textFill="WHITE">
                      <font>
                         <Font name="Lucida Console" size="37.0" />
                      </font>
@@ -57,36 +62,26 @@
                         <ColorAdjust brightness="0.1" contrast="0.18" hue="0.01" saturation="-0.24" />
                      </effect>
                   </Button>
-                  <ImageView disable="true" fitHeight="49.0" fitWidth="52.0" layoutX="176.0" layoutY="23.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+                  <ImageView disable="true" fitHeight="49.0" fitWidth="52.0" layoutX="202.0" layoutY="20.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../coin1.png" />
                      </image>
                   </ImageView>
-                  <ImageView disable="true" fitHeight="49.0" fitWidth="52.0" layoutX="185.0" layoutY="13.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../coin1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView disable="true" fitHeight="49.0" fitWidth="52.0" layoutX="200.0" layoutY="22.0" opacity="0.81" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../coin1.png" />
-                     </image>
-                  </ImageView>
-                  <Text disable="true" fill="WHITE" layoutX="21.0" layoutY="54.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" text="REVIVE:">
+                  <Text disable="true" fill="WHITE" layoutX="23.0" layoutY="55.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" text="Revive: 10">
                      <font>
-                        <Font name="Lucida Console" size="36.0" />
+                        <Font name="SansSerif Regular" size="36.0" />
                      </font>
                   </Text>
                </children>
             </Group>
             <Group>
                <children>
-                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showMainMenu" opacity="0.9" prefHeight="63.0" prefWidth="173.0" style="-fx-background-color: crimson;" text="Back" textFill="WHITE">
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showMainMenu" opacity="0.9" prefHeight="67.0" prefWidth="168.0" style="-fx-background-color: crimson;" text="Back" textFill="WHITE">
                      <font>
-                        <Font name="Lucida Console" size="36.0" />
+                        <Font name="Lucida Console" size="35.0" />
                      </font>
                   </Button>
-                  <ImageView disable="true" fitHeight="44.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                  <ImageView disable="true" fitHeight="44.0" fitWidth="39.0" layoutX="14.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../whitebackbutton.png" />
                      </image>
@@ -123,7 +118,7 @@
             </Label>
          </children>
       </Group>
-      <Text fx:id="Score" fill="#000103" layoutX="496.0" layoutY="165.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Score : 10">
+      <Text fx:id="Score" fill="WHITE" layoutX="496.0" layoutY="165.0" opacity="0.93" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Score : 10">
          <font>
             <Font name="SansSerif Bold" size="33.0" />
          </font>
