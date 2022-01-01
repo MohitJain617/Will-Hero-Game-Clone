@@ -60,6 +60,7 @@ public class User {
     public int getHighScore(){
         return this.highScore;
     }
+
     public boolean setHighScore(int current){
         if(highScore < current){
             highScore = current;
@@ -67,6 +68,7 @@ public class User {
         }
         return false;
     }
+
     public int getCoins(){return coins.getValue();}
     public boolean useCoins(int needed){
         return coins.useCoins(needed);

@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class VictoryScreen{
 
     private int score;
-    //User user;
+    User user ;
 
     @FXML
     Text text ;
@@ -23,14 +23,16 @@ public class VictoryScreen{
 
     public VictoryScreen() {
         score = 0 ;
+        user = null ;
     }
 
     public void showMainMenu(ActionEvent e) throws IOException {
         new SceneController().changeScene(e,"MainMenu.fxml");
     }
 
-    public void setParameters(int collectedCoins) {
+    public void setParameters(int collectedCoins, User user) {
         this.score = collectedCoins;
+        this.user = user ;
         reinitialize();
     }
 
@@ -39,12 +41,12 @@ public class VictoryScreen{
         if(curr_score != null && text!=null){
             curr_score.setText(String.valueOf(score));
 
-            if(score < 5){
-                text.setText("SCORE");
+            if(user.setHighScore(score)){
+                text.setText("NEW HIGHSCORE !");
             }
 
             else{
-                text.setText("NEW HIGHSCORE !");
+                text.setText("SCORE !");
             }
         }
     }

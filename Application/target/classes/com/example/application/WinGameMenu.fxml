@@ -24,7 +24,7 @@
             <Font name="Dubai Bold" size="80.0" />
          </font>
       </Text>
-      <Button layoutX="551.0" layoutY="519.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="81.0" prefWidth="170.0" style="-fx-background-color: rgb(255,180,0);" text="Home" textFill="#5814c7">
+      <Button layoutX="551.0" layoutY="519.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="81.0" prefWidth="170.0" style="-fx-background-color: rgb(255,180,0);" text="Home" textFill="#1e0548">
          <font>
             <Font name="Consolas Bold" size="44.0" />
          </font>

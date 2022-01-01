@@ -464,7 +464,7 @@ public class GamePlay implements Serializable {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("WinGameMenu.fxml")));
         Parent root = loader.load();
         VictoryScreen victory = loader.getController();
-        victory.setParameters(hero.getCollectedCoins());
+        victory.setParameters(hero.getCollectedCoins(),User.getInstance());
         Stage stage = (Stage)(e.getScene().getWindow());
         Scene scene = new Scene(root);
         stage.setScene(scene);

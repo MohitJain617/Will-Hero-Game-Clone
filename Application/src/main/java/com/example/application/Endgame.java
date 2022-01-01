@@ -26,6 +26,7 @@ public class Endgame implements Initializable {
     private GamePlay gameplay;
     private ArrayList<Orcs> orcs;
     private ArrayList<Island> islands;
+    private User user ;
     AnimationTimer animator;
 
     @FXML
@@ -35,10 +36,17 @@ public class Endgame implements Initializable {
     Group settingGroup;
 
     @FXML
-    Label Score ;
+    private Text Score ;
+
+    @FXML
+    private Text High_Score;
+
+    @FXML
+    private Text Coins;
 
     public Endgame(){
         gameplay = new GamePlay();
+        user = null ;
         orcs = new ArrayList<Orcs>();
         orcs.add(new BossOrc(959,40));
         orcs.add(new RedOrc(291,207));
@@ -105,7 +113,23 @@ public class Endgame implements Initializable {
     public void setGamePlay(GamePlay gp) throws IOException {
         System.out.println("Copying the previous gameplay hopefully");
         this.gameplay.copy(gp);
-        Score.setText("Current Score : "+gp.getScore());
+        this.user = User.getInstance();
+        set_scores();
+    }
+
+    public void set_scores(){
+
+        Coins.setText(user.getCoins()+" Coins");
+
+        if(user.setHighScore(gameplay.getScore())){
+            Score.setText("Current Score : "+user.getHighScore());
+            High_Score.setText("New High Score : "+ user.getHighScore());
+        }
+
+        else{
+            Score.setText("Current Score : "+ gameplay.getScore());
+            High_Score.setText("High Score : "+ user.getHighScore());
+        }
     }
 
     @Override
@@ -113,7 +137,6 @@ public class Endgame implements Initializable {
         if(end_pane != null) {
             for (Orcs orc : orcs) orc.display(end_pane);
             for (Island isle: islands) isle.display(end_pane);
-
             animator.start();
         }
         if(settingGroup != null){

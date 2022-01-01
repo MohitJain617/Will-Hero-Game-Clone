@@ -22,7 +22,9 @@ public class WeaponChest extends Reward {
         retrieved = false;
         this.weapon = weapon ;
     }
+
     private void render(){
+
         Image img = null;
         if(!retrieved) {
             img = new Image("treasure_close.png");
