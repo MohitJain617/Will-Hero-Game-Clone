@@ -27,9 +27,9 @@ public class WeaponChest extends Reward {
 
         Image img = null;
         if(!retrieved) {
-            img = new Image("treasure_close.png");
+            img = new Image("weapon_chest_close.png");
         } else {
-            img = new Image("treasure_open.png");
+            img = new Image("weapon_chest_open.png");
         }
         ImageView iv = new ImageView(img);
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
@@ -59,7 +59,7 @@ public class WeaponChest extends Reward {
 
         if(retrieved) return;
         ImageView iv = this.getImageView();
-        iv.setImage(new Image("treasure_open.png"));
+        iv.setImage(new Image("weapon_chest_open.png"));
         iv.setFitHeight(120);
         iv.setFitWidth(120);
         Location curr = this.getLocation();
