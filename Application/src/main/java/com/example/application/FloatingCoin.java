@@ -30,8 +30,8 @@ public class FloatingCoin extends Reward{
         iv.setFitWidth(60);
         if(retrieved) {
             iv.setOpacity(0);
-            this.getImageView().setFitWidth(0);
-            this.getImageView().setFitHeight(0);
+            iv.setFitWidth(0);
+            iv.setFitHeight(0);
         }
         super.setImageView(iv);
     }

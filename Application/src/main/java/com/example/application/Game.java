@@ -54,7 +54,7 @@ public class Game extends Application implements Initializable{
         gameplay.setGame(this);
         icon = new Image("hero.png");
         savedGames = new HashMap<String,GamePlay>();
-        user = new User();
+        user = User.getInstance();
         //TO initialize the output.ser
 //        try {
 //            serialize();
@@ -261,6 +261,18 @@ public class Game extends Application implements Initializable{
                     ex.printStackTrace();
                 }
             }
+        }
+    }
+    @Override
+    public void stop(){
+        System.out.println("System is Closing");
+        try {
+            this.user.serializeCoins();
+        } catch (IOException e){
+            System.out.println("IO Exception caught");
+        }
+        finally {
+            //do something
         }
     }
 }
