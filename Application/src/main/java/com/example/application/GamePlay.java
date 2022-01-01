@@ -319,7 +319,7 @@ public class GamePlay implements Serializable {
             }
 
             if(i==3){
-                rewards.add(new WeaponChest(x+1500,310,new ThrowingKnife(0,0))); // y axis issue
+                rewards.add(new WeaponChest(x+1500,315,new ThrowingKnife(0,0))); // y axis issue
                 rewards.add(new FloatingCoin(x+1950,160));
                 rewards.add(new FloatingCoin(x+2015,160));
                 rewards.add(new FloatingCoin(x+2080,160));
@@ -343,7 +343,7 @@ public class GamePlay implements Serializable {
             }
 
             if(i==9){
-                rewards.add(new WeaponChest(x+1500,310,new Sword(0,0)));
+                rewards.add(new WeaponChest(x+1500,315,new Sword(0,0))); // y-axis
                 obstacles.add(new RedOrc(x+150,126));
                 obstacles.add(new StdOrc(x+70,126));
             }
