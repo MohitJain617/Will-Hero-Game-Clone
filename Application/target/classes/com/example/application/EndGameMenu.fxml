@@ -101,13 +101,13 @@
             <Image url="@../../../images.png" />
          </image>
       </ImageView>
-      <TextField disable="true" editable="false" layoutX="1072.0" layoutY="18.0" opacity="0.27" prefHeight="54.0" prefWidth="187.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
-      <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1082.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <TextField disable="true" editable="false" layoutX="1039.0" layoutY="18.0" opacity="0.27" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #9933ff; -fx-border-color: black; -fx-border-width: 2;" />
+      <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="1047.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../coin1.png" />
          </image>
       </ImageView>
-      <Text fx:id="Coins" fill="WHITE" fontSmoothingType="LCD" layoutX="1132.0" layoutY="54.0" stroke="BLACK" strokeType="OUTSIDE" text="36 Coins" wrappingWidth="147.5552978515625">
+      <Text fx:id="Coins" fill="WHITE" fontSmoothingType="LCD" layoutX="1094.0" layoutY="54.0" stroke="BLACK" strokeType="OUTSIDE" text="8000 Coins" textAlignment="CENTER" wrappingWidth="163.5552978515625">
          <font>
             <Font name="SansSerif Bold" size="28.0" />
          </font>
@@ -123,7 +123,7 @@
             </Label>
          </children>
       </Group>
-      <Text fx:id="Score" fill="#000103" layoutX="496.0" layoutY="165.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Score : 36">
+      <Text fx:id="Score" fill="#000103" layoutX="496.0" layoutY="165.0" opacity="0.68" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Score : 10">
          <font>
             <Font name="SansSerif Bold" size="33.0" />
          </font>

@@ -228,6 +228,7 @@ public class Game extends Application implements Initializable{
             this.settingGroup.setOpacity(0);
         }
         //------Initalizing for loadGame----------
+
         if(gameChoiceBox != null){
 
             try {
