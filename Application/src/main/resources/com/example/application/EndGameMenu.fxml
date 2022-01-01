@@ -47,7 +47,7 @@
          </children></AnchorPane>
       <VBox alignment="CENTER" layoutX="415.0" layoutY="154.0" prefHeight="425.0" prefWidth="439.0" spacing="15.0">
          <children>
-            <Group>
+            <Group fx:id="reviveButton">
                <children>
                   <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Revive" opacity="0.63" prefHeight="85.0" prefWidth="261.0" style="-fx-background-color: navy;" textFill="WHITE">
                      <font>

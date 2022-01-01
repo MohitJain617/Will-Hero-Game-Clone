@@ -28,12 +28,14 @@ public class Endgame implements Initializable {
     private ArrayList<Island> islands;
     private User user ;
     AnimationTimer animator;
+    @FXML
+    private Group reviveButton;
 
     @FXML
-    AnchorPane end_pane;
+    private AnchorPane end_pane;
 
     @FXML
-    Group settingGroup;
+    private Group settingGroup;
 
     @FXML
     private Text Score ;
@@ -85,16 +87,20 @@ public class Endgame implements Initializable {
         if(this.gameplay == null){
             System.out.println("Null boi");
         }
-        animator.stop();
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
-        Parent root = loader.load();
-        GamePlay currentGamePlay = loader.getController();
-        currentGamePlay.copy(this.gameplay);
-        this.gameplay = currentGamePlay;
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(this.user.useCoins(3)) {
+            animator.stop();
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
+            Parent root = loader.load();
+            GamePlay currentGamePlay = loader.getController();
+            currentGamePlay.copy(this.gameplay);
+            this.gameplay = currentGamePlay;
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            System.out.println("Not Enough Coins");
+        }
     }
 
     public void showSetting(){
@@ -120,10 +126,12 @@ public class Endgame implements Initializable {
 
     public void setReviveButton(){
         if(this.gameplay.canRevive() && this.user.getCoins() >= 3){
-
+            reviveButton.setOpacity(1);
+            reviveButton.setDisable(false);
         }
         else {
-
+            reviveButton.setOpacity(0.50);
+            reviveButton.setDisable(true);
         }
     }
     public void set_scores(){

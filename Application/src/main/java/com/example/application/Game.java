@@ -4,6 +4,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -111,7 +112,7 @@ public class Game extends Application implements Initializable{
         stage.show();
     }
     public void exit(){
-        System.exit(0);
+        Platform.exit();
     }
 
     public void showHighScore(ActionEvent e){

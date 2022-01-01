@@ -129,7 +129,6 @@ public class GamePlay implements Serializable {
                         hero.updateLocation();
                         hero.setYspeed(0);
                         hero.setAlive(true);
-                        deathCount++;
                         showEndMenu(game_pane);
                         return ;
                     } catch (IOException e) {
@@ -439,6 +438,7 @@ public class GamePlay implements Serializable {
         st.fade(mainGroup,300,1).play();
     }
     public void showEndMenu(ActionEvent e) throws IOException {
+        deathCount++;
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EndGameMenu.fxml")));
         Parent root = loader.load();
         Endgame ender = loader.getController();
