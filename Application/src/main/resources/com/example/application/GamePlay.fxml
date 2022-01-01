@@ -91,7 +91,14 @@
                   <Image url="@../../../speaker.png" />
                </image>
             </ImageView>
-            <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" onMouseClicked="#heroDash" prefHeight="718.0" prefWidth="1302.0" />
+            <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" onMouseClicked="#heroDash" prefHeight="718.0" prefWidth="1302.0">
+               <children>
+                  <Text fx:id="jump_count" fill="WHITE" layoutX="1107.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="122" textAlignment="CENTER" wrappingWidth="161.99995117187518">
+                     <font>
+                        <Font name="Ink Free" size="45.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
             <Group fx:id="swordGroup" layoutY="1.0" opacity="0.33">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a8a8a8" height="80.0" layoutX="148.0" layoutY="610.0" onMouseClicked="#changeWeaponToSword" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />

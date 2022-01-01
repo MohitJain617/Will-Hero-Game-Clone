@@ -31,6 +31,7 @@ public class GamePlay implements Serializable {
     private ArrayList<Reward> rewards;
     private ArrayList<Weapon> weaponInstances;
     transient AnimationTimer animator;
+    private int jumps ;
     private long dashTime;
     private final Random random ;
     private transient ImageView crown_Img ;
@@ -84,6 +85,9 @@ public class GamePlay implements Serializable {
     @FXML
     private transient ImageView cloud_5;
 
+    @FXML
+    private transient Text jump_count;
+
     public GamePlay(){
 
         islands = new ArrayList<Island>();
@@ -93,6 +97,7 @@ public class GamePlay implements Serializable {
         crown_Img = new ImageView(new Image("crownn.gif"));
         random = new Random();
         pause = false;
+        jumps = 0 ;
         setup_Game();
         dashTime = System.nanoTime();
         st = new SceneController();
@@ -263,6 +268,7 @@ public class GamePlay implements Serializable {
                 }
 
                 score.setText(hero.getCollectedCoins() + " Coins");
+                jump_count.setText(String.valueOf(jumps));
 
                 ImageView iv ;
 
@@ -286,7 +292,7 @@ public class GamePlay implements Serializable {
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
         String []Small_Island_Images = {"island_med.png","island_small.png"};
 
-        for(int i=1;i<=10;i++){
+        for(int i=1;i<=12;i++){
 
             ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
             ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
@@ -311,40 +317,73 @@ public class GamePlay implements Serializable {
             // Rewards
 
             if(i==1){
-                rewards.add(new FloatingCoin(x+70,160));
-                rewards.add(new FloatingCoin(x+135,160));
-                rewards.add(new FloatingCoin(x+200,180));
+                rewards.add(new FloatingCoin(x+70,180));
+                rewards.add(new FloatingCoin(x+145,160));
+                rewards.add(new FloatingCoin(x+220,180));
+                obstacles.add(new TNT(x+135,300));
                 rewards.add(new WeaponChest(x+1100,310,new Sword(0,0)));
             }
 
             if(i==3){
-                rewards.add(new WeaponChest(x+1500,315,new ThrowingKnife(0,0))); // y axis issue
-                rewards.add(new FloatingCoin(x+1950,160));
-                rewards.add(new FloatingCoin(x+2015,160));
-                rewards.add(new FloatingCoin(x+2080,160));
-                obstacles.add(new RedOrc(x+1550,126));
+                obstacles.add(new RedOrc(x+100,126));
+                obstacles.add(new StdOrc(x+250,250));
+                rewards.add(new WeaponChest(x+1500,315,new ThrowingKnife(0,0)));
+                obstacles.add(new TNT(x+1050,300));
+                obstacles.add(new RedOrc(x+1200,126));
             }
 
             if(i==5){
+                obstacles.add(new RedOrc(x+250,126));
+                obstacles.add(new StdOrc(x+250,280));
                 rewards.add(new CoinChest(x+100,310));
-                rewards.add(new FloatingCoin(x+1750,160));
-                rewards.add(new FloatingCoin(x+1820,160));
-                obstacles.add(new RedOrc(x+150,126));
-                obstacles.add(new StdOrc(x+70,126));
+                rewards.add(new FloatingCoin(x+980,180));
+                rewards.add(new FloatingCoin(x+1060,160));
+                rewards.add(new FloatingCoin(x+1140,160));
+                rewards.add(new FloatingCoin(x+1220,180));
             }
 
             if(i==7){
-                rewards.add(new WeaponChest(x+100,310,new ThrowingKnife(0,0)));
-                rewards.add(new FloatingCoin(x+1100,160));
-                rewards.add(new FloatingCoin(x+1165,160));
-                obstacles.add(new RedOrc(x+150,126));
-                obstacles.add(new StdOrc(x+70,126));
+
+                rewards.add(new WeaponChest(x+50,310,new ThrowingKnife(0,0)));
+                obstacles.add(new TNT(x+200,300));
+                rewards.add(new FloatingCoin(x+1050,160));
+                rewards.add(new FloatingCoin(x+1200,160));
+                obstacles.add(new RedOrc(x+1050,126));
+                obstacles.add(new StdOrc(x+1200,240));
             }
 
             if(i==9){
-                rewards.add(new WeaponChest(x+1500,315,new Sword(0,0))); // y-axis
-                obstacles.add(new RedOrc(x+150,126));
-                obstacles.add(new StdOrc(x+70,126));
+
+                obstacles.add(new StdOrc(x+50,126));
+                obstacles.add(new TNT(x+150,300));
+                obstacles.add(new RedOrc(x+250,126));
+                rewards.add(new WeaponChest(x+1500,315,new Sword(0,0)));
+                rewards.add(new CoinChest(x+1100,315));
+            }
+
+            if(i==10){
+
+                obstacles.add(new RedOrc(x+30,126));
+                obstacles.add(new StdOrc(x+150,250));
+                obstacles.add(new RedOrc(x+270,126));
+                obstacles.add(new TNT(x+1000,300));
+                rewards.add(new CoinChest(x+1200,315));
+            }
+
+            if(i==11){
+
+                obstacles.add(new StdOrc(x+30,126));
+                obstacles.add(new RedOrc(x+150,250));
+                obstacles.add(new StdOrc(x+270,126));
+                rewards.add(new FloatingCoin(x+1000,180));
+                rewards.add(new FloatingCoin(x+1080,160));
+                rewards.add(new FloatingCoin(x+1160,160));
+                rewards.add(new FloatingCoin(x+1240,180));
+                rewards.add(new WeaponChest(x+1500,315,new Sword(0,0)));
+                obstacles.add(new RedOrc(x+1900,250));
+                obstacles.add(new StdOrc(x+2100,126));
+                obstacles.add(new RedOrc(x+2200,250));
+
             }
         }
 
@@ -402,6 +441,7 @@ public class GamePlay implements Serializable {
         knifeText.setText(Integer.toString(levels[1]));
     }
     public void heroDash(MouseEvent e){
+
         dashTime = System.nanoTime() + 120000000;
 
         if(hero.getCurrentWeapon()!=null){
@@ -418,9 +458,9 @@ public class GamePlay implements Serializable {
                     temp.display(game_pane);
                 }
             }
-            //----------------------------
         }
-        // System.out.println(cnt++);
+
+        jumps++ ;
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
@@ -498,6 +538,7 @@ public class GamePlay implements Serializable {
         this.pause = gp.pause;
         this.game = gp.game;
         this.deathCount = gp.deathCount;
+        this.jumps = gp.jumps;
         this.reinitialize();
     }
 
@@ -521,6 +562,7 @@ public class GamePlay implements Serializable {
             setWeaponButtons();
             game_pane.getChildren().add(crown_Img);
             clouds.add(cloud_1); clouds.add(cloud_2); clouds.add(cloud_3); clouds.add(cloud_4); clouds.add(cloud_5);
+            jump_count.setText(String.valueOf(jumps));
             pauseGroup.setDisable(true);
             score.setText(hero.getCollectedCoins()+" Coins");
             if(!pause) animator.start();
@@ -536,6 +578,6 @@ public class GamePlay implements Serializable {
         this.hero.chooseWeapon("ThrowingKnife",game_pane);
     }
     public boolean canRevive(){
-        return (deathCount < 2);
+        return (deathCount < 10);
     }
 }

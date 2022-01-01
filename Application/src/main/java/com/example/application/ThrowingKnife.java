@@ -26,6 +26,7 @@ public class ThrowingKnife extends Weapon{
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
         this.setImageView(iv);
     }
+
     @Serial
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
