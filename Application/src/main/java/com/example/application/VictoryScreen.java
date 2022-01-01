@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class VictoryScreen implements Initializable {
+public class VictoryScreen{
 
     private int score;
     //User user;
@@ -31,12 +31,21 @@ public class VictoryScreen implements Initializable {
 
     public void setParameters(int collectedCoins) {
         this.score = collectedCoins;
+        reinitialize();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(curr_score != null){
-            curr_score.setText("34");
+    public void reinitialize() {
+
+        if(curr_score != null && text!=null){
+            curr_score.setText(String.valueOf(score));
+
+            if(score < 5){
+                text.setText("SCORE");
+            }
+
+            else{
+                text.setText("NEW HIGHSCORE !");
+            }
         }
     }
 }

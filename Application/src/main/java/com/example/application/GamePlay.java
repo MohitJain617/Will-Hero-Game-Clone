@@ -98,7 +98,6 @@ public class GamePlay implements Serializable {
         st = new SceneController();
         weaponInstances = new ArrayList<Weapon>();
 
-
         animatorLogic();
     }
     private void animatorLogic(){
@@ -107,7 +106,7 @@ public class GamePlay implements Serializable {
             @Override
             public void handle(long now) {
 
-                if(hero.getLocation().getX() >= crown_Img.getX() ){
+                if(hero.getLocation().getX() >= crown_Img.getX()+5 ){
                     try {
                         animator.stop();
                         showVictoryScreen(game_pane);
@@ -280,18 +279,15 @@ public class GamePlay implements Serializable {
 
     public void setup_Game(){
 
-        hero = new Hero(300.0,230.0);
-
-        rewards.add(new CoinChest(1800,310));
-        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
-        rewards.add(new WeaponChest(3900,310,new Sword(0,0))) ;
+        // Hero
+        hero = new Hero(300.0,0.0);
 
         int x = 250;
 
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
         String []Small_Island_Images = {"island_med.png","island_small.png"};
 
-        for(int i=1;i<=5;i++){
+        for(int i=1;i<=10;i++){
 
             ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
             ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
@@ -312,6 +308,45 @@ public class GamePlay implements Serializable {
             obstacles.add(new StdOrc(x+2000,126));
 
             x+=2450 ;
+
+            // Rewards
+
+            if(i==1){
+                rewards.add(new FloatingCoin(x+70,160));
+                rewards.add(new FloatingCoin(x+135,160));
+                rewards.add(new FloatingCoin(x+200,180));
+                rewards.add(new WeaponChest(x+1100,310,new Sword(0,0)));
+            }
+
+            if(i==3){
+                rewards.add(new WeaponChest(x+1500,310,new ThrowingKnife(0,0))); // y axis issue
+                rewards.add(new FloatingCoin(x+1950,160));
+                rewards.add(new FloatingCoin(x+2015,160));
+                rewards.add(new FloatingCoin(x+2080,160));
+                obstacles.add(new RedOrc(x+1550,126));
+            }
+
+            if(i==5){
+                rewards.add(new CoinChest(x+100,310));
+                rewards.add(new FloatingCoin(x+1750,160));
+                rewards.add(new FloatingCoin(x+1820,160));
+                obstacles.add(new RedOrc(x+150,126));
+                obstacles.add(new StdOrc(x+70,126));
+            }
+
+            if(i==7){
+                rewards.add(new WeaponChest(x+100,310,new ThrowingKnife(0,0)));
+                rewards.add(new FloatingCoin(x+1100,160));
+                rewards.add(new FloatingCoin(x+1165,160));
+                obstacles.add(new RedOrc(x+150,126));
+                obstacles.add(new StdOrc(x+70,126));
+            }
+
+            if(i==9){
+                rewards.add(new WeaponChest(x+1500,310,new Sword(0,0)));
+                obstacles.add(new RedOrc(x+150,126));
+                obstacles.add(new StdOrc(x+70,126));
+            }
         }
 
         islands.add(new Island(x,364,358,160,Large_Island_Images[0]));
@@ -319,23 +354,25 @@ public class GamePlay implements Serializable {
         islands.add(new Island(x+600,364,358,160,Large_Island_Images[2]));
         islands.add(new Island(x+900,364,358,160,Large_Island_Images[1]));
 
-//        obstacles.add(new RedOrc(x+600,130));
-//        obstacles.add(new BossOrc(x+800,100));
-        //obstacles.add(new RedOrc(x+600,130));
-
-        islands.add(new Island(x+1700,364,358,160,Large_Island_Images[1]));
+        islands.add(new Island(x+1750,364,358,160,Large_Island_Images[1]));
         islands.add(new Island(x+2000,364,358,160,Large_Island_Images[0]));
-        rewards.add(new CoinChest(x+1800,310));
 
+        // BOSS
+        obstacles.add(new BossOrc(x+200,100));
+
+        // Crown , chest and dummy island
+        rewards.add(new CoinChest(x+2100,310));
+        set_Crown();
         islands.add(new Island(x+10000,364,358,160,Large_Island_Images[1]));
 
-        obstacles.add(new TNT(x-4000,295));
-        islands.add(new Island(x+10000,364,358,160,Large_Island_Images[1]));
 //
-        islands.add(new Island(x,364,358,160,"island_large2.png"));
-        rewards.add(new WeaponChest(x-270,310,new ThrowingKnife(0,0))) ;
-        //TNT
-        obstacles.add(new TNT(3950,295));
+//        obstacles.add(new TNT(x-4000,295));
+////
+//        rewards.add(new WeaponChest(x-270,310,new ThrowingKnife(0,0))) ;
+//        //TNT
+//        obstacles.add(new TNT(3950,295));
+//
+//        // Rewards
 //
     }
 
@@ -349,17 +386,19 @@ public class GamePlay implements Serializable {
         crown_Img.setFitWidth(170);
     }
     public void setWeaponButtons(){
+
         int[] levels = hero.weaponData();
         if(levels[0] == 0){
             swordGroup.setOpacity(0.33);
         } else {
-            swordGroup.setOpacity(0.60);
+            swordGroup.setOpacity(0.80);
         }
         swordText.setText(Integer.toString(levels[0]));
+
         if(levels[1] == 0){
             knifeGroup.setOpacity(0.33);
         } else {
-            knifeGroup.setOpacity(0.60);
+            knifeGroup.setOpacity(0.80);
         }
         knifeText.setText(Integer.toString(levels[1]));
     }
@@ -409,6 +448,7 @@ public class GamePlay implements Serializable {
         stage.setScene(scene);
         stage.show();
     }
+
     public void showEndMenu(Node e) throws IOException{
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EndGameMenu.fxml")));
         Parent root = loader.load();
@@ -458,6 +498,7 @@ public class GamePlay implements Serializable {
         this.game = gp.game;
         this.reinitialize();
     }
+
     public void setGame(Game ga) {
         this.game = ga;
     }
@@ -465,6 +506,7 @@ public class GamePlay implements Serializable {
     public int getScore(){
         return hero.getCollectedCoins();
     }
+
     public void reinitialize() throws IOException {
 
         if(game_pane != null){

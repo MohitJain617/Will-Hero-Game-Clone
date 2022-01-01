@@ -18,6 +18,7 @@ public class User implements Serializable {
         if(c == null) return;
         coins.addCoins(c);
     }
+
     public int getHighScore(){
         return this.highScore;
     }
