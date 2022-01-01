@@ -162,7 +162,7 @@
                   </ImageView>
                </children>
             </Group>
-            <ImageView blendMode="MULTIPLY" fitHeight="133.0" fitWidth="471.0" layoutX="385.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView blendMode="MULTIPLY" fitHeight="133.0" fitWidth="471.0" layoutX="385.0" layoutY="33.0" onMouseEntered="#hoverin" onMouseExited="#hoverout" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../will_text_jpg.jpg" />
                </image>
@@ -195,7 +195,7 @@
                <children>
                   <Group>
                      <children>
-                        <Button alignment="CENTER_RIGHT" layoutY="84.80000001192093" mnemonicParsing="false" onAction="#showGamePlay" opacity="0.84" prefHeight="82.0" prefWidth="201.0" style="-fx-background-color: navy;" text="Play" textFill="WHITE">
+                        <Button alignment="CENTER_RIGHT" layoutY="84.80000001192093" mnemonicParsing="false" onAction="#showGamePlay" onMouseEntered="#hoverin" onMouseExited="#hoverout" opacity="0.84" prefHeight="82.0" prefWidth="201.0" style="-fx-background-color: navy;" text="Play" textFill="WHITE">
                            <font>
                               <Font name="Lucida Console" size="36.0" />
                            </font>
@@ -214,7 +214,7 @@
                      </children>
                   </Group>
                   <Separator opacity="0.43" prefHeight="1.0" prefWidth="356.0" />
-                  <Button mnemonicParsing="false" onAction="#showLoadMenu" prefHeight="70.0" prefWidth="210.0" text="Load Game">
+                  <Button mnemonicParsing="false" onAction="#showLoadMenu" onMouseEntered="#hoverin" onMouseExited="#hoverout" prefHeight="70.0" prefWidth="210.0" text="Load Game">
                      <font>
                         <Font name="Lucida Console" size="24.0" />
                      </font>
@@ -222,7 +222,7 @@
                         <ColorAdjust contrast="0.05" />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#showHighScore" prefHeight="69.0" prefWidth="253.0" text="High Scores">
+                  <Button mnemonicParsing="false" onAction="#showHighScore" onMouseEntered="#hoverin" onMouseExited="#hoverout" prefHeight="69.0" prefWidth="253.0" text="High Scores">
                      <font>
                         <Font name="Lucida Console" size="24.0" />
                      </font>
@@ -230,7 +230,7 @@
                         <ColorAdjust contrast="0.05" />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#exit" opacity="0.91" prefHeight="61.0" prefWidth="184.0" style="-fx-background-color: crimson;" text="Quit" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#exit" onMouseEntered="#hoverin" onMouseExited="#hoverout" opacity="0.91" prefHeight="61.0" prefWidth="184.0" style="-fx-background-color: crimson;" text="Quit" textFill="WHITE">
                      <font>
                         <Font name="Lucida Console" size="24.0" />
                      </font>

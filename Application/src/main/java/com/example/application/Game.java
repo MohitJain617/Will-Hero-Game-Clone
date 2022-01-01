@@ -13,6 +13,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -121,6 +122,19 @@ public class Game extends Application implements Initializable{
         st.fade(highScores,300,1).play();
         this.mainGroup.setDisable(true);
     }
+
+    public void hoverin(MouseEvent e){
+        Node b =  (Node)e.getSource();
+        b.setScaleX(1.05);
+        b.setScaleY(1.05);
+    }
+
+    public void hoverout(MouseEvent e){
+        Node b =  (Node)e.getSource();
+        b.setScaleX(1.0);
+        b.setScaleY(1.0);
+    }
+
     public void backFromHighScore(MouseEvent e){
         this.mainGroup.setDisable(false);
         st.fade(mainGroup,300,1).play();

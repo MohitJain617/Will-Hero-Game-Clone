@@ -35,6 +35,7 @@ public class Hero extends GameObject{
         collectedCoins = new Coins(0) ;
         helmet = new Helmet() ;
     }
+
     private void render(){
         iv = new ImageView();
         game_pane = null;
@@ -45,6 +46,7 @@ public class Hero extends GameObject{
         iv.setFitWidth(90);
         iv.setX(this.getLocation().getX()); iv.setY(this.getLocation().getY());
     }
+
     @Serial
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
@@ -72,12 +74,16 @@ public class Hero extends GameObject{
     }
 
     public boolean isAlive(){
+
         if(this.getLocation().getY() > 550) alive = false;
+
+        if(this.getLocation().getY() > 400){  damage(); }
+
         return alive;
     }
 
-    public double getRotate(){
-        return this.rotate;
+    public boolean isDying(){
+        return (this.rotate != 0) ;
     }
 
     public void setAlive(boolean b){

@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -125,6 +126,7 @@ public class GamePlay implements Serializable {
                 }
 
                 //-----HERO--------
+
                 if(!hero.isAlive()) {
                     System.out.println(hero.getLocation().getY());
                     System.out.println("Hero died!");              // Show end menu
@@ -436,6 +438,10 @@ public class GamePlay implements Serializable {
     }
     public void heroDash(MouseEvent e){
 
+        if(hero.isDying()){
+            return ;
+        }
+
         jumps++ ;
 
         if(hero.getCurrentWeapon()!=null){
@@ -575,5 +581,17 @@ public class GamePlay implements Serializable {
     }
     public boolean canRevive(){
         return (deathCount < 2);
+    }
+
+    public void hoverin(MouseEvent e){
+        Node b =  (Node)e.getSource();
+        b.setScaleX(1.05);
+        b.setScaleY(1.05);
+    }
+
+    public void hoverout(MouseEvent e){
+        Node b =  (Node)e.getSource();
+        b.setScaleX(1.0);
+        b.setScaleY(1.0);
     }
 }

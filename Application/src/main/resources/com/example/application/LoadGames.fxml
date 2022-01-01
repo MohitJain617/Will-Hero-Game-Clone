@@ -20,27 +20,27 @@
             <GaussianBlur radius="38.85" />
          </effect>
       </ImageView>
-      <Button layoutX="40.0" layoutY="30.0" mnemonicParsing="false" onAction="#showMainMenu" opacity="0.77" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: purple;" text="Back" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="30.0" mnemonicParsing="false" onAction="#showMainMenu" onMouseEntered="#hoverin" onMouseExited="#hoverout" opacity="0.77" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: purple;" text="Back" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="20.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="gameChoiceBox" layoutX="536.0" layoutY="274.0" prefHeight="26.0" prefWidth="219.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0">
+      <ChoiceBox fx:id="gameChoiceBox" layoutX="529.0" layoutY="326.0" prefHeight="26.0" prefWidth="219.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0">
          <effect>
             <ColorAdjust contrast="0.52" />
          </effect>
       </ChoiceBox>
-      <Button layoutX="733.0" layoutY="421.0" mnemonicParsing="false" onAction="#playLoadedGame" opacity="0.87" prefHeight="59.0" prefWidth="113.0" style="-fx-background-color: green;" text="Play" textFill="WHITE">
+      <Button layoutX="733.0" layoutY="421.0" mnemonicParsing="false" onAction="#playLoadedGame" onMouseEntered="#hoverin" onMouseExited="#hoverout" opacity="0.87" prefHeight="59.0" prefWidth="113.0" style="-fx-background-color: green;" text="Play" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="28.0" />
          </font>
       </Button>
-      <Button layoutX="897.0" layoutY="421.0" mnemonicParsing="false" onAction="#deleteGame" opacity="0.89" prefHeight="57.0" prefWidth="151.0" style="-fx-background-color: crimson;" text="Delete" textFill="WHITE">
+      <Button layoutX="897.0" layoutY="421.0" mnemonicParsing="false" onAction="#deleteGame" onMouseEntered="#hoverin" onMouseExited="#hoverout" opacity="0.89" prefHeight="57.0" prefWidth="151.0" style="-fx-background-color: crimson;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="26.0" />
          </font>
       </Button>
-      <Text fx:id="selectText" layoutX="476.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game" textAlignment="CENTER" wrappingWidth="338.2086181640625">
+      <Text fx:id="selectText" layoutX="468.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game" textAlignment="CENTER" wrappingWidth="338.2086181640625">
          <font>
             <Font size="24.0" />
          </font>
