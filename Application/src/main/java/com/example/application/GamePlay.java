@@ -452,11 +452,11 @@ public class GamePlay implements Serializable {
                     temp.display(game_pane);
                 }
             }
-            dashTime = System.nanoTime() + 150000000;
+            dashTime = System.nanoTime() + 110000000;
             return ;
         }
 
-        dashTime = System.nanoTime() + 120000000;
+        dashTime = System.nanoTime() + 100000000;
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();

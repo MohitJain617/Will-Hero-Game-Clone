@@ -87,7 +87,7 @@ public class Endgame implements Initializable {
         if(this.gameplay == null){
             System.out.println("Null boi");
         }
-        if(this.user.useCoins(3)) {
+        if(this.user.useCoins(10)) {
             animator.stop();
             FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("GamePlay.fxml")));
             Parent root = loader.load();
@@ -125,7 +125,7 @@ public class Endgame implements Initializable {
     }
 
     public void setReviveButton(){
-        if(this.gameplay.canRevive() && this.user.getCoins() >= 3){
+        if(this.gameplay.canRevive() && this.user.getCoins() >= 10){
             reviveButton.setOpacity(1);
             reviveButton.setDisable(false);
         }
