@@ -164,4 +164,7 @@ public class Hero extends GameObject{
             currentWeapon.display(pane);
         }
     }
+    public int[] weaponData(){
+        return this.helmet.weaponData();
+    }
 }

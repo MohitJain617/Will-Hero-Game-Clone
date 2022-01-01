@@ -92,14 +92,19 @@
                </image>
             </ImageView>
             <AnchorPane fx:id="game_pane" layoutX="-15.0" layoutY="91.0" onMouseClicked="#heroDash" prefHeight="718.0" prefWidth="1302.0" />
-            <Group layoutY="1.0">
+            <Group fx:id="swordGroup" layoutY="1.0" opacity="0.33">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" onMouseClicked="#changeWeaponToSword" opacity="0.51" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <ImageView disable="true" fitHeight="60.0" fitWidth="60.0" layoutX="174.0" layoutY="618.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" rotate="20.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a8a8a8" height="80.0" layoutX="148.0" layoutY="610.0" onMouseClicked="#changeWeaponToSword" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <ImageView disable="true" fitHeight="60.0" fitWidth="60.0" layoutX="174.0" layoutY="616.0" pickOnBounds="true" preserveRatio="true" rotate="20.0">
                      <image>
                         <Image url="@../../../sword.png" />
                      </image>
                   </ImageView>
+                  <Text fx:id="swordText" fill="#622dff" layoutX="206.0" layoutY="703.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                     <font>
+                        <Font name="Ink Free" size="26.0" />
+                     </font>
+                  </Text>
                </children>
             </Group>
             <Slider layoutX="91.0" layoutY="41.0" prefHeight="20.0" prefWidth="180.0" value="45.0">
@@ -107,14 +112,19 @@
                   <ColorAdjust contrast="-0.08" hue="0.56" />
                </effect>
             </Slider>
-            <Group layoutX="127.0" layoutY="2.0">
+            <Group fx:id="knifeGroup" layoutX="127.0" layoutY="2.0" opacity="0.33">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" onMouseClicked="#changeWeaponToThrowingKnife" opacity="0.51" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="180.0" layoutY="623.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" rotate="20.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="80.0" layoutX="148.0" layoutY="610.0" onMouseClicked="#changeWeaponToThrowingKnife" rotate="45.0" stroke="#404040" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="183.0" layoutY="621.0" pickOnBounds="true" preserveRatio="true" rotate="20.0">
                      <image>
                         <Image url="@../../../WeaponKnife.png" />
                      </image>
                   </ImageView>
+                  <Text fx:id="knifeText" fill="#622dff" layoutX="205.0" layoutY="703.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                     <font>
+                        <Font name="Ink Free" size="26.0" />
+                     </font>
+                  </Text>
                </children>
             </Group>
          </children>

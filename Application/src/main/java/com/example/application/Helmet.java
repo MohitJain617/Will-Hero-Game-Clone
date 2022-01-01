@@ -34,4 +34,11 @@ public class Helmet implements Serializable {
         }
         return null;
     }
+
+    public int[] weaponData() {
+        int[] data = new int[2];
+        if(S != null) data[0] = S.getLevel();
+        if(TK != null) data[1] = TK.getLevel();
+        return data;
+    }
 }

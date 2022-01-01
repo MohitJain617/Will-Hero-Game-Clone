@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -39,6 +40,15 @@ public class GamePlay implements Serializable {
     private transient SceneController st;
     private transient ArrayList<ImageView> clouds;
     private transient double[] mov = new double[]{ 0.8,0.8,0.8,0.85,0.85};
+
+    @FXML
+    private transient Group swordGroup;
+    @FXML
+    private transient Group knifeGroup;
+    @FXML
+    private transient Text swordText;
+    @FXML
+    private transient Text knifeText;
 
     @FXML
     private transient AnchorPane game_pane;
@@ -210,7 +220,10 @@ public class GamePlay implements Serializable {
                 for(Reward reward: rewards){
                     if(reward.checkCollision(hero)){
                         reward.ifHeroCollides(hero);
-                        hero.displayWeapon(game_pane);
+                        if(reward instanceof WeaponChest) {
+                            hero.displayWeapon(game_pane);
+                            setWeaponButtons();
+                        }
                     }
                 }
                 for(Obstacle obs: obstacles){
@@ -269,41 +282,39 @@ public class GamePlay implements Serializable {
 
         hero = new Hero(300.0,230.0);
 
-//        rewards.add(new CoinChest(2800,310));
-//        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
-//        rewards.add(new WeaponChest(3900,310,new Sword(0,0))) ;
+        rewards.add(new CoinChest(1800,310));
+        rewards.add(new WeaponChest(2800,310,new ThrowingKnife(0,0))) ;
+        rewards.add(new WeaponChest(3900,310,new Sword(0,0))) ;
 
         int x = 250;
 
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
         String []Small_Island_Images = {"island_med.png","island_small.png"};
 
-        //obstacles.add(new StdOrc(x+600,26));
+        for(int i=1;i<=5;i++){
 
-//        for(int i=1;i<=0;i++){
-//
-//            ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
-//            ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
-//
-//            for(int k=1;k<=3;k++){ ind1.add(random.nextInt(Large_Island_Images.length)); }
-//            for(int k=1;k<=2;k++){ ind2.add(random.nextInt(Small_Island_Images.length)); }
-//
-//            islands.add(new Island( x+0 ,368,358,126,Large_Island_Images[ind1.get(0)]));
-//            islands.add(new Island(x+500,363,358,126,Small_Island_Images[ind2.get(0)]));
-//            obstacles.add(new RedOrc(x+600,126));
-//
-//            islands.add(new Island(x+950,368,358,126,Large_Island_Images[ind1.get(1)]));
-//            islands.add(new Island(x+1450,375,358,126,Small_Island_Images[ind2.get(1)]));
-//
-//            obstacles.add(new StdOrc(x+1550,126));
-//
-//            islands.add(new Island(x+1900,364,358,160,Large_Island_Images[ind1.get(2)]));
-//            obstacles.add(new StdOrc(x+2000,126));
-//
-//            x+=2450 ;
-//        }
+            ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
+            ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
 
-        islands.add(new Island(x+0,364,358,160,Large_Island_Images[0]));
+            for(int k=1;k<=3;k++){ ind1.add(random.nextInt(Large_Island_Images.length)); }
+            for(int k=1;k<=2;k++){ ind2.add(random.nextInt(Small_Island_Images.length)); }
+
+            islands.add(new Island( x+0 ,368,358,126,Large_Island_Images[ind1.get(0)]));
+            islands.add(new Island(x+500,363,358,126,Small_Island_Images[ind2.get(0)]));
+            obstacles.add(new RedOrc(x+600,126));
+
+            islands.add(new Island(x+950,368,358,126,Large_Island_Images[ind1.get(1)]));
+            islands.add(new Island(x+1450,375,358,126,Small_Island_Images[ind2.get(1)]));
+
+            obstacles.add(new StdOrc(x+1550,126));
+
+            islands.add(new Island(x+1900,364,358,160,Large_Island_Images[ind1.get(2)]));
+            obstacles.add(new StdOrc(x+2000,126));
+
+            x+=2450 ;
+        }
+
+        islands.add(new Island(x,364,358,160,Large_Island_Images[0]));
         islands.add(new Island(x+300,364,358,160,Large_Island_Images[1]));
         islands.add(new Island(x+600,364,358,160,Large_Island_Images[2]));
         islands.add(new Island(x+900,364,358,160,Large_Island_Images[1]));
@@ -318,13 +329,13 @@ public class GamePlay implements Serializable {
 
         islands.add(new Island(x+10000,364,358,160,Large_Island_Images[1]));
 
-//        obstacles.add(new TNT(x-4000,295));
-//        islands.add(new Island(x+10000,364,358,160,Large_Island_Images[1]));
+        obstacles.add(new TNT(x-4000,295));
+        islands.add(new Island(x+10000,364,358,160,Large_Island_Images[1]));
 //
-//        islands.add(new Island(x,364,358,160,"island_large2.png"));
-//        rewards.add(new WeaponChest(x-270,310,new ThrowingKnife(0,0))) ;
-//        //TNT
-        //obstacles.add(new TNT(3950,295));
+        islands.add(new Island(x,364,358,160,"island_large2.png"));
+        rewards.add(new WeaponChest(x-270,310,new ThrowingKnife(0,0))) ;
+        //TNT
+        obstacles.add(new TNT(3950,295));
 //
     }
 
@@ -337,7 +348,21 @@ public class GamePlay implements Serializable {
         crown_Img.setFitHeight(110);
         crown_Img.setFitWidth(170);
     }
-
+    public void setWeaponButtons(){
+        int[] levels = hero.weaponData();
+        if(levels[0] == 0){
+            swordGroup.setOpacity(0.33);
+        } else {
+            swordGroup.setOpacity(0.60);
+        }
+        swordText.setText(Integer.toString(levels[0]));
+        if(levels[1] == 0){
+            knifeGroup.setOpacity(0.33);
+        } else {
+            knifeGroup.setOpacity(0.60);
+        }
+        knifeText.setText(Integer.toString(levels[1]));
+    }
     public void heroDash(MouseEvent e){
         dashTime = System.nanoTime() + 120000000;
 
@@ -449,6 +474,7 @@ public class GamePlay implements Serializable {
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);
             set_Crown();
+            setWeaponButtons();
             game_pane.getChildren().add(crown_Img);
             clouds.add(cloud_1); clouds.add(cloud_2); clouds.add(cloud_3); clouds.add(cloud_4); clouds.add(cloud_5);
             pauseGroup.setDisable(true);
