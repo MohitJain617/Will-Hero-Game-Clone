@@ -16,6 +16,7 @@ public abstract class Orcs extends Obstacle {
         coins = new Coins(points);
         this.health = health;
     }
+
     public int getHealth(){
         return this.health;
     }
@@ -30,7 +31,7 @@ public abstract class Orcs extends Obstacle {
         boolean flag ;
 
         if(this.getClass() == BossOrc.class){
-            flag = !(this.getLocation().getY() > 580);
+            flag = !(this.getLocation().getY() > 560);
         }
 
         else{ flag = !(this.getLocation().getY() > 650); }
@@ -38,7 +39,7 @@ public abstract class Orcs extends Obstacle {
         if(this.health <= 0 && flag){
             this.setXspeed(0);
             this.setYspeed(10);
-            this.iv.setRotate(20);
+            this.rotate = 10;
             return true ;
         }
         if(!flag){

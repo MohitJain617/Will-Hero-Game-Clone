@@ -88,6 +88,9 @@ public class GamePlay implements Serializable {
     @FXML
     private transient Text jump_count;
 
+    @FXML
+    private transient ImageView bg_Island;
+
     public GamePlay(){
 
         islands = new ArrayList<Island>();
@@ -130,10 +133,7 @@ public class GamePlay implements Serializable {
                         int points = hero.getCollectedCoins() ;
 //                        hero = new Hero(300,120);
 //                        hero.setCollectedCoins(points);
-                        hero.setLocation(300,120);
-                        hero.updateLocation();
-                        hero.setYspeed(0);
-                        hero.setAlive(true);
+                        hero.makeAlive();
                         showEndMenu(game_pane);
                         return ;
                     } catch (IOException e) {
@@ -249,7 +249,7 @@ public class GamePlay implements Serializable {
                         Obstacle orc1 = obstacles.get(i);
                         Obstacle orc2 = obstacles.get(j);
                         if(orc1.checkCollision(orc2)){
-                            System.out.println(i+" "+j);
+                            //System.out.println(i+" "+j);
                             orc1.ifObstacleCollides(orc2);
                         }
                     }
@@ -278,6 +278,8 @@ public class GamePlay implements Serializable {
                     if(pos <= 0){ pos = 1400 ;}
                     iv.setLayoutX(pos);
                 }
+
+                bg_Island.setLayoutX(Math.max(0,650 - (4*jumps)));
             }
         };
     }
@@ -403,15 +405,6 @@ public class GamePlay implements Serializable {
         set_Crown();
         islands.add(new Island(x+10000,364,358,160,Large_Island_Images[1]));
 
-//
-//        obstacles.add(new TNT(x-4000,295));
-////
-//        rewards.add(new WeaponChest(x-270,310,new ThrowingKnife(0,0))) ;
-//        //TNT
-//        obstacles.add(new TNT(3950,295));
-//
-//        // Rewards
-//
     }
 
     public void set_Crown(){
@@ -423,6 +416,7 @@ public class GamePlay implements Serializable {
         crown_Img.setFitHeight(110);
         crown_Img.setFitWidth(170);
     }
+
     public void setWeaponButtons(){
 
         int[] levels = hero.weaponData();
@@ -442,14 +436,14 @@ public class GamePlay implements Serializable {
     }
     public void heroDash(MouseEvent e){
 
-        dashTime = System.nanoTime() + 120000000;
+        jumps++ ;
 
         if(hero.getCurrentWeapon()!=null){
             Weapon temp = hero.getCurrentWeapon() ;
             weaponInstances.add(temp) ;
             temp.display(game_pane);
             //if level 2 throwing knife----
-            if(temp instanceof ThrowingKnife){
+            if(temp.getClass() == ThrowingKnife.class){
                 if(temp.getLevel() >= 2){
                     temp = hero.getCurrentWeapon();
                     temp.setYSpeed(-5); temp.setXSpeed(37);
@@ -458,9 +452,11 @@ public class GamePlay implements Serializable {
                     temp.display(game_pane);
                 }
             }
+            dashTime = System.nanoTime() + 150000000;
+            return ;
         }
 
-        jumps++ ;
+        dashTime = System.nanoTime() + 120000000;
     }
     public void showPauseMenu(MouseEvent e) throws IOException {
         animator.stop();
@@ -554,10 +550,10 @@ public class GamePlay implements Serializable {
 
         if(game_pane != null){
             System.out.println("Game_pane is not null");
-            hero.display(game_pane);
             for (Island island : islands) island.display(game_pane);
             for(Obstacle obs: obstacles) obs.display(game_pane);
             for(Reward rew: rewards) rew.display(game_pane);
+            hero.display(game_pane);
             set_Crown();
             setWeaponButtons();
             game_pane.getChildren().add(crown_Img);

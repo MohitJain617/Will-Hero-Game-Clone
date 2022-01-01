@@ -23,6 +23,7 @@ public class Hero extends GameObject{
     private Weapon currentWeapon;
     private Coins collectedCoins;
     private Helmet helmet ;
+    private double rotate ;
 
     public Hero(double x, double y){
         super(x,y);
@@ -55,11 +56,28 @@ public class Hero extends GameObject{
     }
 
     public void damage(){
-        alive = false;
+        this.rotate = 10 ;
+        iv.setDisable(true);
+        setYspeed(10);
     }
+
+    public void makeAlive(){
+        this.setLocation(300,0);
+        this.updateLocation();
+        this.setYspeed(0);
+        this.setAlive(true);
+        iv.setDisable(false);
+        this.rotate = 0;
+        iv.setRotate(0);
+    }
+
     public boolean isAlive(){
-        if(this.getLocation().getY() > 480) alive = false;
+        if(this.getLocation().getY() > 550) alive = false;
         return alive;
+    }
+
+    public double getRotate(){
+        return this.rotate;
     }
 
     public void setAlive(boolean b){
@@ -83,6 +101,7 @@ public class Hero extends GameObject{
         Location curr = this.getLocation();
         iv.setX(curr.getX());
         iv.setY(curr.getY());
+        iv.setRotate(iv.getRotate()+rotate);
         if(currentWeapon != null){
             if(currentWeapon instanceof Sword) currentWeapon.setLocation(curr.getX()-40,curr.getY()+30);
             else currentWeapon.setLocation(curr.getX(),curr.getY()+50);
