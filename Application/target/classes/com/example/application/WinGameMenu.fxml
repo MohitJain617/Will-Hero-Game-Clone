@@ -14,7 +14,7 @@
             <Image url="@../../../../../../../Images/victory.gif" />
          </image>
       </ImageView>
-      <Text fx:id="title" blendMode="SCREEN" fill="WHITE" layoutX="491.0" layoutY="122.0" opacity="0.9" stroke="#a11ea1" strokeDashOffset="1.0" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="SCORE" textAlignment="CENTER" wrappingWidth="310.13671875">
+      <Text fx:id="text" blendMode="SCREEN" fill="WHITE" layoutX="491.0" layoutY="122.0" opacity="0.9" stroke="#a11ea1" strokeDashOffset="1.0" strokeLineJoin="BEVEL" strokeType="OUTSIDE" strokeWidth="5.0" text="SCORE" textAlignment="CENTER" wrappingWidth="310.13671875">
          <font>
             <Font name="Dubai Bold" size="80.0" />
          </font>
