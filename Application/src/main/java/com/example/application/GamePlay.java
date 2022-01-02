@@ -290,11 +290,10 @@ public class GamePlay implements Serializable {
 
         // Hero
         hero = new Hero(300.0,0.0);
-
         int x = 250;
 
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
-        String []Small_Island_Images = {"island_med.png","island_small.png"};
+        String []Small_Island_Images = {"island_med.png","BalancingRocks5.png"};
 
         for(int i=1;i<=12;i++){
 
@@ -458,8 +457,6 @@ public class GamePlay implements Serializable {
                     temp.display(game_pane);
                 }
             }
-            dashTime = System.nanoTime() + 110000000;
-            return ;
         }
 
         dashTime = System.nanoTime() + 100000000;

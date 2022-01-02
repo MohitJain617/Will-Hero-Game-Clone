@@ -66,11 +66,11 @@ public abstract class Orcs extends Obstacle {
 
 //        System.out.println("Locations :" + heroLoc.getY() + " " + orcLoc.getY());
 
-        if(heroLoc.getY() - orcLoc.getY() >= 48){
+        if(heroLoc.getY() - orcLoc.getY() >= 45){
             hero.damage();
 //            System.out.println("Hero dies by orc");
             // hero dies
-        } else if(orcLoc.getY() - heroLoc.getY() >= 80){
+        } else if(orcLoc.getY() - heroLoc.getY() >= 75){
             //hero jumps and orc falls
             hero.setYspeed(-5);
             this.setYspeed(5);

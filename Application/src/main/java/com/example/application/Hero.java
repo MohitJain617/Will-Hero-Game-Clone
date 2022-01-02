@@ -61,6 +61,7 @@ public class Hero extends GameObject{
         this.rotate = 10 ;
         iv.setDisable(true);
         setYspeed(10);
+        alive = false;
     }
 
     public void makeAlive(){

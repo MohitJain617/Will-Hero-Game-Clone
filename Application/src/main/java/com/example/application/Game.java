@@ -201,7 +201,7 @@ public class Game extends Application implements Initializable{
         ObjectInputStream in = null;
         try {
             in = new ObjectInputStream(new FileInputStream("src\\output.ser"));
-            System.out.println("Does reach checkpoint 1");
+//            System.out.println("Does reach checkpoint 1");
             savedGames = (HashMap)in.readObject();
         } catch (IOException e) {
 //            e.printStackTrace();
