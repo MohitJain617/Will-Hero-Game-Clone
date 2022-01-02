@@ -61,12 +61,6 @@ public class Game extends Application implements Initializable{
         icon = new Image("hero.png");
         savedGames = new HashMap<String,GamePlay>();
         user = User.getInstance();
-        //TO initialize the output.ser
-//        try {
-//            serialize();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override
@@ -181,48 +175,13 @@ public class Game extends Application implements Initializable{
     public static void main(String[] args) {
         launch(args);
     }
-    public void serialize() throws IOException {
-        ObjectOutputStream out = null;
-        try {
-            out = new ObjectOutputStream(new FileOutputStream("src\\output.ser"));
-            out.writeObject(savedGames);
-        } catch (IOException e) {
-            //do something
-//            e.printStackTrace();
-        } catch (NullPointerException f){
-//            System.out.println("Null pointer exception");
-        } finally {
-            if (out != null) out.close();
-        }
-    }
-    public void deserialize() throws IOException, NoSavedGamePlayException {
-        ObjectInputStream in = null;
-        try {
-            in = new ObjectInputStream(new FileInputStream("src\\output.ser"));
-//            System.out.println("Does reach checkpoint 1");
-            savedGames = (HashMap)in.readObject();
-        } catch (IOException e) {
-//            e.printStackTrace();
-            throw new NoSavedGamePlayException();
-        } catch (ClassNotFoundException e) {
-//            System.out.println("Class not found exception des");
-            throw new NoSavedGamePlayException();
-        } finally {
-            if (in != null) in.close();
-        }
-    }
     public String addGamePlay(String name, GamePlay gp) throws IOException {
-        try {
-            deserialize();
-        } catch (NoSavedGamePlayException e) {
-//            e.printStackTrace();
-        }
+        this.savedGames = user.getSavedGames();
         //-----whats inside the hashmap-----
         if(savedGames.containsKey(name)){
             return "Given name already exists";
         } else {
             savedGames.put(name,gp);
-            serialize();
             return "Save successful";
         }
     }
@@ -244,12 +203,7 @@ public class Game extends Application implements Initializable{
         //------Initalizing for loadGame----------
 
         if(gameChoiceBox != null){
-
-            try {
-                deserialize();
-            } catch (IOException | NoSavedGamePlayException e) {
-//                e.printStackTrace();
-            }
+            this.savedGames = user.getSavedGames();
             gameChoiceBox.getItems().addAll(savedGames.keySet());
         }
         //----------------------------------------
@@ -279,7 +233,6 @@ public class Game extends Application implements Initializable{
             } else {
                 savedGames.remove(key);
                 try {
-                    serialize();
                     showMainMenu(e);
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -292,6 +245,7 @@ public class Game extends Application implements Initializable{
         System.out.println("Saving before shutting down.");
         try {
             this.user.serializeData();
+            this.user.serializeSavedGames();
         } catch (IOException e){
             System.out.println("IO Exception caught");
         }

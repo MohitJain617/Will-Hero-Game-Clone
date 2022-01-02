@@ -1,21 +1,28 @@
 package com.example.application;
 
 import java.io.*;
+import java.util.HashMap;
 
 public class User {
     private static User user;
     private String name;
     private Coins coins;
     private int highScore;
+    private HashMap<String, GamePlay> savedGames;
     private User(){
         name = "Player";
+        savedGames = new HashMap<>();
         try{
             deserializeData();
+            deserializeSavedGames();
         } catch(Exception e){
             coins = new Coins(0);
 //            System.out.println("Error while deserializing coins");
         }
         if(coins == null) coins = new Coins(0);
+    }
+    public HashMap<String,GamePlay> getSavedGames(){
+        return savedGames;
     }
     public static User getInstance(){
         if(user == null){
@@ -65,6 +72,36 @@ public class User {
         {
             if (out != null) out.close();
         }
+    }
+    public void serializeSavedGames() throws IOException {
+        if(savedGames == null) savedGames = new HashMap<>();
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream("src\\output.ser"));
+            out.writeObject(savedGames);
+        } catch (IOException e) {
+            //do something
+//            e.printStackTrace();
+        } catch (NullPointerException f){
+//            System.out.println("Null pointer exception");
+        } finally {
+            if (out != null) out.close();
+        }
+    }
+    public void deserializeSavedGames() throws IOException, NoSavedGamePlayException {
+        ObjectInputStream in = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream("src\\output.ser"));
+//            System.out.println("Does reach checkpoint 1");
+            savedGames = (HashMap)in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+            throw new NoSavedGamePlayException();
+        } //            System.out.println("Class not found exception des");
+        finally {
+            if (in != null) in.close();
+        }
+        if(savedGames == null) savedGames = new HashMap<>();
     }
     public void collectCoins(Coins c){
         if(c == null) return;
