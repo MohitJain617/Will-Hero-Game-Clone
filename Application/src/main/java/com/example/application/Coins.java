@@ -16,9 +16,8 @@ public class Coins implements Serializable {
     public void addCoins(Coins c){
         this.value += c.getValue();
     }
-    public boolean useCoins(int x){
-        if(this.value < x) return false;
+    public void useCoins(int x) throws InsufficientCoinException {
+        if(this.value < x) throw new InsufficientCoinException();
         this.value -= x;
-        return true;
     }
 }

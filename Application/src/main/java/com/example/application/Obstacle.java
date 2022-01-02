@@ -9,11 +9,17 @@ import java.io.Serial;
 public abstract class Obstacle extends GameObject implements ObstacleCollision{
     @Serial
     private static final long serialVersionUID = 12L;
-    transient ImageView iv;
+    private transient ImageView iv;
     private double xSpeed;
     private double ySpeed;
-    public double rotate;
+    private double rotate;
 
+    public double getRotate(){
+        return this.rotate;
+    }
+    public void setRotate(double d){
+        this.rotate = d;
+    }
     public Obstacle(double x, double y) {
         super(x, y);
         rotate = 0;

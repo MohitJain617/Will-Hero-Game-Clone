@@ -38,15 +38,15 @@ public class Game extends Application implements Initializable{
     private HashMap<String, GamePlay> savedGames;
     private User user;
     @FXML
-    Group mainGroup;
+    private Group mainGroup;
     @FXML
-    Group highScores;
+    private Group highScores;
     @FXML
-    Group settingGroup;
+    private Group settingGroup;
     @FXML
-    Text totalCoins ;
+    private Text totalCoins ;
     @FXML
-    Label highScore_Text;
+    private Label highScore_Text;
 
     //Load Game injections
     @FXML
@@ -191,13 +191,11 @@ public class Game extends Application implements Initializable{
 //            e.printStackTrace();
         } catch (NullPointerException f){
 //            System.out.println("Null pointer exception");
-        }
-        finally
-        {
+        } finally {
             if (out != null) out.close();
         }
     }
-    public void deserialize() throws IOException {
+    public void deserialize() throws IOException, NoSavedGamePlayException {
         ObjectInputStream in = null;
         try {
             in = new ObjectInputStream(new FileInputStream("src\\output.ser"));
@@ -205,14 +203,20 @@ public class Game extends Application implements Initializable{
             savedGames = (HashMap)in.readObject();
         } catch (IOException e) {
 //            e.printStackTrace();
+            throw new NoSavedGamePlayException();
         } catch (ClassNotFoundException e) {
 //            System.out.println("Class not found exception des");
+            throw new NoSavedGamePlayException();
         } finally {
             if (in != null) in.close();
         }
     }
     public String addGamePlay(String name, GamePlay gp) throws IOException {
-        deserialize();
+        try {
+            deserialize();
+        } catch (NoSavedGamePlayException e) {
+//            e.printStackTrace();
+        }
         //-----whats inside the hashmap-----
         if(savedGames.containsKey(name)){
             return "Given name already exists";
@@ -243,8 +247,8 @@ public class Game extends Application implements Initializable{
 
             try {
                 deserialize();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException | NoSavedGamePlayException e) {
+//                e.printStackTrace();
             }
             gameChoiceBox.getItems().addAll(savedGames.keySet());
         }

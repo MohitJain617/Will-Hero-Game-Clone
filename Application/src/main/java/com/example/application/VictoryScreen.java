@@ -13,13 +13,13 @@ import java.util.ResourceBundle;
 public class VictoryScreen{
 
     private int score;
-    User user ;
+    private User user ;
 
     @FXML
-    Text text ;
+    private Text text ;
 
     @FXML
-    Text curr_score ;
+    private Text curr_score ;
 
     public VictoryScreen() {
         score = 0 ;

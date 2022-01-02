@@ -39,18 +39,18 @@ public abstract class Orcs extends Obstacle {
         if(this.health <= 0 && flag){
             this.setXspeed(0);
             this.setYspeed(10);
-            this.rotate = 10;
+            super.setRotate(10);
             return true ;
         }
         if(!flag){
-            this.iv.setDisable(true);
+            this.getImageView().setDisable(true);
         }
 
         return flag;
     }
 
     public void undisplay(AnchorPane game_pane){
-        game_pane.getChildren().remove(this.iv);
+        game_pane.getChildren().remove(this.getImageView());
     }
 
     @Override

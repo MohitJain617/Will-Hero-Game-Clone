@@ -15,8 +15,8 @@ public abstract class Weapon extends GameObject {
     private double xSpeed;
     private double ySpeed;
     private long lifeTime ;
-    transient ImageView iv;
-    transient Image img ;
+    private transient ImageView iv;
+    private transient Image img ;
 
     public Weapon(double x, double y) {
         super(x, y);

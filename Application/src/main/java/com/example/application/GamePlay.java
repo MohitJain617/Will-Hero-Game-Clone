@@ -31,7 +31,7 @@ public class GamePlay implements Serializable {
     private ArrayList<Obstacle> obstacles;
     private ArrayList<Reward> rewards;
     private ArrayList<Weapon> weaponInstances;
-    transient AnimationTimer animator;
+    private transient AnimationTimer animator;
     private int jumps ;
     private long dashTime;
     private final Random random ;
@@ -245,9 +245,9 @@ public class GamePlay implements Serializable {
                 }
                 //--------Obstacle vs Obstacle-----------
                 for( int i=0 ; i < obstacles.size() ; i++ ){
-                    if(obstacles.get(i) instanceof TNT){ continue ; }
+//                    if(obstacles.get(i) instanceof TNT){ continue ; }
                     for( int j=i+1 ; j < obstacles.size() ; j++){
-                        if(obstacles.get(i) instanceof TNT){ continue ; }
+//                        if(obstacles.get(i) instanceof TNT){ continue ; }
                         Obstacle orc1 = obstacles.get(i);
                         Obstacle orc2 = obstacles.get(j);
                         if(orc1.checkCollision(orc2)){
@@ -291,7 +291,6 @@ public class GamePlay implements Serializable {
         // Hero
         hero = new Hero(300.0,0.0);
         int x = 250;
-
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
         String []Small_Island_Images = {"island_med.png","BalancingRocks5.png"};
 

@@ -85,8 +85,13 @@ public class User {
 
     public int getCoins(){ return coins.getValue();}
 
-    public boolean useCoins(int needed){
-        return coins.useCoins(needed);
+    public boolean useCoins(int needed) {
+        try {
+            coins.useCoins(needed);
+            return true;
+        } catch (InsufficientCoinException e) {
+            return false;
+        }
     }
     public String getName(){return name;}
 }

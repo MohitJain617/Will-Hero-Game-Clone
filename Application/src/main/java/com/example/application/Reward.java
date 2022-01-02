@@ -9,7 +9,7 @@ import java.io.Serial;
 public abstract class Reward extends GameObject {
     @Serial
     private static final long serialVersionUID = 15L;
-    transient ImageView iv;
+    private transient ImageView iv;
     private double xSpeed;
     private double ySpeed;
     public Reward(double x, double y) {
