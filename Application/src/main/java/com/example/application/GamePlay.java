@@ -294,7 +294,7 @@ public class GamePlay implements Serializable {
         String []Large_Island_Images = {"island1.png","island_large1.png","island_large2.png"};
         String []Small_Island_Images = {"island_med.png","BalancingRocks5.png"};
 
-        for(int i=1;i<=12;i++){
+        for(int i=1;i<=11;i++){
 
             ArrayList<Integer>ind1 = new ArrayList<Integer>() ;
             ArrayList<Integer>ind2 = new ArrayList<Integer>() ;
@@ -364,15 +364,6 @@ public class GamePlay implements Serializable {
             }
 
             if(i==10){
-
-                obstacles.add(new RedOrc(x+30,126));
-                obstacles.add(new StdOrc(x+150,250));
-                obstacles.add(new RedOrc(x+270,126));
-                obstacles.add(new TNT(x+1000,300));
-                rewards.add(new CoinChest(x+1200,315));
-            }
-
-            if(i==11){
 
                 obstacles.add(new StdOrc(x+30,126));
                 obstacles.add(new RedOrc(x+150,250));
