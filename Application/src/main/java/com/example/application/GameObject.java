@@ -10,7 +10,7 @@ import java.io.Serializable;
 public abstract class GameObject implements Serializable {
     @Serial
     private static final long serialVersionUID = 5L;
-    private final Location loc;
+    private Location loc;
     public GameObject(double x, double y){
         loc = new Location(x,y);
     }

@@ -218,6 +218,7 @@ public class Game extends Application implements Initializable{
         } else {
             String key = gameChoiceBox.getValue();
             this.gameplay = savedGames.get(key);
+            savedGames.remove(key);
             try {
                 showGamePlay(e);
             } catch (IOException ex) {

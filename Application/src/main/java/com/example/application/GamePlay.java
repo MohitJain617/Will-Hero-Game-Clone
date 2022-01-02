@@ -519,7 +519,11 @@ public class GamePlay implements Serializable {
         if(tf.getText().equals("")){
             message.setText("Empty file name");
         } else {
-            message.setText(this.game.addGamePlay(tf.getText(),this));
+            String mess = this.game.addGamePlay(tf.getText(),this);
+            message.setText(mess);
+            if(mess.equals("Save successful")){
+                st.changeScene(game_pane,"MainMenu.fxml");
+            }
         }
     }
     public void exitSaveScreen(ActionEvent e) throws IOException {
