@@ -49,6 +49,7 @@ This is clone of popular Will Hero game developed using Java FX module and OOPS 
 
 - Implemented gravity and collision effects between orcs and hero or between two orcs.
 - Multiple Weapons and their upgrades
+- Multiple obstacles, rewards and game tracks.
 - Revive and Multiple Checkpoints in a game.
 - Save games and checkpoints and re-load them back and continue from where you left. (Serialisation - Deserialisation)
 - Highscores & Fluid animations.
