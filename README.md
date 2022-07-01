@@ -63,9 +63,14 @@ This is clone of popular Will Hero game developed using Java FX module and OOPS 
 * [SceneBuilder](https://gluonhq.com/products/scene-builder/)
 * [GitHub](https://github.com)
 
+<!---
 ### Gallery
 
-![MainMenu](https://github.com/MohitJain617/Will-Hero-Game-Clone/blob/main/Images/main-menu.jpg)
+![PlayTrack](https://github.com/MohitJain617/Will-Hero-Game-Clone/blob/main/Images/2.png)
+![PlayTrack](https://github.com/MohitJain617/Will-Hero-Game-Clone/blob/main/Images/1.png)
+![PlayTrack](https://github.com/MohitJain617/Will-Hero-Game-Clone/blob/main/Images/3.png)
+![PlayTrack](https://github.com/MohitJain617/Will-Hero-Game-Clone/blob/main/Images/4.png)
+--->
 
 
 ### Youtube Demo 
